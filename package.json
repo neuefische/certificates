@@ -7,11 +7,13 @@
     "dev": "ts-node-dev --respawn -- src/server.ts",
     "start": "node build/server.js",
     "prepare": "husky install",
-    "test": "tsc --noEmit && eslint . && prettier --check ."
+    "test:watch": "jest --watch",
+    "test": "tsc --noEmit && eslint . && prettier --check . && jest"
   },
   "author": "Leon Machens",
   "license": "MIT",
   "devDependencies": {
+    "@types/jest": "^26.0.23",
     "@types/node": "^15.12.0",
     "@types/node-fetch": "^2.5.10",
     "@typescript-eslint/eslint-plugin": "^4.26.0",
@@ -19,6 +21,7 @@
     "eslint": "^7.27.0",
     "eslint-config-prettier": "^8.3.0",
     "husky": "^6.0.0",
+    "jest": "^27.0.4",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.0",
     "ts-node-dev": "^1.1.6",
