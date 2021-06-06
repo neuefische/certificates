@@ -1,5 +1,5 @@
 import http from 'http';
-import { getTalent, getCourseTopics } from './api';
+import { getTalent, getCourse } from './api';
 import { responseCertificate } from './certificate';
 
 const ONE_DAY = 86400;
@@ -26,16 +26,26 @@ http
     }
 
     if (req.method === 'GET') {
-      const name = url.searchParams.get('name');
-      if (!name) {
+      const id = url.searchParams.get('id');
+      if (!id) {
         res.statusCode = 400;
-        res.end('Missing search parameter "name"');
+        res.end('Missing search parameter "id"');
         return;
       }
       try {
-        const talent = await getTalent(name);
-        const courseTopics = await getCourseTopics(talent.courseId);
-        responseCertificate(res, talent, courseTopics);
+        const talent = await getTalent(id);
+        if (!talent) {
+          res.statusCode = 404;
+          res.end('Talent not found');
+          return;
+        }
+        const course = await getCourse(talent.courseId);
+        if (!course) {
+          res.statusCode = 404;
+          res.end('Course not found');
+          return;
+        }
+        responseCertificate(res, talent, course);
       } catch (error) {
         console.log(error);
         res.statusCode = 400;

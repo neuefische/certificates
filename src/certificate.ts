@@ -1,13 +1,13 @@
 import PDFDocument from 'pdfkit';
 import http from 'http';
-import { CourseTopics, Talent } from './api';
+import { Course, CourseTopics, Talent } from './api';
 
 const A4SIZE: [number, number] = [595.28, 841.89];
 
 export async function responseCertificate(
   res: http.ServerResponse,
   talent: Talent,
-  courseTopics: CourseTopics
+  course: Course
 ): Promise<void> {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/pdf');
@@ -15,20 +15,24 @@ export async function responseCertificate(
   const doc = new PDFDocument({ size: 'A4' });
   doc.pipe(res);
 
-  renderFirstPage(doc, talent.firstName);
+  renderFirstPage(doc, talent, course);
 
   doc.addPage();
 
-  renderSecondPage(doc, courseTopics);
+  renderSecondPage(doc, course.topics);
 
   doc.end();
 }
 
-function renderFirstPage(doc: PDFKit.PDFDocument, name: string) {
+function renderFirstPage(
+  doc: PDFKit.PDFDocument,
+  talent: Talent,
+  course: Course
+) {
   doc.image('src/assets/images/background.jpg', 0, 0, { fit: A4SIZE });
 
   doc.rect(163, 110, 269, 37);
-  doc.fillColor('#ff5a36');
+  doc.fillColor('#E74D0F');
   doc.fill();
 
   doc.fontSize(26);
@@ -52,7 +56,10 @@ function renderFirstPage(doc: PDFKit.PDFDocument, name: string) {
 
   doc.fontSize(20);
   doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
-  doc.text(name, 0, 240, { width: A4SIZE[0], align: 'center' });
+  doc.text(`${talent.firstName} ${talent.lastName}`, 0, 240, {
+    width: A4SIZE[0],
+    align: 'center',
+  });
 
   doc.fontSize(17);
   doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
@@ -105,7 +112,7 @@ function renderFirstPage(doc: PDFKit.PDFDocument, name: string) {
 
   doc.fontSize(10);
   doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
-  doc.text('Leon Machens, Head Coach', 314, 662, {
+  doc.text(`${course.coach}, Head Coach`, 314, 662, {
     width: 200,
     align: 'center',
   });
