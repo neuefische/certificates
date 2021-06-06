@@ -25,7 +25,7 @@ export async function responseCertificate(
 }
 
 function renderFirstPage(doc: PDFKit.PDFDocument, name: string) {
-  doc.image('src/assets/images/page1.jpg', 0, 0, { fit: A4SIZE });
+  doc.image('src/assets/images/background.jpg', 0, 0, { fit: A4SIZE });
 
   doc.rect(163, 110, 269, 37);
   doc.fillColor('#ff5a36');
@@ -119,7 +119,7 @@ function renderFirstPage(doc: PDFKit.PDFDocument, name: string) {
 }
 
 function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
-  doc.image('src/assets/images/page2.jpg', 0, 0, { fit: A4SIZE });
+  doc.image('src/assets/images/background.jpg', 0, 0, { fit: A4SIZE });
 
   doc.fillColor('#1A3251');
   doc.strokeColor('#1A3251');
