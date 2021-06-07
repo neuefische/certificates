@@ -23,6 +23,10 @@ export async function responseCertificate(
 
   renderSecondPage(doc, course.topics);
 
+  doc.addPage();
+
+  renderThirdPage(doc, talent);
+
   doc.end();
 }
 
@@ -201,4 +205,8 @@ function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
     doc.stroke();
     y += height + 30;
   });
+}
+
+function renderThirdPage(doc, talent) {
+  doc.image('src/assets/images/background.jpg', 0, 0, { fit: A4SIZE });
 }
