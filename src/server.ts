@@ -3,6 +3,7 @@ import { getTalent, getCourse } from './api';
 import { responseCertificate } from './certificate';
 
 const ONE_DAY = 86400;
+const PORT = process.env.PORT || 3030;
 
 http
   .createServer(async (req, res) => {
@@ -11,7 +12,7 @@ http
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     res.setHeader('Access-Control-Max-Age', ONE_DAY);
 
-    const url = new URL(req.url, 'http://localhost:3000');
+    const url = new URL(req.url, `http://localhost:${PORT}`);
 
     if (url.pathname !== '/') {
       res.statusCode = 404;
@@ -57,6 +58,6 @@ http
     res.statusCode = 405;
     res.end();
   })
-  .listen(3000, () => {
-    console.log('Server running');
+  .listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
   });
