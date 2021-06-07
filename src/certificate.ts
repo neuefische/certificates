@@ -3,6 +3,8 @@ import http from 'http';
 import { Course, CourseTopics, Talent } from './api';
 
 const A4SIZE: [number, number] = [595.28, 841.89];
+const PRIMARY_TEXT_COLOR = '#1A3251';
+const SECONDARY_TEXT_COLOR = '#7589A2';
 
 export async function responseCertificate(
   res: http.ServerResponse,
@@ -35,16 +37,16 @@ function renderFirstPage(
   doc.fillColor('#E74D0F');
   doc.fill();
 
-  doc.fontSize(26);
+  doc.fontSize(29);
   doc.fillColor('#fff');
   doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
-  doc.text('ZERTIFIKAT', 5, 111, {
+  doc.text('ZERTIFIKAT', 5, 107, {
     width: A4SIZE[0],
     align: 'center',
     characterSpacing: 10,
   });
 
-  doc.fillColor('#1A3251');
+  doc.fillColor(PRIMARY_TEXT_COLOR);
   doc.strokeColor('#1A3251');
 
   doc.fontSize(17);
@@ -54,12 +56,14 @@ function renderFirstPage(
     align: 'center',
   });
 
-  doc.fontSize(20);
-  doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
-  doc.text(`${talent.firstName} ${talent.lastName}`, 0, 240, {
+  doc.fontSize(28);
+  doc.font('src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf');
+  doc.text(`${talent.firstName} ${talent.lastName}`, 0, 234, {
     width: A4SIZE[0],
     align: 'center',
   });
+
+  doc.moveTo(94, 274).lineTo(501, 274).stroke();
 
   doc.fontSize(17);
   doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
@@ -76,13 +80,15 @@ function renderFirstPage(
   });
 
   doc.fontSize(17);
+  doc.fillColor(SECONDARY_TEXT_COLOR);
   doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
-  doc.text('(Web Development)', 0, 367, {
+  doc.text('(Web Development)', 0, 366, {
     width: A4SIZE[0],
     align: 'center',
   });
 
   doc.fontSize(17);
+  doc.fillColor(PRIMARY_TEXT_COLOR);
   doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
   doc.text('mit 540 Stunden Programmierpraxis', 0, 405, {
     width: A4SIZE[0],
@@ -90,6 +96,7 @@ function renderFirstPage(
   });
 
   doc.fontSize(17);
+  doc.fillColor(SECONDARY_TEXT_COLOR);
   doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
   doc.text('(entspricht 720 Unterrichtseinheiten)', 0, 435, {
     width: A4SIZE[0],
@@ -97,11 +104,14 @@ function renderFirstPage(
   });
 
   doc.fontSize(17);
+  doc.fillColor(PRIMARY_TEXT_COLOR);
   doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
   doc.text('erfolgreich absolviert hat.', 0, 473, {
     width: A4SIZE[0],
     align: 'center',
   });
+
+  doc.moveTo(91, 652).lineTo(267, 652).lineWidth(0.5).stroke();
 
   doc.fontSize(10);
   doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
@@ -109,6 +119,8 @@ function renderFirstPage(
     width: 200,
     align: 'center',
   });
+
+  doc.moveTo(325, 652).lineTo(501, 652).lineWidth(0.5).stroke();
 
   doc.fontSize(10);
   doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
@@ -118,11 +130,21 @@ function renderFirstPage(
   });
 
   doc.fontSize(10);
+  doc.fillColor(SECONDARY_TEXT_COLOR);
   doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
-  doc.text('18.01.2021 — 09.04.2021\nKöln, den 09.04.2021', 0, 715, {
-    width: A4SIZE[0],
-    align: 'center',
-  });
+  doc.text(
+    `${new Date(course.startDate).toLocaleDateString('de-DE')} — ${new Date(
+      course.endDate
+    ).toLocaleDateString('de-DE')}\nKöln, den ${new Date().toLocaleDateString(
+      'de-DE'
+    )}`,
+    0,
+    715,
+    {
+      width: A4SIZE[0],
+      align: 'center',
+    }
+  );
 }
 
 function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {

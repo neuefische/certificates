@@ -23,6 +23,8 @@ export type CourseTopics = {
 export type Course = {
   id: string;
   coach: string;
+  startDate: string;
+  endDate: string;
   topics: CourseTopics;
 };
 
