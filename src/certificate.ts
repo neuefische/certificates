@@ -133,7 +133,11 @@ function renderFirstPage(
   doc.fillColor(SECONDARY_TEXT_COLOR);
   doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
   doc.text(
-    `${course?.dates[0]} — ${course?.dates[1]}\nKöln, den ${course?.dates[0]}`,
+    `${new Date(course.startDate).toLocaleDateString('de-DE')} — ${new Date(
+      course.endDate
+    ).toLocaleDateString('de-DE')}\nKöln, den ${new Date(
+      course.startDate
+    ).toLocaleDateString('de-DE')}`,
     0,
     715,
     {
