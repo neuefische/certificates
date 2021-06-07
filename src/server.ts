@@ -12,7 +12,7 @@ http
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     res.setHeader('Access-Control-Max-Age', ONE_DAY);
 
-    const url = new URL(req.url, 'http://localhost:3000');
+    const url = new URL(req.url, `http://localhost:${PORT}`);
 
     if (url.pathname !== '/') {
       res.statusCode = 404;
