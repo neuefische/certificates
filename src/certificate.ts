@@ -111,12 +111,16 @@ function renderFirstPage(
     align: 'center',
   });
 
+  doc.moveTo(91, 652).lineTo(267, 652).lineWidth(0.5).stroke();
+
   doc.fontSize(10);
   doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
   doc.text('Dalia Das, Founder & CEO', 79, 662, {
     width: 200,
     align: 'center',
   });
+
+  doc.moveTo(325, 652).lineTo(501, 652).lineWidth(0.5).stroke();
 
   doc.fontSize(10);
   doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
