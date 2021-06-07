@@ -135,9 +135,9 @@ function renderFirstPage(
   doc.text(
     `${new Date(course.startDate).toLocaleDateString('de-DE')} — ${new Date(
       course.endDate
-    ).toLocaleDateString('de-DE')}\nKöln, den ${new Date(
-      course.startDate
-    ).toLocaleDateString('de-DE')}`,
+    ).toLocaleDateString('de-DE')}\nKöln, den ${new Date().toLocaleDateString(
+      'de-DE'
+    )}`,
     0,
     715,
     {
