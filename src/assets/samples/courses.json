@@ -2,7 +2,8 @@
   {
     "id": "web-cgn-21-2",
     "coach": "Leon Machens",
-    "dates": ["18.01.2021", "09.04.2021"],
+    "startDate": "2021-01-18",
+    "endDate": "2021-04-09",
     "topics": [
       {
         "title": "Shell",
@@ -95,7 +96,8 @@
   {
     "id": "web-cgn-21-1",
     "coach": "Leon Machens",
-    "dates": ["18.01.2021", "09.04.2021"],
+    "startDate": "2021-01-18",
+    "endDate": "2021-04-09",
     "topics": [
       {
         "title": "Shell",
