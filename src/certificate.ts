@@ -1,6 +1,7 @@
 import PDFDocument from 'pdfkit';
 import http from 'http';
-import { Course, CourseTopics, Talent } from './api';
+import fetch from 'node-fetch';
+import { CapstoneProject, Course, CourseTopics, Talent } from './api';
 
 const A4SIZE: [number, number] = [595.28, 841.89];
 const PRIMARY_TEXT_COLOR = '#1A3251';
@@ -17,15 +18,15 @@ export async function responseCertificate(
   const doc = new PDFDocument({ size: 'A4' });
   doc.pipe(res);
 
-  renderFirstPage(doc, talent, course);
+  /* renderFirstPage(doc, talent, course);
 
   doc.addPage();
 
   renderSecondPage(doc, course.topics);
 
-  doc.addPage();
+  doc.addPage() */
 
-  renderThirdPage(doc, talent);
+  await renderThirdPage(doc, talent, talent.capstoneProject);
 
   doc.end();
 }
@@ -207,6 +208,86 @@ function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
   });
 }
 
-function renderThirdPage(doc, talent) {
-  doc.image('src/assets/images/background.jpg', 0, 0, { fit: A4SIZE });
+async function renderThirdPage(
+  doc: PDFKit.PDFDocument,
+  talent: Talent,
+  capstoneProject: CapstoneProject
+) {
+  doc.image('src/assets/images/page3.png', 0, 0, { fit: A4SIZE });
+
+  doc.rect(163, 110, 269, 37);
+  doc.fillColor('#E74D0F');
+  doc.fill();
+
+  doc.fontSize(29);
+  doc.fillColor('#fff');
+  doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
+  doc.text('ZERTIFIKAT', 5, 107, {
+    width: A4SIZE[0],
+    align: 'center',
+    characterSpacing: 10,
+  });
+
+  doc.fontSize(29);
+  doc.fillColor(PRIMARY_TEXT_COLOR);
+  doc.font('src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf');
+  doc.text(`${talent.firstName} ${talent.lastName}`, 0, 168, {
+    width: A4SIZE[0],
+    align: 'center',
+  });
+
+  doc.fontSize(11);
+  doc.fillColor(PRIMARY_TEXT_COLOR);
+  doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
+  const descriptionWidth = 430;
+  doc.text(
+    capstoneProject.description,
+    A4SIZE[0] / 2 - descriptionWidth / 2,
+    210,
+    {
+      width: descriptionWidth,
+      align: 'center',
+      lineGap: 3,
+    }
+  );
+
+  doc.image('src/assets/images/iphone_frame.png', 80, 310, { width: 190 });
+
+  const response = await fetch(capstoneProject.thumbnail);
+  const thumbnail = await response.buffer();
+  doc.image(thumbnail, 94, 355, { width: 162 });
+
+  doc.fontSize(14);
+  doc.fillColor(SECONDARY_TEXT_COLOR);
+  doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
+  doc.text('TITEL:', 306, 328);
+
+  doc.fontSize(28);
+  doc.fillColor('#E74D0F');
+  doc.font('src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf');
+  doc.text(`»${capstoneProject.title}«`, 306, 355);
+
+  doc.fontSize(15);
+  doc.text(capstoneProject.subtitle, 306, 397);
+
+  doc.fontSize(14);
+  doc.fillColor(SECONDARY_TEXT_COLOR);
+  doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
+  doc.text('HIGHLIGHTS:', 306, 468);
+
+  doc.fontSize(11);
+  doc.fillColor(SECONDARY_TEXT_COLOR);
+  doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
+  doc.text('ABSCHLUSSPROJEKT', 0, 728, {
+    width: A4SIZE[0],
+    align: 'center',
+  });
+
+  doc.fontSize(11);
+  doc.fillColor(SECONDARY_TEXT_COLOR);
+  doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
+  doc.text('“DIGITALES GESELLENSTÜCK“', 0, 741, {
+    width: A4SIZE[0],
+    align: 'center',
+  });
 }
