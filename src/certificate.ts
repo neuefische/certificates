@@ -36,7 +36,7 @@ function renderFirstPage(
   talent: Talent,
   course: Course
 ) {
-  doc.image('src/assets/images/background.jpg', 0, 0, { fit: A4SIZE });
+  doc.image('src/assets/images/background.png', 0, 0, { fit: A4SIZE });
 
   doc.rect(163, 110, 269, 37);
   doc.fillColor('#E74D0F');
@@ -153,7 +153,7 @@ function renderFirstPage(
 }
 
 function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
-  doc.image('src/assets/images/background.jpg', 0, 0, { fit: A4SIZE });
+  doc.image('src/assets/images/background.png', 0, 0, { fit: A4SIZE });
 
   doc.fillColor('#1A3251');
   doc.strokeColor('#1A3251');
@@ -213,7 +213,9 @@ async function renderThirdPage(
   talent: Talent,
   capstoneProject: CapstoneProject
 ) {
-  doc.image('src/assets/images/background.jpg', 0, 0, { fit: A4SIZE });
+  doc.image('src/assets/images/background_with_phone_frame.png', 0, 0, {
+    fit: A4SIZE,
+  });
 
   doc.rect(163, 110, 269, 37);
   doc.fillColor('#E74D0F');
@@ -251,11 +253,9 @@ async function renderThirdPage(
     }
   );
 
-  doc.image('src/assets/images/iphone_frame.png', 80, 310, { width: 190 });
-
   const response = await fetch(capstoneProject.thumbnail);
   const thumbnail = await response.buffer();
-  doc.image(thumbnail, 94, 355, { width: 162 });
+  doc.image(thumbnail, 95, 355, { width: 162 });
 
   doc.fontSize(14);
   doc.fillColor(SECONDARY_TEXT_COLOR);
