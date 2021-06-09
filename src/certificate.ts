@@ -213,7 +213,7 @@ async function renderThirdPage(
   talent: Talent,
   capstoneProject: CapstoneProject
 ) {
-  doc.image('src/assets/images/page3.png', 0, 0, { fit: A4SIZE });
+  doc.image('src/assets/images/background.jpg', 0, 0, { fit: A4SIZE });
 
   doc.rect(163, 110, 269, 37);
   doc.fillColor('#E74D0F');
@@ -274,6 +274,30 @@ async function renderThirdPage(
   doc.fillColor(SECONDARY_TEXT_COLOR);
   doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
   doc.text('HIGHLIGHTS:', 306, 468);
+
+  const x = 316;
+  const y = 510;
+  doc.fontSize(10);
+  doc.roundedRect(
+    x - 10,
+    y - 10,
+    218,
+    doc.heightOfString(capstoneProject.technologies.join(' / '), {
+      width: 200,
+      lineGap: 10,
+    }) + 20,
+    8
+  );
+  doc.fillOpacity(1);
+  doc.fillAndStroke('#fff', '#E74D0F');
+
+  doc.fontSize(10);
+  doc.fillColor('#E74D0F');
+  doc.font('src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf');
+  doc.text(capstoneProject.technologies.join(' / '), x + 2, y + 4, {
+    width: 200,
+    lineGap: 10,
+  });
 
   doc.fontSize(11);
   doc.fillColor(SECONDARY_TEXT_COLOR);
