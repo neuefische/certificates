@@ -5,7 +5,7 @@
     "lastName": "Machens",
     "courseId": "web-cgn-21-2",
     "capstoneProject": {
-      "desktop": false,
+      "isDesktop": false,
       "title": "drinkable",
       "subtitle": "",
       "description": "Ob Geburtstag oder Cocktailabend, drinkable zeigt dir welche leckeren Getränke du aus deinen vorhandenen Zutaten zaubern kannst. Gib einfach die Zutaten an, die noch da sind und schon kann die nächste Party losgehen.",
@@ -30,7 +30,7 @@
     "lastName": "Gartz",
     "courseId": "web-cgn-21-1",
     "capstoneProject": {
-      "desktop": false,
+      "isDesktop": false,
       "title": "drinkable",
       "subtitle": "Deine Cocktail App",
       "description": "Ob Geburtstag oder Cocktailabend, drinkable zeigt dir welche leckeren Getränke du aus deinen vorhandenen Zutaten zaubern kannst. Gib einfach die Zutaten an, die noch da sind und schon kann die nächste Party losgehen.",

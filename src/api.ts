@@ -9,7 +9,7 @@ export type Talent = {
 };
 
 export type CapstoneProject = {
-  desktop: boolean;
+  isDesktop: boolean;
   title: string;
   subtitle: string;
   description: string;
