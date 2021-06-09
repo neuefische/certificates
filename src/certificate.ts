@@ -18,13 +18,13 @@ export async function responseCertificate(
   const doc = new PDFDocument({ size: 'A4' });
   doc.pipe(res);
 
-  /* renderFirstPage(doc, talent, course);
+  renderFirstPage(doc, talent, course);
 
   doc.addPage();
 
   renderSecondPage(doc, course.topics);
 
-  doc.addPage() */
+  doc.addPage();
 
   await renderThirdPage(doc, talent, talent.capstoneProject);
 
