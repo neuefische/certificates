@@ -3,12 +3,50 @@
     "id": "lmachens",
     "firstName": "Leon",
     "lastName": "Machens",
-    "courseId": "web-cgn-21-2"
+    "courseId": "web-cgn-21-2",
+    "capstoneProject": {
+      "isDesktop": false,
+      "title": "drinkable",
+      "subtitle": "",
+      "description": "Ob Geburtstag oder Cocktailabend, drinkable zeigt dir welche leckeren Getränke du aus deinen vorhandenen Zutaten zaubern kannst. Gib einfach die Zutaten an, die noch da sind und schon kann die nächste Party losgehen.",
+      "technologies": [
+        "React",
+        "Javascript",
+        "ES2020",
+        "HTML",
+        "CSS",
+        "Express",
+        "Node.js",
+        "MongoDB",
+        "Storybook",
+        "styled-components"
+      ],
+      "thumbnail": "https://nf-talent-app-pubic-image-prod.s3.eu-central-1.amazonaws.com/73df25e3-c6db-4267-b270-a480e38ac6dc_1588700989662/800/image.jpeg"
+    }
   },
   {
     "id": "phlgr",
     "firstName": "Philipp",
     "lastName": "Gartz",
-    "courseId": "web-cgn-21-1"
+    "courseId": "web-cgn-21-1",
+    "capstoneProject": {
+      "isDesktop": false,
+      "title": "drinkable",
+      "subtitle": "Deine Cocktail App",
+      "description": "Ob Geburtstag oder Cocktailabend, drinkable zeigt dir welche leckeren Getränke du aus deinen vorhandenen Zutaten zaubern kannst. Gib einfach die Zutaten an, die noch da sind und schon kann die nächste Party losgehen.",
+      "technologies": [
+        "React",
+        "Javascript",
+        "ES2020",
+        "HTML",
+        "CSS",
+        "Express",
+        "Node.js",
+        "MongoDB",
+        "Storybook",
+        "styled-components"
+      ],
+      "thumbnail": "https://nf-talent-app-pubic-image-prod.s3.eu-central-1.amazonaws.com/73df25e3-c6db-4267-b270-a480e38ac6dc_1588700989662/800/image.jpeg"
+    }
   }
 ]
