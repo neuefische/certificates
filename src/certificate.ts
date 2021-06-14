@@ -1,6 +1,7 @@
 import PDFDocument from 'pdfkit';
 import http from 'http';
-import { Course, CourseTopics, Talent } from './api';
+import fetch from 'node-fetch';
+import { CapstoneProject, Course, CourseTopics, Talent } from './api';
 
 const A4SIZE: [number, number] = [595.28, 841.89];
 const PRIMARY_TEXT_COLOR = '#1A3251';
@@ -23,6 +24,10 @@ export async function responseCertificate(
 
   renderSecondPage(doc, course.topics);
 
+  doc.addPage();
+
+  await renderThirdPage(doc, talent);
+
   doc.end();
 }
 
@@ -31,7 +36,7 @@ function renderFirstPage(
   talent: Talent,
   course: Course
 ) {
-  doc.image('src/assets/images/background.jpg', 0, 0, { fit: A4SIZE });
+  doc.image('src/assets/images/background.png', 0, 0, { fit: A4SIZE });
 
   doc.rect(163, 110, 269, 37);
   doc.fillColor('#E74D0F');
@@ -148,7 +153,7 @@ function renderFirstPage(
 }
 
 function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
-  doc.image('src/assets/images/background.jpg', 0, 0, { fit: A4SIZE });
+  doc.image('src/assets/images/background.png', 0, 0, { fit: A4SIZE });
 
   doc.fillColor('#1A3251');
   doc.strokeColor('#1A3251');
@@ -200,5 +205,114 @@ function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
     doc.lineWidth(0);
     doc.stroke();
     y += height + 30;
+  });
+}
+
+async function renderThirdPage(
+  doc: PDFKit.PDFDocument,
+  { capstoneProject, lastName, firstName }: Talent
+) {
+  doc.image('src/assets/images/background_with_phone_frame.png', 0, 0, {
+    fit: A4SIZE,
+  });
+
+  doc.rect(163, 110, 269, 37);
+  doc.fillColor('#E74D0F');
+  doc.fill();
+
+  doc.fontSize(29);
+  doc.fillColor('#fff');
+  doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
+  doc.text('ZERTIFIKAT', 5, 107, {
+    width: A4SIZE[0],
+    align: 'center',
+    characterSpacing: 10,
+  });
+
+  doc.fontSize(29);
+  doc.fillColor(PRIMARY_TEXT_COLOR);
+  doc.font('src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf');
+  doc.text(`${firstName} ${lastName}`, 0, 168, {
+    width: A4SIZE[0],
+    align: 'center',
+  });
+
+  doc.fontSize(11);
+  doc.fillColor(PRIMARY_TEXT_COLOR);
+  doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
+  const descriptionWidth = 430;
+  doc.text(
+    capstoneProject.description,
+    A4SIZE[0] / 2 - descriptionWidth / 2,
+    210,
+    {
+      width: descriptionWidth,
+      align: 'center',
+      lineGap: 3,
+    }
+  );
+
+  const response = await fetch(capstoneProject.thumbnail);
+  const thumbnail = await response.buffer();
+  doc.image(thumbnail, 95, 355, { width: 162 });
+
+  doc.fontSize(14);
+  doc.fillColor(SECONDARY_TEXT_COLOR);
+  doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
+  doc.text('TITEL:', 306, 328);
+
+  doc.fontSize(28);
+  doc.fillColor('#E74D0F');
+  doc.font('src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf');
+  doc.text(`»${capstoneProject.title}«`, 306, 355);
+
+  if (capstoneProject.subtitle) {
+    doc.fontSize(15);
+    doc.text(capstoneProject.subtitle, 306, 397);
+  }
+
+  doc.fontSize(14);
+  doc.fillColor(SECONDARY_TEXT_COLOR);
+  doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
+  doc.text('HIGHLIGHTS:', 306, 468);
+
+  const x = 316;
+  const y = 510;
+  doc.fontSize(10);
+  doc.roundedRect(
+    x - 10,
+    y - 10,
+    218,
+    doc.heightOfString(capstoneProject.technologies.join(' / '), {
+      width: 200,
+      lineGap: 10,
+    }) + 20,
+    8
+  );
+  doc.fillOpacity(1);
+  doc.fillAndStroke('#fff', '#E74D0F');
+
+  doc.fontSize(10);
+  doc.fillColor('#E74D0F');
+  doc.font('src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf');
+  doc.text(capstoneProject.technologies.join(' / '), x + 2, y + 4, {
+    width: 200,
+    lineGap: 10,
+  });
+
+  doc.fontSize(11);
+  doc.fillColor(SECONDARY_TEXT_COLOR);
+  doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
+  doc.text('ABSCHLUSSPROJEKT', 0, 728, {
+    width: A4SIZE[0],
+    align: 'center',
+  });
+
+  doc.fontSize(11);
+  doc.fillColor(SECONDARY_TEXT_COLOR);
+  doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
+  doc.text('“DIGITALES GESELLENSTÜCK“', 0, 741, {
+    width: A4SIZE[0],
+    align: 'center',
   });
 }

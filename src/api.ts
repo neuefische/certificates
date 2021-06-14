@@ -5,6 +5,16 @@ export type Talent = {
   firstName: string;
   lastName: string;
   courseId: string;
+  capstoneProject: CapstoneProject;
+};
+
+export type CapstoneProject = {
+  isDesktop: boolean;
+  title: string;
+  subtitle: string;
+  description: string;
+  technologies: string[];
+  thumbnail: string;
 };
 
 export async function getTalent(id: string): Promise<Talent | undefined> {
