@@ -26,7 +26,7 @@ export async function responseCertificate(
 
   doc.addPage();
 
-  await renderThirdPage(doc, talent, talent.capstoneProject);
+  await renderThirdPage(doc, talent);
 
   doc.end();
 }
@@ -210,8 +210,7 @@ function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
 
 async function renderThirdPage(
   doc: PDFKit.PDFDocument,
-  talent: Talent,
-  capstoneProject: CapstoneProject
+  { capstoneProject, lastName, firstName }: Talent
 ) {
   doc.image('src/assets/images/background_with_phone_frame.png', 0, 0, {
     fit: A4SIZE,
@@ -233,7 +232,7 @@ async function renderThirdPage(
   doc.fontSize(29);
   doc.fillColor(PRIMARY_TEXT_COLOR);
   doc.font('src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf');
-  doc.text(`${talent.firstName} ${talent.lastName}`, 0, 168, {
+  doc.text(`${firstName} ${lastName}`, 0, 168, {
     width: A4SIZE[0],
     align: 'center',
   });
@@ -267,8 +266,10 @@ async function renderThirdPage(
   doc.font('src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf');
   doc.text(`»${capstoneProject.title}«`, 306, 355);
 
-  doc.fontSize(15);
-  doc.text(capstoneProject.subtitle, 306, 397);
+  if (capstoneProject.subtitle) {
+    doc.fontSize(15);
+    doc.text(capstoneProject.subtitle, 306, 397);
+  }
 
   doc.fontSize(14);
   doc.fillColor(SECONDARY_TEXT_COLOR);
