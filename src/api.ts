@@ -60,7 +60,7 @@ const API_URL = process.env.API_URL;
 
 export async function getTalent(id: string): Promise<Talent | undefined> {
   const response = await fetch(`${API_URL}/${id}`);
-  const talent: TalentFromTalentApp = await await response.json();
+  const talent: TalentFromTalentApp = await response.json();
   const formattedTalent: Talent = {
     firstName: talent.firstName,
     lastName: talent.lastName,
