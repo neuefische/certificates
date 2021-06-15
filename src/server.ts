@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import http from 'http';
 import { getTalent, getCourse } from './api';
 import { responseCertificate } from './certificate';

@@ -1,7 +1,7 @@
 import PDFDocument from 'pdfkit';
 import http from 'http';
 import fetch from 'node-fetch';
-import { CapstoneProject, Course, CourseTopics, Talent } from './api';
+import { Course, CourseTopics, Talent } from './api';
 
 const A4SIZE: [number, number] = [595.28, 841.89];
 const PRIMARY_TEXT_COLOR = '#1A3251';
