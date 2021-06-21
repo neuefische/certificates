@@ -30,7 +30,10 @@ export type TalentFromTalentApp = {
     projectDesc: string;
     techStack: string[];
     projectName: string;
+    projectSubTitle: string;
+    projectCertificateDesc: string;
     projectRepoUrl: string;
+    projectDevice: 'mobile' | 'desktop';
     projectImage: {
       uploaded: number;
       urls: { lg: string; s: string; xl: string; m: string };
@@ -68,9 +71,9 @@ export async function getTalent(id: string): Promise<Talent | undefined> {
     courseId: 'web-cgn-21-2',
     capstoneProject: {
       title: talent.project.projectName,
-      subtitle: '',
-      description: talent.project.projectDesc,
-      isDesktop: false,
+      subtitle: talent.project.projectSubTitle,
+      description: talent.project.projectCertificateDesc,
+      isDesktop: talent.project.projectDevice === 'desktop',
       technologies: talent.project.techStack,
       thumbnail: talent.project.projectImage.urls.xl,
     },
