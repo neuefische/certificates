@@ -6,7 +6,7 @@ export type Talent = {
   firstName: string;
   lastName: string;
   courseId: string;
-  capstoneProject: CapstoneProject;
+  capstoneProject?: CapstoneProject;
 };
 
 export type CapstoneProject = {
@@ -64,20 +64,24 @@ const API_URL = process.env.API_URL;
 export async function getTalent(id: string): Promise<Talent | undefined> {
   const response = await fetch(`${API_URL}/${id}`);
   const talent: TalentFromTalentApp = await response.json();
+
   const formattedTalent: Talent = {
     firstName: talent.firstName,
     lastName: talent.lastName,
     id: talent.id,
     courseId: 'web-cgn-21-2',
-    capstoneProject: {
+  };
+  if (talent.project) {
+    const formattedCapstoneProject = {
       title: talent.project.projectName,
       subtitle: talent.project.projectSubTitle,
       description: talent.project.projectCertificateDesc,
       isDesktop: talent.project.projectDevice === 'desktop',
       technologies: talent.project.techStack,
-      thumbnail: talent.project.projectImage.urls.xl,
-    },
-  };
+      thumbnail: talent.project.projectImage?.urls.xl,
+    };
+    return { ...formattedTalent, capstoneProject: formattedCapstoneProject };
+  }
   return formattedTalent;
 }
 
