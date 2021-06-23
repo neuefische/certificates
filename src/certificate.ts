@@ -293,7 +293,6 @@ async function renderThirdPage(
   textAlignmentY += doc.heightOfString('HIGHLIGHTS:', { width: 200 }) + 15;
 
   const x = 316;
-  console.log(textAlignmentY);
   const y = textAlignmentY > 510 ? textAlignmentY + 20 : 510;
   doc.fontSize(10);
   doc.roundedRect(
