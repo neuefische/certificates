@@ -24,9 +24,10 @@ export async function responseCertificate(
 
   renderSecondPage(doc, course.topics);
 
-  doc.addPage();
-
-  await renderThirdPage(doc, talent);
+  if (talent.capstoneProject) {
+    doc.addPage();
+    await renderThirdPage(doc, talent);
+  }
 
   doc.end();
 }
@@ -252,9 +253,11 @@ async function renderThirdPage(
     }
   );
 
-  const response = await fetch(capstoneProject.thumbnail);
-  const thumbnail = await response.buffer();
-  doc.image(thumbnail, 95, 355, { width: 162 });
+  if (capstoneProject.thumbnail) {
+    const response = await fetch(capstoneProject.thumbnail);
+    const thumbnail = await response.buffer();
+    doc.image(thumbnail, 95, 355, { width: 162 });
+  }
 
   doc.fontSize(14);
   doc.fillColor(SECONDARY_TEXT_COLOR);
