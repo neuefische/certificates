@@ -12,10 +12,11 @@ npm install
 
 Create a `.env` file based on the `.env.example`.
 
-| KEY     | VALUE                                                      |
-| ------- | ---------------------------------------------------------- |
-| API_URL | Link to the unofficial Student API endpoint                |
-| PORT    | (Optional) Port for the dev environment (defaults to 3030) |
+| KEY        | VALUE                                                      |
+| ---------- | ---------------------------------------------------------- |
+| API_URL    | Link to the unofficial Student API endpoint                |
+| COURSE_URL | Link to a json file with the course information            |
+| PORT       | (Optional) Port for the dev environment (defaults to 3030) |
 
 ```
 npm run dev
