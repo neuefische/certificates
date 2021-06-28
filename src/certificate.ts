@@ -259,28 +259,44 @@ async function renderThirdPage(
     doc.image(thumbnail, 95, 355, { width: 162 });
   }
 
+  let textAlignmentY = 328;
+
   doc.fontSize(14);
   doc.fillColor(SECONDARY_TEXT_COLOR);
   doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
-  doc.text('TITEL:', 306, 328);
+  doc.text('TITEL:', 306, textAlignmentY);
+
+  textAlignmentY += doc.heightOfString('TITEL:') + 5;
 
   doc.fontSize(28);
   doc.fillColor('#E74D0F');
   doc.font('src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf');
-  doc.text(`»${capstoneProject.title}«`, 306, 355);
+  doc.text(`»${capstoneProject.title}«`, 306, textAlignmentY);
 
-  if (capstoneProject.subtitle) {
-    doc.fontSize(15);
-    doc.text(capstoneProject.subtitle, 306, 397);
-  }
+  textAlignmentY += doc.heightOfString(`»${capstoneProject.title}«`, {
+    width: 200,
+  });
+
+  doc.fontSize(15);
+  doc.text(capstoneProject.subtitle, 306, textAlignmentY);
+
+  textAlignmentY += doc.heightOfString(capstoneProject.subtitle, {
+    width: 200,
+  });
 
   doc.fontSize(14);
   doc.fillColor(SECONDARY_TEXT_COLOR);
   doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
-  doc.text('HIGHLIGHTS:', 306, 468);
+  doc.text(
+    'HIGHLIGHTS:',
+    306,
+    textAlignmentY > 468 ? textAlignmentY + 15 : 468
+  );
+
+  textAlignmentY += doc.heightOfString('HIGHLIGHTS:', { width: 200 }) + 15;
 
   const x = 316;
-  const y = 510;
+  const y = textAlignmentY > 510 ? textAlignmentY + 20 : 510;
   doc.fontSize(10);
   doc.roundedRect(
     x - 10,
