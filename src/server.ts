@@ -30,11 +30,13 @@ http
 
     if (req.method === 'GET') {
       const id = url.searchParams.get('id');
+      const courseId = url.searchParams.get('course');
       if (!id) {
         res.statusCode = 400;
         res.end('Missing search parameter "id"');
         return;
       }
+
       try {
         const talent = await getTalent(id);
         if (!talent) {
@@ -42,7 +44,7 @@ http
           res.end('Talent not found');
           return;
         }
-        const course = await getCourse(talent.courseId);
+        const course = await getCourse(courseId || talent.courseId);
         if (!course) {
           res.statusCode = 404;
           res.end('Course not found');
