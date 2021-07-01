@@ -2,8 +2,8 @@
   {
     "id": "web-cgn-21-2",
     "coach": "Leon Machens",
-    "startDate": "2021-01-18",
-    "endDate": "2021-04-09",
+    "startDate": "2021-04-12",
+    "endDate": "2021-07-06",
     "topics": [
       {
         "title": "Shell",
@@ -47,7 +47,6 @@
         "items": [
           "ECMAScript 2020+ (ESnext)",
           "Events",
-          "json-server",
           "DOM-Manipulation",
           "localStorage/sessionStorage",
           "JSON",
@@ -66,9 +65,9 @@
         "items": [
           "Version 17",
           "React Hooks",
+          "useState",
           "Custom Hooks",
           "Context API",
-          "React Query",
           "Lifecycle methods / useEffect",
           "Functional components",
           "State / useState",
