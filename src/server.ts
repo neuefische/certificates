@@ -3,6 +3,7 @@ dotenv.config();
 import http from 'http';
 import { getTalent, getCourse } from './api';
 import { responseCertificate } from './certificate';
+import { normalizeDiacritics } from './utils';
 
 const ONE_DAY = 86400;
 const PORT = process.env.PORT || 3030;
@@ -52,7 +53,9 @@ http
         }
         res.setHeader(
           'Content-Disposition',
-          `inline; filename=${talent.firstName}_${talent.lastName}_certificate.pdf`
+          `inline; filename=${normalizeDiacritics(
+            talent.firstName
+          )}_${normalizeDiacritics(talent.lastName)}_certificate.pdf`
         );
 
         responseCertificate(res, talent, course);
