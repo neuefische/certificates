@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import http from 'http';
-import { getTalent, getCourse, getCourseFromFS } from './api';
+import { getTalent, getCourseFromFS } from './api';
 import { responseCertificate } from './certificate';
 
 const ONE_DAY = 86400;
