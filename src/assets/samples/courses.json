@@ -16,7 +16,7 @@
           "Formulare und Inputs",
           "Semantik",
           "Responsive Websites",
-          "Bootstrap"
+          "Accessibility"
         ]
       },
       {
@@ -28,7 +28,7 @@
           "Media Queries",
           "display: flex",
           "display: grid",
-          "JSS"
+          "CSS Modules"
         ]
       },
       {
@@ -36,22 +36,22 @@
         "items": [
           "RESTful API",
           "Node.js",
-          "Express.js",
+          "Express",
           "MongoDB",
           "dotenv",
-          "crypto (encryption, de-cryption, hashing)"
+          "crypto (encryption, decryption, hashing)"
         ]
       },
       {
         "title": "JavaScript",
         "items": [
-          "ECMAScript 2020+ (ESnext)",
+          "ESNext",
+          "Typescript",
           "Events",
           "DOM-Manipulation",
           "localStorage/sessionStorage",
           "JSON",
-          "Webpack",
-          "class-Syntax",
+          "Vite",
           "Array-Methoden",
           "fetch",
           "Promises",
@@ -65,32 +65,29 @@
         "items": [
           "Version 17",
           "React Hooks",
-          "useState",
           "Custom Hooks",
-          "Context API",
+          "State / useState",
           "Lifecycle methods / useEffect",
           "Functional components",
-          "State / useState",
           "Testing mit Jest, React-Testing-Library",
+          "Context API",
           "Storybook"
         ]
       },
       {
         "title": "Weitere Lehrinhalte",
         "items": [
-          "Progressive Web Apps",
-          "TypeScript Basics",
           "Clean Code",
           "Pair programming",
           "Git-Workflow mit GitHub",
-          "GitHub marketplace",
           "GitHub CI (continuous integration)",
           "Agile Methoden mit Scrum und Kanban",
           "UI/UX-Grundkenntnisse",
           "Wireframes/Prototype",
           "CI/CD",
           "TDD",
-          "OAuth"
+          "OAuth",
+          "Docker Basics"
         ]
       },
       {
@@ -99,6 +96,7 @@
           "Visual Studio Code",
           "Chrome Developer Tools",
           "MongoDB Atlas",
+          "MongoDB Compass",
           "Heroku",
           "Prettier",
           "ESLint",
