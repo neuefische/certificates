@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import http from 'http';
-import { getTalent, getCourse } from './api';
+import { getTalent, getCourse, getCourseFromFS } from './api';
 import { responseCertificate } from './certificate';
 
 const ONE_DAY = 86400;
@@ -44,7 +44,7 @@ http
           res.end('Talent not found');
           return;
         }
-        const course = await getCourse(courseId || talent.courseId);
+        const course = await getCourseFromFS(courseId || talent.courseId);
         if (!course) {
           res.statusCode = 404;
           res.end('Course not found');
