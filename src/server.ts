@@ -52,7 +52,11 @@ http
         }
         res.setHeader(
           'Content-Disposition',
-          `inline; filename=${talent.firstName}_${talent.lastName}_certificate.pdf`
+          `inline; filename=${talent.firstName
+            .normalize('NFD')
+            .replace(/\p{Diacritic}/gu, '')}_${talent.lastName
+            .normalize('NFD')
+            .replace(/\p{Diacritic}/gu, '')}_certificate.pdf`
         );
 
         responseCertificate(res, talent, course);
