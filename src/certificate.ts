@@ -179,14 +179,14 @@ function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
     doc.fontSize(10);
     doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
 
-    height += doc.heightOfString(topic.title);
-    doc.fontSize(11);
+    height += doc.heightOfString(topic.title, { lineGap: 3 });
+    doc.fontSize(10);
     doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
 
     topic.items.forEach((item) => {
-      height += doc.heightOfString(item);
+      height += doc.heightOfString(item, { width: 140, lineGap: 1 });
     });
-    if (height + y > A4SIZE[1] - 160) {
+    if (height + y > A4SIZE[1] - 150) {
       y = 211;
       x += 168;
     }
@@ -194,16 +194,16 @@ function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
     doc.fontSize(10);
     doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
 
-    doc.text(topic.title, x, y);
-    doc.fontSize(11);
+    doc.text(topic.title, x, y, { lineGap: 3 });
+    doc.fontSize(10);
     doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
 
     topic.items.forEach((item) => {
-      doc.text(item);
+      doc.text(item, { width: 140, lineGap: 1 });
     });
 
     doc.roundedRect(x - 10, y - 10, 155, height + 20, 8);
-    doc.lineWidth(0);
+    doc.lineWidth(0.1);
     doc.stroke();
     y += height + 30;
   });
