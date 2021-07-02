@@ -46,7 +46,7 @@
         "title": "JavaScript",
         "items": [
           "ESNext",
-          "Typescript",
+          "TypeScript",
           "Events",
           "DOM-Manipulation",
           "localStorage/sessionStorage",
