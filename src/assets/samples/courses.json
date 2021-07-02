@@ -49,13 +49,13 @@
           "TypeScript",
           "Events",
           "DOM-Manipulation",
-          "localStorage/sessionStorage",
+          "localStorage / sessionStorage",
           "JSON",
           "Vite",
           "Array-Methoden",
           "fetch",
           "Promises",
-          "async/await",
+          "async / await",
           "npm",
           "Debugger"
         ]
