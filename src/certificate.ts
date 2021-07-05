@@ -80,7 +80,7 @@ function renderFirstPage(
 
   doc.fontSize(17);
   doc.font('src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf');
-  doc.text('Aus-/Weiterbildung zur Software-Entwicklerin', 0, 336, {
+  doc.text('Aus-/Weiterbildung zum/zur Software-Entwickler*in', 0, 336, {
     width: A4SIZE[0],
     align: 'center',
   });
