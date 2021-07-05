@@ -4,23 +4,48 @@
 
 This micro service creates unsigned neuefische certificate pdfs based on the Talent API.
 
-## Development Setup
+## Setup
 
-```
+```shell
 npm install
 ```
 
+This will install the dependencies required to run this project.
+
 Create a `.env` file based on the `.env.example`.
 
-| KEY        | VALUE                                                      |
-| ---------- | ---------------------------------------------------------- |
-| API_URL    | Link to the unofficial Student API endpoint                |
-| COURSE_URL | Link to a json file with the course information            |
-| PORT       | (Optional) Port for the dev environment (defaults to 3030) |
+| KEY     | VALUE                                                      |
+| ------- | ---------------------------------------------------------- |
+| API_URL | Link to the unofficial student API endpoint                |
+| PORT    | (Optional) Port for the dev environment (defaults to 3030) |
 
-```
+The `API_URL` is used to fetch student data by `id`. Please ask the maintainers for a valid url.
+
+## Development
+
+```shell
 npm run dev
 ```
+
+This will run the server on `localhost:3030`.
+
+To generate a certificate for a student, visit `http://localhost:3030/?id={studentId}`.
+
+You can find the `studentId` by looking at the URL of the student profile.
+
+Example:  
+`https://talents.neuefische.com/student/73df25e3-c6db-4267-b270-a480e38ac6dc`  
+The `studentId` is `73df25e3-c6db-4267-b270-a480e38ac6dc`.
+
+To select a course, you need to add `course` to the query string.
+
+`http://localhost:3030/?id={studentId}&course={courseId}`
+
+The `courseId` is the id of the course you want to select from `src/assets/samples/courses.json`.
+
+## Add new course
+
+Right now, we can not get course data from the talent API. In the meantime, `src/assets/samples/courses.json` is used to define course data. If you like to add a new course, please add it to the `src/assets/samples/courses.json` and create a pull request.
 
 ## Deployment
 
