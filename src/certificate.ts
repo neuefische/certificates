@@ -359,12 +359,14 @@ async function renderThirdPage(
 
   textAlignmentY += doc.heightOfString('TITEL:') + 5;
 
-  doc.font('src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf');
-  doc.fontSize(
-    calculateFontSize(doc, `»${capstoneProject.title}«`, 10, 28, 200)
-  );
-  doc.fillColor('#E74D0F');
-  doc.text(`»${capstoneProject.title}«`, 306, textAlignmentY);
+  text(doc, {
+    text: `»${capstoneProject.title}«`,
+    x: 306,
+    y: textAlignmentY,
+    fontSize: calculateFontSize(doc, `»${capstoneProject.title}«`, 10, 28, 200),
+    fillColor: '#E74D0F',
+    font: 'src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf',
+  });
 
   textAlignmentY += doc.heightOfString(`»${capstoneProject.title}«`, {
     width: 200,
