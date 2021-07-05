@@ -12,6 +12,9 @@
   },
   "author": "Leon Machens",
   "license": "MIT",
+  "engines": {
+    "npm": ">=7.0.0"
+  },
   "devDependencies": {
     "@types/jest": "^26.0.23",
     "@types/node": "^15.12.0",
