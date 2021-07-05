@@ -363,7 +363,13 @@ async function renderThirdPage(
     text: `»${capstoneProject.title}«`,
     x: 306,
     y: textAlignmentY,
-    fontSize: calculateFontSize(doc, `»${capstoneProject.title}«`, 10, 28, 200),
+    fontSize: calculateFontSize({
+      doc,
+      text: `»${capstoneProject.title}«`,
+      minFontSize: 10,
+      maxFontSize: 28,
+      maxWidth: 200,
+    }),
     fillColor: '#E74D0F',
     font: 'src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf',
   });
