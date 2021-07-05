@@ -2,6 +2,7 @@ import PDFDocument from 'pdfkit';
 import http from 'http';
 import fetch from 'node-fetch';
 import { Course, CourseTopics, Talent } from './api';
+import text from './components/text';
 
 const A4SIZE: [number, number] = [595.28, 841.89];
 const PRIMARY_TEXT_COLOR = '#1A3251';
@@ -39,118 +40,170 @@ function renderFirstPage(
 ) {
   doc.image('src/assets/images/background.png', 0, 0, { fit: A4SIZE });
 
-  doc.rect(163, 110, 269, 37);
-  doc.fillColor('#E74D0F');
-  doc.fill();
+  doc.rect(163, 110, 269, 37).fillColor('#E74D0F').fill();
 
-  doc.fontSize(29);
-  doc.fillColor('#fff');
-  doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
-  doc.text('ZERTIFIKAT', 5, 107, {
-    width: A4SIZE[0],
-    align: 'center',
-    characterSpacing: 10,
+  text(doc, {
+    text: 'ZERTIFIKAT',
+    x: 5,
+    y: 107,
+    options: {
+      width: A4SIZE[0],
+      align: 'center',
+      characterSpacing: 10,
+    },
+    fontSize: 29,
+    font: 'src/assets/fonts/OpenSans/OpenSans-Bold.ttf',
+    fillColor: '#fff',
   });
 
-  doc.fillColor(PRIMARY_TEXT_COLOR);
-  doc.strokeColor('#1A3251');
-
-  doc.fontSize(17);
-  doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
-  doc.text('Hiermit bestätigen wir, dass', 0, 193, {
-    width: A4SIZE[0],
-    align: 'center',
+  text(doc, {
+    text: 'Hiermit bestätigen wir, dass',
+    x: 0,
+    y: 193,
+    options: {
+      width: A4SIZE[0],
+      align: 'center',
+    },
+    fillColor: PRIMARY_TEXT_COLOR,
+    strokeColor: '#1A3251',
+    fontSize: 17,
+    font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
   });
 
-  doc.fontSize(28);
-  doc.font('src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf');
-  doc.text(`${talent.firstName} ${talent.lastName}`, 0, 234, {
-    width: A4SIZE[0],
-    align: 'center',
+  text(doc, {
+    text: `${talent.firstName} ${talent.lastName}`,
+    x: 0,
+    y: 234,
+    options: {
+      width: A4SIZE[0],
+      align: 'center',
+    },
+    fontSize: 28,
+    font: 'src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf',
   });
 
   doc.moveTo(94, 274).lineTo(501, 274).stroke();
 
-  doc.fontSize(17);
-  doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
-  doc.text('das Intensivprogramm', 0, 300, {
-    width: A4SIZE[0],
-    align: 'center',
+  text(doc, {
+    text: 'das Intensivprogramm',
+    x: 0,
+    y: 300,
+    options: {
+      width: A4SIZE[0],
+      align: 'center',
+    },
+    fontSize: 17,
+    font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
   });
 
-  doc.fontSize(17);
-  doc.font('src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf');
-  doc.text('Aus-/Weiterbildung zum/zur Software-Entwickler*in', 0, 336, {
-    width: A4SIZE[0],
-    align: 'center',
+  text(doc, {
+    text: 'Aus-/Weiterbildung zum/zur Software-Entwickler*in',
+    x: 0,
+    y: 336,
+    options: {
+      width: A4SIZE[0],
+      align: 'center',
+    },
+    fontSize: 17,
+    font: 'src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf',
   });
 
-  doc.fontSize(17);
-  doc.fillColor(SECONDARY_TEXT_COLOR);
-  doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
-  doc.text('(Web Development)', 0, 366, {
-    width: A4SIZE[0],
-    align: 'center',
+  text(doc, {
+    text: '(Web Development)',
+    x: 0,
+    y: 366,
+    options: {
+      width: A4SIZE[0],
+      align: 'center',
+    },
+    fontSize: 17,
+    fillColor: SECONDARY_TEXT_COLOR,
+    font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
   });
 
-  doc.fontSize(17);
-  doc.fillColor(PRIMARY_TEXT_COLOR);
-  doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
-  doc.text('mit 540 Stunden Programmierpraxis', 0, 405, {
-    width: A4SIZE[0],
-    align: 'center',
+  text(doc, {
+    text: 'mit 540 Stunden Programmierpraxis',
+    x: 0,
+    y: 405,
+    options: {
+      width: A4SIZE[0],
+      align: 'center',
+    },
+    fontSize: 17,
+    fillColor: PRIMARY_TEXT_COLOR,
+    font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
   });
 
-  doc.fontSize(17);
-  doc.fillColor(SECONDARY_TEXT_COLOR);
-  doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
-  doc.text('(entspricht 720 Unterrichtseinheiten)', 0, 435, {
-    width: A4SIZE[0],
-    align: 'center',
+  text(doc, {
+    text: '(entspricht 720 Unterrichtseinheiten)',
+    x: 0,
+    y: 435,
+    options: {
+      width: A4SIZE[0],
+      align: 'center',
+    },
+    fontSize: 17,
+    fillColor: SECONDARY_TEXT_COLOR,
+    font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
   });
 
-  doc.fontSize(17);
-  doc.fillColor(PRIMARY_TEXT_COLOR);
-  doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
-  doc.text('erfolgreich absolviert hat.', 0, 473, {
-    width: A4SIZE[0],
-    align: 'center',
+  text(doc, {
+    text: 'erfolgreich absolviert hat.',
+    x: 0,
+    y: 473,
+    options: {
+      width: A4SIZE[0],
+      align: 'center',
+    },
+    fontSize: 17,
+    fillColor: PRIMARY_TEXT_COLOR,
+    font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
   });
 
   doc.moveTo(91, 652).lineTo(267, 652).lineWidth(0.5).stroke();
 
-  doc.fontSize(10);
-  doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
-  doc.text('Dalia Das, Founder & CEO', 79, 662, {
-    width: 200,
-    align: 'center',
+  text(doc, {
+    text: 'Dalia Das, Founder & CEO',
+    x: 79,
+    y: 662,
+    options: {
+      width: 200,
+      align: 'center',
+    },
+    fontSize: 10,
+    font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
   });
 
   doc.moveTo(325, 652).lineTo(501, 652).lineWidth(0.5).stroke();
 
-  doc.fontSize(10);
-  doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
-  doc.text(`${course.coach}, Head Coach`, 314, 662, {
-    width: 200,
-    align: 'center',
+  text(doc, {
+    text: `${course.coach}, Head Coach`,
+    x: 314,
+    y: 662,
+    options: {
+      width: 200,
+      align: 'center',
+    },
+    fontSize: 10,
+    font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
   });
 
-  doc.fontSize(10);
-  doc.fillColor(SECONDARY_TEXT_COLOR);
-  doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
-  doc.text(
-    `${new Date(course.startDate).toLocaleDateString('de-DE')} — ${new Date(
-      course.endDate
-    ).toLocaleDateString('de-DE')}\nKöln, den ${new Date().toLocaleDateString(
+  text(doc, {
+    text: `${new Date(course.startDate).toLocaleDateString(
       'de-DE'
-    )}`,
-    0,
-    715,
-    {
+    )} — ${new Date(course.endDate).toLocaleDateString(
+      'de-DE'
+    )}\nKöln, den ${new Date().toLocaleDateString('de-DE')}`,
+    x: 0,
+    y: 715,
+    options: {
       width: A4SIZE[0],
       align: 'center',
-    }
-  );
+    },
+    fontSize: 10,
+    fillColor: SECONDARY_TEXT_COLOR,
+    font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
+  });
 }
 
 function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
@@ -161,18 +214,29 @@ function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
   let x = 63;
   let y = 211;
 
-  doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
-  doc.fontSize(20);
-  doc.text('Ausbildungsinhalte', 0, 107, { width: A4SIZE[0], align: 'center' });
+  text(doc, {
+    text: 'Ausbildungsinhalte',
+    x: 0,
+    y: 107,
+    options: {
+      width: A4SIZE[0],
+      align: 'center',
+    },
+    font: 'src/assets/fonts/OpenSans/OpenSans-Bold.ttf',
+    fontSize: 20,
+  });
 
-  doc.font('src/assets/fonts/OpenSans/OpenSans-Regular.ttf');
-  doc.fontSize(10);
-  doc.text(
-    'Die Teilnehmer*innen haben in 720 Unterrichtseinheiten folgende Inhalte gelernt,\ndiskutiert und in unterschiedlichen Aufgaben und Projekten vertieft:',
-    0,
-    145,
-    { width: A4SIZE[0], align: 'center' }
-  );
+  text(doc, {
+    text: 'Die Teilnehmer*innen haben in 720 Unterrichtseinheiten folgende Inhalte gelernt,\ndiskutiert und in unterschiedlichen Aufgaben und Projekten vertieft:',
+    x: 0,
+    y: 145,
+    options: {
+      width: A4SIZE[0],
+      align: 'center',
+    },
+    font: 'src/assets/fonts/OpenSans/OpenSans-Regular.ttf',
+    fontSize: 10,
+  });
 
   topics.forEach((topic) => {
     let height = 0;
@@ -191,15 +255,27 @@ function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
       x += 168;
     }
 
-    doc.fontSize(10);
-    doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
-
-    doc.text(topic.title, x, y, { lineGap: 3 });
-    doc.fontSize(10);
-    doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
+    text(doc, {
+      text: topic.title,
+      x,
+      y,
+      options: {
+        lineGap: 3,
+      },
+      fontSize: 10,
+      font: 'src/assets/fonts/OpenSans/OpenSans-Bold.ttf',
+    });
 
     topic.items.forEach((item) => {
-      doc.text(item, { width: 140, lineGap: 1 });
+      text(doc, {
+        text: item,
+        options: {
+          width: 140,
+          lineGap: 1,
+        },
+        fontSize: 10,
+        font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
+      });
     });
 
     doc.roundedRect(x - 10, y - 10, 155, height + 20, 8);
@@ -221,37 +297,47 @@ async function renderThirdPage(
   doc.fillColor('#E74D0F');
   doc.fill();
 
-  doc.fontSize(29);
-  doc.fillColor('#fff');
-  doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
-  doc.text('ZERTIFIKAT', 5, 107, {
-    width: A4SIZE[0],
-    align: 'center',
-    characterSpacing: 10,
+  text(doc, {
+    text: 'ZERTIFIKAT',
+    x: 5,
+    y: 107,
+    options: {
+      width: A4SIZE[0],
+      align: 'center',
+      characterSpacing: 10,
+    },
+    font: 'src/assets/fonts/OpenSans/OpenSans-Bold.ttf',
+    fillColor: '#fff',
+    fontSize: 29,
   });
 
-  doc.fontSize(29);
-  doc.fillColor(PRIMARY_TEXT_COLOR);
-  doc.font('src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf');
-  doc.text(`${firstName} ${lastName}`, 0, 168, {
-    width: A4SIZE[0],
-    align: 'center',
+  text(doc, {
+    text: `${firstName} ${lastName}`,
+    x: 0,
+    y: 168,
+    options: {
+      width: A4SIZE[0],
+      align: 'center',
+    },
+    font: 'src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf',
+    fillColor: PRIMARY_TEXT_COLOR,
+    fontSize: 29,
   });
 
-  doc.fontSize(11);
-  doc.fillColor(PRIMARY_TEXT_COLOR);
-  doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
   const descriptionWidth = 430;
-  doc.text(
-    capstoneProject.description,
-    A4SIZE[0] / 2 - descriptionWidth / 2,
-    210,
-    {
+  text(doc, {
+    text: capstoneProject.description,
+    x: A4SIZE[0] / 2 - descriptionWidth / 2,
+    y: 210,
+    options: {
       width: descriptionWidth,
       align: 'center',
       lineGap: 3,
-    }
-  );
+    },
+    font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
+    fillColor: PRIMARY_TEXT_COLOR,
+    fontSize: 11,
+  });
 
   if (capstoneProject.thumbnail) {
     const response = await fetch(capstoneProject.thumbnail);
@@ -261,10 +347,14 @@ async function renderThirdPage(
 
   let textAlignmentY = 328;
 
-  doc.fontSize(14);
-  doc.fillColor(SECONDARY_TEXT_COLOR);
-  doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
-  doc.text('TITEL:', 306, textAlignmentY);
+  text(doc, {
+    text: 'TITEL:',
+    x: 306,
+    y: textAlignmentY,
+    font: 'src/assets/fonts/OpenSans/OpenSans-Bold.ttf',
+    fillColor: SECONDARY_TEXT_COLOR,
+    fontSize: 14,
+  });
 
   textAlignmentY += doc.heightOfString('TITEL:') + 5;
 
@@ -277,21 +367,25 @@ async function renderThirdPage(
     width: 200,
   });
 
-  doc.fontSize(15);
-  doc.text(capstoneProject.subtitle, 306, textAlignmentY);
+  text(doc, {
+    text: capstoneProject.subtitle,
+    x: 306,
+    y: textAlignmentY,
+    fontSize: 15,
+  });
 
   textAlignmentY += doc.heightOfString(capstoneProject.subtitle, {
     width: 200,
   });
 
-  doc.fontSize(14);
-  doc.fillColor(SECONDARY_TEXT_COLOR);
-  doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
-  doc.text(
-    'HIGHLIGHTS:',
-    306,
-    textAlignmentY > 468 ? textAlignmentY + 15 : 468
-  );
+  text(doc, {
+    text: 'HIGHLIGHTS:',
+    x: 306,
+    y: textAlignmentY > 468 ? textAlignmentY + 15 : 468,
+    font: 'src/assets/fonts/OpenSans/OpenSans-Bold.ttf',
+    fillColor: SECONDARY_TEXT_COLOR,
+    fontSize: 14,
+  });
 
   textAlignmentY += doc.heightOfString('HIGHLIGHTS:', { width: 200 }) + 15;
 
@@ -311,27 +405,42 @@ async function renderThirdPage(
   doc.fillOpacity(1);
   doc.fillAndStroke('#fff', '#E74D0F');
 
-  doc.fontSize(10);
-  doc.fillColor('#E74D0F');
-  doc.font('src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf');
-  doc.text(capstoneProject.technologies.join(' / '), x + 2, y + 4, {
-    width: 200,
-    lineGap: 10,
+  text(doc, {
+    text: capstoneProject.technologies.join(' / '),
+    x: x + 2,
+    y: y + 4,
+    options: {
+      width: 200,
+      lineGap: 10,
+    },
+    font: 'src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf',
+    fillColor: '#E74D0F',
+    fontSize: 10,
   });
 
-  doc.fontSize(11);
-  doc.fillColor(SECONDARY_TEXT_COLOR);
-  doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
-  doc.text('ABSCHLUSSPROJEKT', 0, 728, {
-    width: A4SIZE[0],
-    align: 'center',
+  text(doc, {
+    text: 'ABSCHLUSSPROJEKT',
+    x: 0,
+    y: 728,
+    options: {
+      width: A4SIZE[0],
+      align: 'center',
+    },
+    font: 'src/assets/fonts/OpenSans/OpenSans-Bold.ttf',
+    fillColor: SECONDARY_TEXT_COLOR,
+    fontSize: 11,
   });
 
-  doc.fontSize(11);
-  doc.fillColor(SECONDARY_TEXT_COLOR);
-  doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
-  doc.text('“DIGITALES GESELLENSTÜCK“', 0, 741, {
-    width: A4SIZE[0],
-    align: 'center',
+  text(doc, {
+    text: '“DIGITALES GESELLENSTÜCK“',
+    x: 0,
+    y: 741,
+    options: {
+      width: A4SIZE[0],
+      align: 'center',
+    },
+    font: 'src/assets/fonts/OpenSans/OpenSans-Bold.ttf',
+    fontSize: 11,
+    fillColor: SECONDARY_TEXT_COLOR,
   });
 }
