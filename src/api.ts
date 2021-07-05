@@ -98,13 +98,6 @@ export type Course = {
   topics: CourseTopics;
 };
 
-export async function getCourse(id: string): Promise<Course | undefined> {
-  const response = await fetch(process.env.COURSE_URL);
-  const courses = await response.json();
-  const course = courses.find((course) => course.id === id);
-  return course;
-}
-
 export async function getCourseFromFS(id: string): Promise<Course | undefined> {
   const courses: Course[] = JSON.parse(
     await fs.readFile('src/assets/samples/courses.json', 'utf-8')
