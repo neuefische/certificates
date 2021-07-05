@@ -3,6 +3,7 @@ import http from 'http';
 import fetch from 'node-fetch';
 import { Course, CourseTopics, Talent } from './api';
 import text from './components/text';
+import { calculateFontSize } from './utils';
 
 const A4SIZE: [number, number] = [595.28, 841.89];
 const PRIMARY_TEXT_COLOR = '#1A3251';
@@ -358,9 +359,13 @@ async function renderThirdPage(
 
   textAlignmentY += doc.heightOfString('TITEL:') + 5;
 
-  doc.fontSize(28);
-  doc.fillColor('#E74D0F');
   doc.font('src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf');
+  doc.fillColor('#E74D0F');
+
+  doc.fontSize(
+    calculateFontSize(doc, `»${capstoneProject.title}«`, 10, 28, 200)
+  );
+  doc.widthOfString(`»${capstoneProject.title}«`);
   doc.text(`»${capstoneProject.title}«`, 306, textAlignmentY);
 
   textAlignmentY += doc.heightOfString(`»${capstoneProject.title}«`, {
