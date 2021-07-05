@@ -210,5 +210,108 @@
         ]
       }
     ]
+  },
+  {
+    "id": "muc-web-21-2",
+    "coach": "Thomas Kirst",
+    "startDate": "2021-04-12",
+    "endDate": "2021-07-06",
+    "location": "München",
+    "topics": [
+      {
+        "title": "Shell",
+        "items": ["Unix Commands", "Git", "Zsh"]
+      },
+      {
+        "title": "HTML5",
+        "items": [
+          "Semantic Elements",
+          "Forms and Inputs",
+          "Responsive Web Design",
+          "Accessibility"
+        ]
+      },
+      {
+        "title": "CSS3",
+        "items": [
+          "Selectors",
+          "Specificity",
+          "Conventions",
+          "Media Queries",
+          "Animation",
+          "Layout (flex/grid)",
+          "Tooling",
+          "Frameworks"
+        ]
+      },
+      {
+        "title": "JavaScript",
+        "items": [
+          "ECMAScript (ESNext)",
+          "Events",
+          "DOM Manipulation",
+          "Browser APIs",
+          "Array Methods",
+          "Functional Programming",
+          "Asynchronous Programming",
+          "Tooling",
+          "Debugging",
+          "Unit Testing"
+        ]
+      },
+      {
+        "title": "React",
+        "items": [
+          "Latest Version",
+          "Functional Components",
+          "Controlled Components",
+          "Context API",
+          "Hooks",
+          "Living Styleguide",
+          "Routing",
+          "State Management",
+          "Component Testing"
+        ]
+      },
+      {
+        "title": "Backend",
+        "items": [
+          "Node.js",
+          "Express",
+          "RESTful APIs",
+          "Databases Overview",
+          "Schemas and Models",
+          "MongoDB with mongoose",
+          "Security",
+          "Tooling"
+        ]
+      },
+      {
+        "title": "Tools",
+        "items": [
+          "Build Pipelines",
+          "Continuous Integration",
+          "Continuous Delivery",
+          "Linting",
+          "Slack",
+          "Zoom",
+          "VSCode"
+        ]
+      },
+      {
+        "title": "Weitere Lehrinhalte",
+        "items": [
+          "Agile Methods",
+          "Career Coaching",
+          "Clean Code",
+          "Development Workflow",
+          "Pair Programming",
+          "Performance Optimization",
+          "Product Development",
+          "UI/UX Basics",
+          "Working in Teams"
+        ]
+      }
+    ]
   }
 ]
