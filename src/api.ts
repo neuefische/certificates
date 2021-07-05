@@ -95,6 +95,7 @@ export type Course = {
   coach: string;
   startDate: string;
   endDate: string;
+  location: string;
   topics: CourseTopics;
 };
 
