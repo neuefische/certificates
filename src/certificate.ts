@@ -191,9 +191,9 @@ function renderFirstPage(
   text(doc, {
     text: `${new Date(course.startDate).toLocaleDateString(
       'de-DE'
-    )} — ${new Date(course.endDate).toLocaleDateString(
-      'de-DE'
-    )}\nKöln, den ${new Date().toLocaleDateString('de-DE')}`,
+    )} – ${new Date(course.endDate).toLocaleDateString('de-DE')}\n${
+      course.location
+    }, den ${new Date().toLocaleDateString('de-DE')}`,
     x: 0,
     y: 715,
     options: {

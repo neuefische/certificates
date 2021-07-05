@@ -4,6 +4,7 @@
     "coach": "Leon Machens",
     "startDate": "2021-04-12",
     "endDate": "2021-07-06",
+    "location": "Köln",
     "topics": [
       {
         "title": "Shell",
@@ -104,6 +105,108 @@
           "Slack",
           "GitHub Projects",
           "Zoom"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hh-web-21-3-de",
+    "coach": "Jerry Erbs",
+    "startDate": "2021-04-12",
+    "endDate": "2021-07-06",
+    "location": "Hamburg",
+    "topics": [
+      {
+        "title": "Shell",
+        "items": ["Unix Commands", "Git", "Zsh"]
+      },
+      {
+        "title": "HTML",
+        "items": [
+          "Semantic Elements",
+          "Forms and Inputs",
+          "Responsive Web Design",
+          "A11y Basics"
+        ]
+      },
+      {
+        "title": "CSS",
+        "items": [
+          "Selectors",
+          "Specificity",
+          "Conventions",
+          "Media Queries",
+          "Animation",
+          "Layout",
+          "Tooling",
+          "Frameworks"
+        ]
+      },
+      {
+        "title": "JavaScript",
+        "items": [
+          "ECMAScript (ESNext)",
+          "Events",
+          "DOM Manipulation",
+          "Browser APIs",
+          "Array Methods",
+          "Object-Oriented Programming",
+          "Asynchronous Programming",
+          "Tooling",
+          "Debugger",
+          "Unit Testing"
+        ]
+      },
+      {
+        "title": "React",
+        "items": [
+          "Latest Version",
+          "Function Components",
+          "Hooks",
+          "Routing",
+          "Living Styleguide",
+          "Controlled Components",
+          "Component Testing"
+        ]
+      },
+      {
+        "title": "Backend",
+        "items": [
+          "Node.js",
+          "RESTful APIs",
+          "Routing",
+          "MongoDB",
+          "Schemas and Models",
+          "Databases Overview",
+          "Security",
+          "Tooling"
+        ]
+      },
+      {
+        "title": "Tools",
+        "items": [
+          "Linting",
+          "Build Pipelines",
+          "Continuous Delivery",
+          "Continuous Integration",
+          "VSCode",
+          "Slack",
+          "Zoom"
+        ]
+      },
+      {
+        "title": "Weitere Lehrinhalte",
+        "items": [
+          "Clean Code",
+          "Pair Programming",
+          "Working in Teams",
+          "Development Workflow",
+          "Performance Optimization",
+          "Licences",
+          "UI/UX Basics",
+          "Agile Methods",
+          "Product Development",
+          "Career Coaching"
         ]
       }
     ]
