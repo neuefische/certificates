@@ -323,27 +323,16 @@
     "topics": [
       {
         "title": "Shell",
-        "items": [
-          "Unix Commands", 
-          "Git Commands", 
-          "Zsh"
-        ]
-      }, 
+        "items": ["Unix Commands", "Git Commands", "Zsh"]
+      },
       {
         "title": "HTML5",
-        "items": [
-          "HTML5-Elemente",
-          "Formulare und Inputs"
-        ]
-      }, 
+        "items": ["HTML5-Elemente", "Formulare und Inputs"]
+      },
       {
         "title": "CSS3",
-        "items": [
-          "Selektoren",
-          "display: flex",
-          "display: grid"
-        ]
-      }, 
+        "items": ["Selektoren", "display: flex", "display: grid"]
+      },
       {
         "title": "JavaScript",
         "items": [
@@ -354,15 +343,11 @@
           "Jest",
           "Arbeiten mit npm"
         ]
-      }, 
+      },
       {
         "title": "Datenbanken",
-        "items": [
-          "NoSQL",
-          "MongoDB",
-          "Daten-Normalisierung"
-        ]
-      }, 
+        "items": ["NoSQL", "MongoDB", "Daten-Normalisierung"]
+      },
       {
         "title": "React",
         "items": [
@@ -376,7 +361,7 @@
           "Custom Hooks",
           "Context Api"
         ]
-      }, 
+      },
       {
         "title": "Java",
         "items": [
@@ -390,7 +375,7 @@
           "Spring Data MongoDB",
           "Spring Security"
         ]
-      }, 
+      },
       {
         "title": "DevOps",
         "items": [
@@ -400,7 +385,7 @@
           "AWS Cloud Basics",
           "Docker"
         ]
-      }, 
+      },
       {
         "title": "Testing & Debugging",
         "items": [
@@ -410,7 +395,7 @@
           "Hamcrest",
           "Chrome Dev Tools"
         ]
-      }, 
+      },
       {
         "title": "Testing & Debugging",
         "items": [
@@ -420,7 +405,7 @@
           "Hamcrest",
           "Chrome Dev Tools"
         ]
-      }, 
+      },
       {
         "title": "Weitere Lehrinhalte",
         "items": [
@@ -432,7 +417,7 @@
           "IntelliJ",
           "Swagger"
         ]
-      }, 
+      },
       {
         "title": "Grundlagen des Webs",
         "items": [
