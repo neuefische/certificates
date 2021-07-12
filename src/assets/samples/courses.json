@@ -313,5 +313,110 @@
         ]
       }
     ]
+  },
+  {
+    "id": "rem-java-21-2",
+    "coach": "Fabian Schmauder",
+    "startDate": "2021-04-19",
+    "endDate": "2021-07-13",
+    "location": "Köln",
+    "topics": [
+      {
+        "title": "Shell",
+        "items": ["Unix Commands", "Git Commands", "Zsh"]
+      },
+      {
+        "title": "HTML5",
+        "items": ["HTML5-Elemente", "Formulare und Inputs"]
+      },
+      {
+        "title": "CSS3",
+        "items": ["Selektoren", "display: flex", "display: grid"]
+      },
+      {
+        "title": "JavaScript",
+        "items": [
+          "ECMAScript 2021",
+          "Array-Methoden",
+          "Promises und async/await",
+          "Jest",
+          "Arbeiten mit npm"
+        ]
+      },
+      {
+        "title": "Grundlagen des Webs",
+        "items": [
+          "REST APIs",
+          "JWT",
+          "HTTP",
+          "Auth: Basic, Bearer, Keys",
+          "CORS"
+        ]
+      },
+      {
+        "title": "React",
+        "items": [
+          "Version 17",
+          "React Router",
+          "React Testing Library",
+          "Functional components",
+          "Styled-components",
+          "useState",
+          "useEffect",
+          "Custom Hooks",
+          "Context Api"
+        ]
+      },
+      {
+        "title": "Java",
+        "items": [
+          "Klassen",
+          "Interfaces",
+          "Vererbung",
+          "Objektorientierte Programmierung",
+          "Collections",
+          "Streaming API",
+          "Spring Boot Web",
+          "Spring Data MongoDB",
+          "Spring Security"
+        ]
+      },
+      {
+        "title": "Datenbanken",
+        "items": ["NoSQL", "MongoDB", "Daten-Normalisierung"]
+      },
+      {
+        "title": "DevOps",
+        "items": [
+          "Continuous Integration (CI) mit GitHub Actions",
+          "Continuous Deployment (CD) mit GitHub Actions",
+          "Hosting mit Heroku",
+          "AWS Cloud Basics",
+          "Docker"
+        ]
+      },
+      {
+        "title": "Testing & Debugging",
+        "items": [
+          "Test-Driven-Development",
+          "Unit-Tests mit JUnit 5",
+          "Mockito",
+          "Hamcrest",
+          "Chrome Dev Tools"
+        ]
+      },
+      {
+        "title": "Weitere Lehrinhalte",
+        "items": [
+          "Clean Code",
+          "Arbeiten im Pairing und in Gruppen",
+          "Git-Workflow mit GitHub",
+          "Agile Methoden mit Scrum und Kanban",
+          "UX-Grundkenntnisse",
+          "IntelliJ",
+          "Swagger"
+        ]
+      }
+    ]
   }
 ]
