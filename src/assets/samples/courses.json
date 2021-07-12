@@ -344,8 +344,14 @@
         ]
       },
       {
-        "title": "Datenbanken",
-        "items": ["NoSQL", "MongoDB", "Daten-Normalisierung"]
+        "title": "Grundlagen des Webs",
+        "items": [
+          "REST APIs",
+          "JWT",
+          "HTTP",
+          "Auth: Basic, Bearer, Keys",
+          "CORS"
+        ]
       },
       {
         "title": "React",
@@ -374,6 +380,10 @@
           "Spring Data MongoDB",
           "Spring Security"
         ]
+      },
+      {
+        "title": "Datenbanken",
+        "items": ["NoSQL", "MongoDB", "Daten-Normalisierung"]
       },
       {
         "title": "DevOps",
@@ -405,16 +415,6 @@
           "UX-Grundkenntnisse",
           "IntelliJ",
           "Swagger"
-        ]
-      },
-      {
-        "title": "Grundlagen des Webs",
-        "items": [
-          "REST APIs",
-          "JWT",
-          "HTTP",
-          "Auth: Basic, Bearer, Keys",
-          "CORS"
         ]
       }
     ]
