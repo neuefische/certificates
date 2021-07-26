@@ -2,6 +2,7 @@
   {
     "id": "web-cgn-21-2",
     "coach": "Leon Machens",
+    "type": "web",
     "startDate": "2021-04-12",
     "endDate": "2021-07-06",
     "location": "Köln",
@@ -112,6 +113,7 @@
   {
     "id": "hh-web-21-3-de",
     "coach": "Jerry Erbs",
+    "type": "web",
     "startDate": "2021-04-12",
     "endDate": "2021-07-06",
     "location": "Hamburg",
@@ -214,6 +216,7 @@
   {
     "id": "muc-web-21-2",
     "coach": "Thomas Kirst",
+    "type": "web",
     "startDate": "2021-04-12",
     "endDate": "2021-07-06",
     "location": "München",
@@ -317,6 +320,7 @@
   {
     "id": "rem-java-21-2",
     "coach": "Fabian Schmauder",
+    "type": "java",
     "startDate": "2021-04-19",
     "endDate": "2021-07-13",
     "location": "Köln",

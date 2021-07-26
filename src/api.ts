@@ -93,6 +93,7 @@ export type CourseTopics = {
 export type Course = {
   id: string;
   coach: string;
+  type: string;
   startDate: string;
   endDate: string;
   location: string;
