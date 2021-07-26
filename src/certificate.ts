@@ -1,7 +1,7 @@
 import PDFDocument from 'pdfkit';
 import http from 'http';
 import fetch from 'node-fetch';
-import { Course, CourseTopics, Talent } from './api';
+import { Course, CourseTopics, DataCourseTopics, Talent } from './api';
 import text from './components/text';
 import { calculateFontSize } from './utils';
 
@@ -24,7 +24,7 @@ export async function responseCertificate(
 
   doc.addPage();
 
-  renderSecondPage(doc, course.topics);
+  renderSecondPage(doc, course.topics, course.type);
 
   if (talent.capstoneProject) {
     doc.addPage();
@@ -211,7 +211,11 @@ function renderFirstPage(
   });
 }
 
-function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
+function renderSecondPage(
+  doc: PDFKit.PDFDocument,
+  topics: CourseTopics | DataCourseTopics,
+  courseType: string
+) {
   doc.image('src/assets/images/background.png', 0, 0, { fit: A4SIZE });
 
   doc.fillColor('#1A3251');
@@ -248,14 +252,32 @@ function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
     doc.fontSize(10);
     doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
 
-    height += doc.heightOfString(topic.title, { lineGap: 3, width: 140 });
+    height += doc.heightOfString(topic.title, { paragraphGap: 3, width: 140 });
     doc.fontSize(10);
     doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
 
-    topic.items.forEach((item) => {
-      height += doc.heightOfString(item, { width: 140, lineGap: 1 });
-    });
-    if (height + y > A4SIZE[1] - 150) {
+    if (courseType !== 'data') {
+      topic.items.forEach((item) => {
+        height += doc.heightOfString(item, { width: 140, lineGap: 1 });
+      });
+    } else {
+      topic.items.forEach((item) => {
+        doc.font('src/assets/fonts/OpenSans/OpenSans-Regular.ttf');
+        doc.fontSize(11);
+        height += doc.heightOfString(item.subtitle, { lineGap: 1, width: 140 });
+        if (item.subitems) {
+          doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
+          doc.fontSize(10);
+          item.subitems.forEach((subitem) => {
+            height += doc.heightOfString(subitem, { width: 140 });
+          });
+        }
+        //Hack to create a linegap between subcategories
+        doc.fontSize(3);
+        height += doc.heightOfString(' ');
+      });
+    }
+    if (height + y > A4SIZE[1] - 100) {
       y = 211;
       x += 168;
     }
@@ -265,24 +287,52 @@ function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
       x,
       y,
       options: {
-        lineGap: 3,
+        paragraphGap: 3,
         width: 140,
       },
       fontSize: 10,
       font: 'src/assets/fonts/OpenSans/OpenSans-Bold.ttf',
     });
 
-    topic.items.forEach((item) => {
-      text(doc, {
-        text: item,
-        options: {
-          width: 140,
-          lineGap: 1,
-        },
-        fontSize: 10,
-        font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
+    if (courseType !== 'data') {
+      topic.items.forEach((item) => {
+        text(doc, {
+          text: item,
+          options: {
+            width: 140,
+            lineGap: 1,
+          },
+          fontSize: 10,
+          font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
+        });
       });
-    });
+    } else {
+      topic.items.forEach((item) => {
+        text(doc, {
+          text: item.subtitle,
+          options: {
+            width: 140,
+            lineGap: 1,
+          },
+          fontSize: 11,
+          font: 'src/assets/fonts/OpenSans/OpenSans-Regular.ttf',
+        });
+        if (item.subitems) {
+          item.subitems.forEach((subitem) => {
+            text(doc, {
+              text: `• ${subitem}`,
+              options: {
+                width: 140,
+              },
+              fontSize: 10,
+              font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
+            });
+          });
+        }
+        doc.fontSize(3);
+        doc.text(' ');
+      });
+    }
 
     doc.roundedRect(x - 10, y - 10, 155, height + 20, 8);
     doc.lineWidth(0.1);
