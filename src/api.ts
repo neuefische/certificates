@@ -90,6 +90,11 @@ export type CourseTopics = {
   items: string[];
 }[];
 
+export type DataCourseTopics = {
+  title: string;
+  items: { subtitle: string; subitems: string[] }[];
+}[];
+
 export type Course = {
   id: string;
   coach: string;
@@ -97,7 +102,7 @@ export type Course = {
   startDate: string;
   endDate: string;
   location: string;
-  topics: CourseTopics;
+  topics: CourseTopics | DataCourseTopics;
 };
 
 export async function getCourseFromFS(id: string): Promise<Course | undefined> {

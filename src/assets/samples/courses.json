@@ -470,9 +470,6 @@
             "subitems": ["Team Work & Self-organization Skills"]
           },
           {
-            "subtitle": "Group Work, Individual Excercises, Reversed Classroom (Presentations from Students"
-          },
-          {
             "subtitle": "Git-Workflow"
           },
           {
@@ -520,6 +517,19 @@
           {
             "subtitle": "Final Project",
             "subitems": ["Capstone (4 weeks)"]
+          }
+        ]
+      },
+      {
+        "title": "Communication with Stakeholders",
+        "items": [
+          {
+            "subtitle": "Buisness Presentation",
+            "subitems": ["Non-Technical Stakeholders"]
+          },
+          {
+            "subtitle": "Stakeholder Review",
+            "subitems": ["Compact & Time-critical Project Alignment"]
           }
         ]
       },
@@ -572,19 +582,6 @@
           },
           {
             "subtitle": "Time Series"
-          }
-        ]
-      },
-      {
-        "title": "Communication with Stakeholders",
-        "items": [
-          {
-            "subtitle": "Buisness Presentation",
-            "subitems": ["Non-Technical Stakeholders"]
-          },
-          {
-            "subtitle": "Stakeholder Review",
-            "subitems": ["Compact & Time-critical Project Alignment"]
           }
         ]
       }
