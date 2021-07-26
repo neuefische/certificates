@@ -98,7 +98,9 @@ function renderFirstPage(
   });
 
   text(doc, {
-    text: 'Aus-/Weiterbildung zum/zur Software-Entwickler*in',
+    text: `Aus-/Weiterbildung zum${
+      course.type !== 'data' ? '/zur Software-Entwickler*in' : ' Data Scientist'
+    }`,
     x: 0,
     y: 336,
     options: {
@@ -109,18 +111,20 @@ function renderFirstPage(
     font: 'src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf',
   });
 
-  text(doc, {
-    text: '(Web Development)',
-    x: 0,
-    y: 366,
-    options: {
-      width: A4SIZE[0],
-      align: 'center',
-    },
-    fontSize: 17,
-    fillColor: SECONDARY_TEXT_COLOR,
-    font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
-  });
+  if (course.type !== 'data') {
+    text(doc, {
+      text: '(Web Development)',
+      x: 0,
+      y: 366,
+      options: {
+        width: A4SIZE[0],
+        align: 'center',
+      },
+      fontSize: 17,
+      fillColor: SECONDARY_TEXT_COLOR,
+      font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
+    });
+  }
 
   text(doc, {
     text: 'mit 540 Stunden Programmierpraxis',
