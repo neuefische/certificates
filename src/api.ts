@@ -93,7 +93,7 @@ export type CourseTopics = {
 export type Course = {
   id: string;
   coach: string;
-  type: string;
+  type: 'web' | 'java' | 'data';
   startDate: string;
   endDate: string;
   location: string;
