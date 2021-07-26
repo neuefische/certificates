@@ -248,7 +248,7 @@ function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
     doc.fontSize(10);
     doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
 
-    height += doc.heightOfString(topic.title, { lineGap: 3 });
+    height += doc.heightOfString(topic.title, { lineGap: 3, width: 140 });
     doc.fontSize(10);
     doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
 
@@ -266,6 +266,7 @@ function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
       y,
       options: {
         lineGap: 3,
+        width: 140,
       },
       fontSize: 10,
       font: 'src/assets/fonts/OpenSans/OpenSans-Bold.ttf',
