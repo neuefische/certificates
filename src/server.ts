@@ -53,9 +53,9 @@ http
         }
         res.setHeader(
           'Content-Disposition',
-          `inline; filename=${normalizeDiacritics(
+          `inline; filename="${normalizeDiacritics(
             talent.firstName
-          )}_${normalizeDiacritics(talent.lastName)}_certificate.pdf`
+          )}_${normalizeDiacritics(talent.lastName)}_certificate.pdf"`
         );
 
         responseCertificate(res, talent, course);
