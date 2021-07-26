@@ -28,7 +28,7 @@ export async function responseCertificate(
 
   if (talent.capstoneProject) {
     doc.addPage();
-    await renderThirdPage(doc, talent);
+    await renderThirdPage(doc, talent, course.type);
   }
 
   doc.end();
@@ -343,11 +343,16 @@ function renderSecondPage(
 
 async function renderThirdPage(
   doc: PDFKit.PDFDocument,
-  { capstoneProject, lastName, firstName }: Talent
+  { capstoneProject, lastName, firstName }: Talent,
+  courseType: string
 ) {
-  doc.image('src/assets/images/background_with_phone_frame.png', 0, 0, {
-    fit: A4SIZE,
-  });
+  if (courseType !== 'data') {
+    doc.image('src/assets/images/background_with_phone_frame.png', 0, 0, {
+      fit: A4SIZE,
+    });
+  } else {
+    doc.image('src/assets/images/background.png', 0, 0, { fit: A4SIZE });
+  }
 
   doc.rect(163, 110, 269, 37);
   doc.fillColor('#E74D0F');
