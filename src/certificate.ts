@@ -352,7 +352,7 @@ async function renderThirdPage(
       fit: A4SIZE,
     });
   } else {
-    doc.image('src/assets/images/background.png', 0, 0, { fit: A4SIZE });
+    doc.image('src/assets/images/background_data.png', 0, 0, { fit: A4SIZE });
   }
 
   doc.rect(163, 110, 269, 37);
@@ -523,6 +523,12 @@ async function renderThirdPage(
       fontSize: 12,
       options: { width: 290 },
     });
+
+    if (capstoneProject.thumbnail) {
+      const response = await fetch(capstoneProject.thumbnail);
+      const thumbnail = await response.buffer();
+      doc.image(thumbnail, 400, 382, { width: 90, height: 90 });
+    }
 
     const x = 70;
     const y = 650;
