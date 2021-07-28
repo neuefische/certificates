@@ -75,7 +75,8 @@ export async function getTalent(id: string): Promise<Talent | undefined> {
     const formattedCapstoneProject = {
       title: talent.project.projectName,
       subtitle: talent.project.projectSubTitle,
-      description: talent.project.projectCertificateDesc,
+      description:
+        talent.project.projectCertificateDesc || talent.project.projectDesc,
       isDesktop: talent.project.projectDevice === 'desktop',
       technologies: talent.project.techStack,
       thumbnail: talent.project.projectImage?.urls.xl,
