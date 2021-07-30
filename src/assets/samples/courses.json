@@ -450,6 +450,169 @@
             "subitems": ["Filesystem Manipulation"]
           },
           {
+            "subtitle": "SQL",
+            "subitems": ["PostgreSQL"]
+          },
+          {
+            "subtitle": "Git-Workflows"
+          }
+        ]
+      },
+      {
+        "title": "Collaborative Working & Social Learning",
+        "items": [
+          {
+            "subtitle": "Work Frameworks",
+            "subitems": [
+              "Pair Programming",
+              "Team Work",
+              "Reversed Classroom in Groups",
+              "Individual Work"
+            ]
+          },
+          {
+            "subtitle": "Agile Workflow",
+            "subitems": ["Git Project Board", "Daily Stand-Ups", "Kanban"]
+          },
+          {
+            "subtitle": "Daily Class Reviews",
+            "subitems": ["Team Work & Self-organization Skills"]
+          },
+          {
+            "subtitle": "Students 1:1",
+            "subitems": ["Spot Check with Instructional Team"]
+          }
+        ]
+      },
+      {
+        "title": "Exploratory Data Analysis (EDA) & Statistics",
+        "items": [
+          {
+            "subtitle": "Data Preprocessing",
+            "subitems": ["Scikit-learn Pipelines", "Pandas DataFrame"]
+          },
+          {
+            "subtitle": "Data Analysis",
+            "subitems": ["Distributional Analysis", "General Statistics"]
+          },
+          {
+            "subtitle": "Data Visualization",
+            "subitems": ["Matplotlib", "Seaborn", "Dash/Plotly", "Altair"]
+          }
+        ]
+      },
+      {
+        "title": "Data Science Portfolio",
+        "items": [
+          {
+            "subtitle": "Exploratory Data Analysis Project "
+          },
+          {
+            "subtitle": "Predictive Modelling Project"
+          },
+          {
+            "subtitle": "Capstone Project (4 weeks)"
+          }
+        ]
+      },
+      {
+        "title": "Communication with Stakeholders",
+        "items": [
+          {
+            "subtitle": "Business Presentation",
+            "subitems": ["Non-Technical Stakeholders"]
+          },
+          {
+            "subtitle": "Data Science Lifecycle Presentation",
+            "subitems": ["Technical Stakeholders"]
+          },
+          {
+            "subtitle": "Stakeholder Review",
+            "subitems": ["Compact & Time-critical Project Alignment"]
+          }
+        ]
+      },
+      {
+        "title": "Machine Learning",
+        "items": [
+          {
+            "subtitle": "Regression & Classification"
+          },
+          {
+            "subtitle": "Machine Learning Algorithms",
+            "subitems": [
+              "OLS-based Models",
+              "Logistic Regression",
+              "Decision Trees",
+              "Random Forests",
+              "Naive Bayes",
+              "KNN",
+              "SVM",
+              "k-Means",
+              "PCA",
+              "Semi-supervised Models"
+            ]
+          },
+          {
+            "subtitle": "Evaluation & Performance Metrics",
+            "subitems": [
+              "Decision Matrix",
+              "Regression & Classification Metrics"
+            ]
+          },
+          {
+            "subtitle": "Model Tuning",
+            "subitems": [
+              "Bias-Variance-Tradeoff",
+              "Regularization",
+              "Cross-Validation",
+              "MLflow"
+            ]
+          },
+          {
+            "subtitle": "Optimization",
+            "subitems": ["Gradient Descent", "Loss Functions"]
+          },
+          {
+            "subtitle": "Deep Learning"
+          },
+          {
+            "subtitle": "NLP"
+          },
+          {
+            "subtitle": "Time Series"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "data-cgn-21-2",
+    "coach": "Simon Zehnder",
+    "type": "data",
+    "startDate": "2021-05-17",
+    "endDate": "2021-08-03",
+    "location": "Köln",
+    "topics": [
+      {
+        "title": "Programming & Database",
+        "items": [
+          {
+            "subtitle": "Python",
+            "subitems": [
+              "Pandas",
+              "Numpy",
+              "Functional Programming",
+              "Scikit-learn",
+              "Statsmodels",
+              "TensorFlow/Keras"
+            ]
+          },
+          {
+            "subtitle": "Unix",
+            "subitems": ["Filesystem Manipulation"]
+          },
+          {
             "subtitle": "SQL"
           }
         ]
@@ -467,7 +630,7 @@
           },
           {
             "subtitle": "Daily Class Reviews",
-            "subitems": ["Team Work & Self-organization Skills"]
+            "subitems": ["Team Work", "Self-organization Skills"]
           },
           {
             "subtitle": "Git-Workflow"
@@ -475,10 +638,6 @@
           {
             "subtitle": "Students 1:1",
             "subitems": ["Spot Check with Instructional Team"]
-          },
-          {
-            "subtitle": "RAT",
-            "subitems": ["Rapid Assessment Tests"]
           },
           {
             "subtitle": "Project Team Work",
