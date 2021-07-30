@@ -683,7 +683,7 @@
         "title": "Communication with Stakeholders",
         "items": [
           {
-            "subtitle": "Buisness Presentation",
+            "subtitle": "Business Presentation",
             "subitems": ["Non-Technical Stakeholders"]
           },
           {
@@ -735,9 +735,6 @@
           },
           {
             "subtitle": "Deep Learning"
-          },
-          {
-            "subtitle": "NLP"
           },
           {
             "subtitle": "Time Series"
