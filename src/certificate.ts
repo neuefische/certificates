@@ -1,7 +1,7 @@
 import PDFDocument from 'pdfkit';
 import http from 'http';
 import fetch from 'node-fetch';
-import { Course, CourseTopics, Talent } from './api';
+import { Course, Talent, Topics } from './api';
 import text from './components/text';
 import { calculateFontSize } from './utils';
 
@@ -18,17 +18,18 @@ export async function responseCertificate(
   res.setHeader('Content-Type', 'application/pdf');
 
   const doc = new PDFDocument({ size: 'A4' });
+
   doc.pipe(res);
 
   renderFirstPage(doc, talent, course);
 
   doc.addPage();
 
-  renderSecondPage(doc, course.topics);
+  renderSecondPage(doc, course);
 
   if (talent.capstoneProject) {
     doc.addPage();
-    await renderThirdPage(doc, talent);
+    await renderThirdPage(doc, talent, course.type);
   }
 
   doc.end();
@@ -98,7 +99,9 @@ function renderFirstPage(
   });
 
   text(doc, {
-    text: 'Aus-/Weiterbildung zum/zur Software-Entwickler*in',
+    text: `Aus-/Weiterbildung zum${
+      course.type === 'data' ? ' Data Scientist' : '/zur Software-Entwickler*in'
+    }`,
     x: 0,
     y: 336,
     options: {
@@ -109,18 +112,20 @@ function renderFirstPage(
     font: 'src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf',
   });
 
-  text(doc, {
-    text: '(Web Development)',
-    x: 0,
-    y: 366,
-    options: {
-      width: A4SIZE[0],
-      align: 'center',
-    },
-    fontSize: 17,
-    fillColor: SECONDARY_TEXT_COLOR,
-    font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
-  });
+  if (course.type === 'web') {
+    text(doc, {
+      text: '(Web Development)',
+      x: 0,
+      y: 366,
+      options: {
+        width: A4SIZE[0],
+        align: 'center',
+      },
+      fontSize: 17,
+      fillColor: SECONDARY_TEXT_COLOR,
+      font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
+    });
+  }
 
   text(doc, {
     text: 'mit 540 Stunden Programmierpraxis',
@@ -207,7 +212,13 @@ function renderFirstPage(
   });
 }
 
-function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
+function renderSecondPage(
+  doc: PDFKit.PDFDocument,
+  {
+    topics,
+    type: courseType,
+  }: { topics: Topics; type: 'web' | 'java' | 'data' }
+) {
   doc.image('src/assets/images/background.png', 0, 0, { fit: A4SIZE });
 
   doc.fillColor('#1A3251');
@@ -244,14 +255,32 @@ function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
     doc.fontSize(10);
     doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
 
-    height += doc.heightOfString(topic.title, { lineGap: 3 });
+    height += doc.heightOfString(topic.title, { paragraphGap: 3, width: 140 });
     doc.fontSize(10);
     doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
 
-    topic.items.forEach((item) => {
-      height += doc.heightOfString(item, { width: 140, lineGap: 1 });
-    });
-    if (height + y > A4SIZE[1] - 150) {
+    if (courseType === 'web' || courseType === 'java') {
+      topic.items.forEach((item) => {
+        height += doc.heightOfString(item, { width: 140, lineGap: 1 });
+      });
+    } else {
+      topic.items.forEach((item) => {
+        doc.font('src/assets/fonts/OpenSans/OpenSans-Regular.ttf');
+        doc.fontSize(11);
+        height += doc.heightOfString(item.subtitle, { lineGap: 1, width: 140 });
+        if (item.subitems) {
+          doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
+          doc.fontSize(10);
+          item.subitems.forEach((subitem) => {
+            height += doc.heightOfString(subitem, { width: 140 });
+          });
+        }
+        //Hack to create a linegap between subcategories
+        doc.fontSize(3);
+        height += doc.heightOfString(' ');
+      });
+    }
+    if (height + y > A4SIZE[1] - 100) {
       y = 211;
       x += 168;
     }
@@ -261,23 +290,52 @@ function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
       x,
       y,
       options: {
-        lineGap: 3,
+        paragraphGap: 3,
+        width: 140,
       },
       fontSize: 10,
       font: 'src/assets/fonts/OpenSans/OpenSans-Bold.ttf',
     });
 
-    topic.items.forEach((item) => {
-      text(doc, {
-        text: item,
-        options: {
-          width: 140,
-          lineGap: 1,
-        },
-        fontSize: 10,
-        font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
+    if (courseType === 'web' || courseType === 'java') {
+      topic.items.forEach((item) => {
+        text(doc, {
+          text: item,
+          options: {
+            width: 140,
+            lineGap: 1,
+          },
+          fontSize: 10,
+          font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
+        });
       });
-    });
+    } else {
+      topic.items.forEach((item) => {
+        text(doc, {
+          text: item.subtitle,
+          options: {
+            width: 140,
+            lineGap: 1,
+          },
+          fontSize: 11,
+          font: 'src/assets/fonts/OpenSans/OpenSans-Regular.ttf',
+        });
+        if (item.subitems) {
+          item.subitems.forEach((subitem) => {
+            text(doc, {
+              text: `• ${subitem}`,
+              options: {
+                width: 140,
+              },
+              fontSize: 10,
+              font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
+            });
+          });
+        }
+        doc.fontSize(3);
+        doc.text(' ');
+      });
+    }
 
     doc.roundedRect(x - 10, y - 10, 155, height + 20, 8);
     doc.lineWidth(0.1);
@@ -288,11 +346,16 @@ function renderSecondPage(doc: PDFKit.PDFDocument, topics: CourseTopics) {
 
 async function renderThirdPage(
   doc: PDFKit.PDFDocument,
-  { capstoneProject, lastName, firstName }: Talent
+  { capstoneProject, lastName, firstName }: Talent,
+  courseType: string
 ) {
-  doc.image('src/assets/images/background_with_phone_frame.png', 0, 0, {
-    fit: A4SIZE,
-  });
+  if (courseType === 'web' || courseType === 'java') {
+    doc.image('src/assets/images/background_with_phone_frame.png', 0, 0, {
+      fit: A4SIZE,
+    });
+  } else {
+    doc.image('src/assets/images/background_data.png', 0, 0, { fit: A4SIZE });
+  }
 
   doc.rect(163, 110, 269, 37);
   doc.fillColor('#E74D0F');
@@ -325,109 +388,189 @@ async function renderThirdPage(
     fontSize: 29,
   });
 
-  const descriptionWidth = 430;
-  text(doc, {
-    text: capstoneProject.description,
-    x: A4SIZE[0] / 2 - descriptionWidth / 2,
-    y: 210,
-    options: {
-      width: descriptionWidth,
-      align: 'center',
-      lineGap: 3,
-    },
-    font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
-    fillColor: PRIMARY_TEXT_COLOR,
-    fontSize: 11,
-  });
+  if (courseType === 'web' || courseType === 'java') {
+    const descriptionWidth = 430;
+    text(doc, {
+      text: capstoneProject.description,
+      x: A4SIZE[0] / 2 - descriptionWidth / 2,
+      y: 210,
+      options: {
+        width: descriptionWidth,
+        align: 'center',
+        lineGap: 3,
+      },
+      font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
+      fillColor: PRIMARY_TEXT_COLOR,
+      fontSize: 11,
+    });
 
-  if (capstoneProject.thumbnail) {
-    const response = await fetch(capstoneProject.thumbnail);
-    const thumbnail = await response.buffer();
-    doc.image(thumbnail, 95, 355, { width: 162 });
-  }
+    if (capstoneProject.thumbnail) {
+      const response = await fetch(capstoneProject.thumbnail);
+      const thumbnail = await response.buffer();
+      doc.image(thumbnail, 95, 355, { width: 162 });
+    }
 
-  let textAlignmentY = 328;
+    let textAlignmentY = 328;
 
-  text(doc, {
-    text: 'TITEL:',
-    x: 306,
-    y: textAlignmentY,
-    font: 'src/assets/fonts/OpenSans/OpenSans-Bold.ttf',
-    fillColor: SECONDARY_TEXT_COLOR,
-    fontSize: 14,
-  });
+    text(doc, {
+      text: 'TITEL:',
+      x: 306,
+      y: textAlignmentY,
+      font: 'src/assets/fonts/OpenSans/OpenSans-Bold.ttf',
+      fillColor: SECONDARY_TEXT_COLOR,
+      fontSize: 14,
+    });
 
-  textAlignmentY += doc.heightOfString('TITEL:') + 5;
+    textAlignmentY += doc.heightOfString('TITEL:') + 5;
 
-  text(doc, {
-    text: `»${capstoneProject.title}«`,
-    x: 306,
-    y: textAlignmentY,
-    fontSize: calculateFontSize({
-      doc,
+    text(doc, {
       text: `»${capstoneProject.title}«`,
-      minFontSize: 10,
-      maxFontSize: 28,
-      maxWidth: 200,
-    }),
-    fillColor: '#E74D0F',
-    font: 'src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf',
-  });
+      x: 306,
+      y: textAlignmentY,
+      fontSize: calculateFontSize({
+        doc,
+        text: `»${capstoneProject.title}«`,
+        minFontSize: 10,
+        maxFontSize: 28,
+        maxWidth: 200,
+      }),
+      fillColor: '#E74D0F',
+      font: 'src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf',
+    });
 
-  textAlignmentY += doc.heightOfString(`»${capstoneProject.title}«`, {
-    width: 200,
-  });
-
-  text(doc, {
-    text: capstoneProject.subtitle,
-    x: 306,
-    y: textAlignmentY,
-    fontSize: 15,
-  });
-
-  textAlignmentY += doc.heightOfString(capstoneProject.subtitle, {
-    width: 200,
-  });
-
-  text(doc, {
-    text: 'HIGHLIGHTS:',
-    x: 306,
-    y: textAlignmentY > 468 ? textAlignmentY + 15 : 468,
-    font: 'src/assets/fonts/OpenSans/OpenSans-Bold.ttf',
-    fillColor: SECONDARY_TEXT_COLOR,
-    fontSize: 14,
-  });
-
-  textAlignmentY += doc.heightOfString('HIGHLIGHTS:', { width: 200 }) + 15;
-
-  const x = 316;
-  const y = textAlignmentY > 510 ? textAlignmentY + 20 : 510;
-  doc.fontSize(10);
-  doc.roundedRect(
-    x - 10,
-    y - 10,
-    218,
-    doc.heightOfString(capstoneProject.technologies.join(' / '), {
+    textAlignmentY += doc.heightOfString(`»${capstoneProject.title}«`, {
       width: 200,
-      lineGap: 10,
-    }) + 20,
-    8
-  );
-  doc.fillOpacity(1);
-  doc.fillAndStroke('#fff', '#E74D0F');
+    });
 
-  text(doc, {
-    text: capstoneProject.technologies.join(' / '),
-    x: x + 2,
-    y: y + 4,
-    options: {
+    text(doc, {
+      text: capstoneProject.subtitle,
+      x: 306,
+      y: textAlignmentY,
+      fontSize: 15,
+    });
+
+    textAlignmentY += doc.heightOfString(capstoneProject.subtitle, {
       width: 200,
-      lineGap: 10,
-    },
-    font: 'src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf',
-    fillColor: '#E74D0F',
-    fontSize: 10,
-  });
+    });
+
+    text(doc, {
+      text: 'HIGHLIGHTS:',
+      x: 306,
+      y: textAlignmentY > 468 ? textAlignmentY + 15 : 468,
+      font: 'src/assets/fonts/OpenSans/OpenSans-Bold.ttf',
+      fillColor: SECONDARY_TEXT_COLOR,
+      fontSize: 14,
+    });
+
+    textAlignmentY += doc.heightOfString('HIGHLIGHTS:', { width: 200 }) + 15;
+
+    const x = 316;
+    const y = textAlignmentY > 510 ? textAlignmentY + 20 : 510;
+    doc.fontSize(10);
+    doc.roundedRect(
+      x - 10,
+      y - 10,
+      218,
+      doc.heightOfString(capstoneProject.technologies.join(' / '), {
+        width: 200,
+        lineGap: 10,
+      }) + 20,
+      8
+    );
+    doc.fillOpacity(1);
+    doc.fillAndStroke('#fff', '#E74D0F');
+
+    text(doc, {
+      text: capstoneProject.technologies.join(' / '),
+      x: x + 2,
+      y: y + 4,
+      options: {
+        width: 200,
+        lineGap: 10,
+      },
+      font: 'src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf',
+      fillColor: '#E74D0F',
+      fontSize: 10,
+    });
+  } else {
+    text(doc, {
+      text: 'PROJEKT:',
+      x: 70,
+      y: 230,
+      font: 'src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf',
+      fillColor: SECONDARY_TEXT_COLOR,
+      fontSize: 14,
+      options: { paragraphGap: 10 },
+    });
+    text(doc, {
+      text: capstoneProject.title,
+      x: 70,
+
+      fillColor: PRIMARY_TEXT_COLOR,
+      fontSize: 22,
+      options: { width: 290, paragraphGap: 10 },
+    });
+    text(doc, {
+      text: capstoneProject.subtitle,
+      x: 70,
+      font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
+      fontSize: 15,
+      options: { width: 290, paragraphGap: 25 },
+    });
+    text(doc, {
+      text: capstoneProject.description,
+      x: 70,
+      font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
+      fillColor: SECONDARY_TEXT_COLOR,
+      fontSize: 12,
+      options: { width: 290 },
+    });
+
+    if (capstoneProject.thumbnail) {
+      const response = await fetch(capstoneProject.thumbnail);
+      const thumbnail = await response.buffer();
+      doc.image(thumbnail, 400, 382, { width: 90, height: 90 });
+    }
+
+    const x = 70;
+    const y = 650;
+
+    text(doc, {
+      text: 'TECH-STACK:',
+      x: x,
+      y: y - 40,
+      font: 'src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf',
+      fillColor: SECONDARY_TEXT_COLOR,
+      fontSize: 14,
+    });
+
+    doc.fontSize(10);
+    doc.roundedRect(
+      x,
+      y - 10,
+      455,
+      doc.heightOfString(capstoneProject.technologies.join(' / '), {
+        width: 420,
+        lineGap: 10,
+      }) + 20,
+      8
+    );
+    doc.fillOpacity(1);
+    doc.fillAndStroke('#fff', '#E74D0F');
+
+    text(doc, {
+      text: capstoneProject.technologies.join(' / '),
+      x: x + 18,
+      y: y + 4,
+      options: {
+        width: 420,
+        lineGap: 10,
+      },
+      font: 'src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf',
+      fillColor: '#E74D0F',
+      fontSize: 10,
+    });
+  }
 
   text(doc, {
     text: 'ABSCHLUSSPROJEKT',

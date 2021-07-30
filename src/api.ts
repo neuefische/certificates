@@ -75,7 +75,8 @@ export async function getTalent(id: string): Promise<Talent | undefined> {
     const formattedCapstoneProject = {
       title: talent.project.projectName,
       subtitle: talent.project.projectSubTitle,
-      description: talent.project.projectCertificateDesc,
+      description:
+        talent.project.projectCertificateDesc || talent.project.projectDesc,
       isDesktop: talent.project.projectDevice === 'desktop',
       technologies: talent.project.techStack,
       thumbnail: talent.project.projectImage?.urls.xl,
@@ -90,14 +91,30 @@ export type CourseTopics = {
   items: string[];
 }[];
 
+export type DataCourseTopics = {
+  title: string;
+  items: { subtitle: string; subitems: string[] }[];
+}[];
+
+export type Topics = CourseTopics | DataCourseTopics;
+
+type DataCoursePartial = {
+  type: 'data';
+  topics: DataCourseTopics;
+};
+
+type WebCoursePartial = {
+  type: 'web' | 'java';
+  topics: CourseTopics;
+};
+
 export type Course = {
   id: string;
   coach: string;
   startDate: string;
   endDate: string;
   location: string;
-  topics: CourseTopics;
-};
+} & (DataCoursePartial | WebCoursePartial);
 
 export async function getCourseFromFS(id: string): Promise<Course | undefined> {
   const courses: Course[] = JSON.parse(

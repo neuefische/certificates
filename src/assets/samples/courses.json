@@ -2,6 +2,7 @@
   {
     "id": "web-cgn-21-2",
     "coach": "Leon Machens",
+    "type": "web",
     "startDate": "2021-04-12",
     "endDate": "2021-07-06",
     "location": "Köln",
@@ -112,6 +113,7 @@
   {
     "id": "hh-web-21-3-de",
     "coach": "Jerry Erbs",
+    "type": "web",
     "startDate": "2021-04-12",
     "endDate": "2021-07-06",
     "location": "Hamburg",
@@ -214,6 +216,7 @@
   {
     "id": "muc-web-21-2",
     "coach": "Thomas Kirst",
+    "type": "web",
     "startDate": "2021-04-12",
     "endDate": "2021-07-06",
     "location": "München",
@@ -317,6 +320,7 @@
   {
     "id": "rem-java-21-2",
     "coach": "Fabian Schmauder",
+    "type": "java",
     "startDate": "2021-04-19",
     "endDate": "2021-07-13",
     "location": "Köln",
@@ -415,6 +419,170 @@
           "UX-Grundkenntnisse",
           "IntelliJ",
           "Swagger"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "data-hh-21-2",
+    "coach": "Tereza Iofciu",
+    "type": "data",
+    "startDate": "2021-05-10",
+    "endDate": "2021-08-03",
+    "location": "Hamburg",
+    "topics": [
+      {
+        "title": "Programming & Database",
+        "items": [
+          {
+            "subtitle": "Python",
+            "subitems": [
+              "Pandas",
+              "Numpy",
+              "Functional Programming",
+              "Scikit-learn",
+              "Statsmodels",
+              "TensorFlow/Keras"
+            ]
+          },
+          {
+            "subtitle": "Unix",
+            "subitems": ["Filesystem Manipulation"]
+          },
+          {
+            "subtitle": "SQL"
+          }
+        ]
+      },
+      {
+        "title": "Collaborative Working & Social Learning",
+        "items": [
+          {
+            "subtitle": "Pair Coding",
+            "subitems": ["Driver & Navigator"]
+          },
+          {
+            "subtitle": "Agile Workflow",
+            "subitems": ["Daily Stand-Ups", "Kanban"]
+          },
+          {
+            "subtitle": "Daily Class Reviews",
+            "subitems": ["Team Work & Self-organization Skills"]
+          },
+          {
+            "subtitle": "Git-Workflow"
+          },
+          {
+            "subtitle": "Students 1:1",
+            "subitems": ["Spot Check with Instructional Team"]
+          },
+          {
+            "subtitle": "RAT",
+            "subitems": ["Rapid Assessment Tests"]
+          },
+          {
+            "subtitle": "Project Team Work",
+            "subitems": ["Git Project Board"]
+          }
+        ]
+      },
+      {
+        "title": "Exploratory Data Analysis (EDA) & Statistics",
+        "items": [
+          {
+            "subtitle": "Data Preprocessing",
+            "subitems": ["Scikit-learn Pipelines", "Pandas DataFrame"]
+          },
+          {
+            "subtitle": "Data Analysis",
+            "subitems": ["Distributional Analysis", "General Statistics"]
+          },
+          {
+            "subtitle": "Data Visualization",
+            "subitems": ["Altair", "Matplotlib", "Plotly", "Seaborn"]
+          }
+        ]
+      },
+      {
+        "title": "Data Science Portfolio Projects",
+        "items": [
+          {
+            "subtitle": "Project 1",
+            "subitems": ["Exploratory Data Analysis"]
+          },
+          {
+            "subtitle": "Project 2",
+            "subitems": ["Predictive Modelling"]
+          },
+          {
+            "subtitle": "Final Project",
+            "subitems": ["Capstone (4 weeks)"]
+          }
+        ]
+      },
+      {
+        "title": "Communication with Stakeholders",
+        "items": [
+          {
+            "subtitle": "Buisness Presentation",
+            "subitems": ["Non-Technical Stakeholders"]
+          },
+          {
+            "subtitle": "Stakeholder Review",
+            "subitems": ["Compact & Time-critical Project Alignment"]
+          }
+        ]
+      },
+      {
+        "title": "Machine Learning",
+        "items": [
+          {
+            "subtitle": "Regression & Classification"
+          },
+          {
+            "subtitle": "Machine Learning Algorithms",
+            "subitems": [
+              "OLS-based Models",
+              "Logistic Regression",
+              "Decision Trees",
+              "Random Forests",
+              "Naive Bayes",
+              "KNN",
+              "SVM",
+              "k-Means",
+              "PCA",
+              "Semi-supervised Models"
+            ]
+          },
+          {
+            "subtitle": "Evaluation & Performance Metrics",
+            "subitems": [
+              "Decision Matrix",
+              "Regression & Classification Metrics"
+            ]
+          },
+          {
+            "subtitle": "Model Tuning",
+            "subitems": [
+              "Bias-Variance-Tradeoff",
+              "Regularization",
+              "Cross-Validation",
+              "MLflow"
+            ]
+          },
+          {
+            "subtitle": "Optimization",
+            "subitems": ["Gradient Descent", "Loss Functions"]
+          },
+          {
+            "subtitle": "Deep Learning"
+          },
+          {
+            "subtitle": "NLP"
+          },
+          {
+            "subtitle": "Time Series"
+          }
         ]
       }
     ]
