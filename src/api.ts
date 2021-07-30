@@ -96,15 +96,23 @@ export type DataCourseTopics = {
   items: { subtitle: string; subitems: string[] }[];
 }[];
 
+type DataCoursePartial = {
+  type: 'data';
+  topics: DataCourseTopics;
+};
+
+type WebCoursePartial = {
+  type: 'web' | 'java';
+  topics: CourseTopics;
+};
+
 export type Course = {
   id: string;
   coach: string;
-  type: 'web' | 'java' | 'data';
   startDate: string;
   endDate: string;
   location: string;
-  topics: CourseTopics | DataCourseTopics;
-};
+} & (DataCoursePartial | WebCoursePartial);
 
 export async function getCourseFromFS(id: string): Promise<Course | undefined> {
   const courses: Course[] = JSON.parse(
