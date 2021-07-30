@@ -100,7 +100,7 @@ function renderFirstPage(
 
   text(doc, {
     text: `Aus-/Weiterbildung zum${
-      course.type !== 'data' ? '/zur Software-Entwickler*in' : ' Data Scientist'
+      course.type === 'data' ? ' Data Scientist' : '/zur Software-Entwickler*in'
     }`,
     x: 0,
     y: 336,
@@ -112,7 +112,7 @@ function renderFirstPage(
     font: 'src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf',
   });
 
-  if (course.type !== 'data') {
+  if (course.type === 'web') {
     text(doc, {
       text: '(Web Development)',
       x: 0,
@@ -259,7 +259,7 @@ function renderSecondPage(
     doc.fontSize(10);
     doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
 
-    if (courseType !== 'data') {
+    if (courseType === 'web' || courseType === 'java') {
       topic.items.forEach((item) => {
         height += doc.heightOfString(item, { width: 140, lineGap: 1 });
       });
@@ -297,7 +297,7 @@ function renderSecondPage(
       font: 'src/assets/fonts/OpenSans/OpenSans-Bold.ttf',
     });
 
-    if (courseType !== 'data') {
+    if (courseType === 'web' || courseType === 'java') {
       topic.items.forEach((item) => {
         text(doc, {
           text: item,
@@ -349,7 +349,7 @@ async function renderThirdPage(
   { capstoneProject, lastName, firstName }: Talent,
   courseType: string
 ) {
-  if (courseType !== 'data') {
+  if (courseType === 'web' || courseType === 'java') {
     doc.image('src/assets/images/background_with_phone_frame.png', 0, 0, {
       fit: A4SIZE,
     });
@@ -388,7 +388,7 @@ async function renderThirdPage(
     fontSize: 29,
   });
 
-  if (courseType !== 'data') {
+  if (courseType === 'web' || courseType === 'java') {
     const descriptionWidth = 430;
     text(doc, {
       text: capstoneProject.description,
