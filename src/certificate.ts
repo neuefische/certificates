@@ -1,7 +1,7 @@
 import PDFDocument from 'pdfkit';
 import http from 'http';
 import fetch from 'node-fetch';
-import { Course, CourseTopics, DataCourseTopics, Talent } from './api';
+import { Course, Talent, Topics } from './api';
 import text from './components/text';
 import { calculateFontSize } from './utils';
 
@@ -25,7 +25,7 @@ export async function responseCertificate(
 
   doc.addPage();
 
-  renderSecondPage(doc, course.topics, course.type);
+  renderSecondPage(doc, course);
 
   if (talent.capstoneProject) {
     doc.addPage();
@@ -214,8 +214,10 @@ function renderFirstPage(
 
 function renderSecondPage(
   doc: PDFKit.PDFDocument,
-  topics: CourseTopics | DataCourseTopics,
-  courseType: string
+  {
+    topics,
+    type: courseType,
+  }: { topics: Topics; type: 'web' | 'java' | 'data' }
 ) {
   doc.image('src/assets/images/background.png', 0, 0, { fit: A4SIZE });
 

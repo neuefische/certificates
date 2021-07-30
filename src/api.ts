@@ -96,6 +96,8 @@ export type DataCourseTopics = {
   items: { subtitle: string; subitems: string[] }[];
 }[];
 
+export type Topics = CourseTopics | DataCourseTopics;
+
 type DataCoursePartial = {
   type: 'data';
   topics: DataCourseTopics;
