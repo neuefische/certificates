@@ -588,10 +588,10 @@
   },
   {
     "id": "data-cgn-21-2",
-    "coach": "Simon Zehnder",
+    "coach": "Dr. Lars Simon Zehnder",
     "type": "data",
     "startDate": "2021-05-17",
-    "endDate": "2021-08-03",
+    "endDate": "2021-08-10",
     "location": "Köln",
     "topics": [
       {
@@ -621,19 +621,19 @@
         "title": "Collaborative Working & Social Learning",
         "items": [
           {
-            "subtitle": "Pair Coding",
+            "subtitle": "Pair Programming",
             "subitems": ["Driver & Navigator"]
           },
           {
             "subtitle": "Agile Workflow",
-            "subitems": ["Daily Stand-Ups", "Kanban"]
+            "subitems": ["Daily Stand-Ups", "Kanban & Scrum"]
           },
           {
             "subtitle": "Daily Class Reviews",
             "subitems": ["Team Work", "Self-organization Skills"]
           },
           {
-            "subtitle": "Git-Workflow"
+            "subtitle": "Git-Workflows"
           },
           {
             "subtitle": "Students 1:1",
