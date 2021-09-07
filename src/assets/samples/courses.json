@@ -318,6 +318,110 @@
     ]
   },
   {
+    "id": "hh-web-21-4-en",
+    "coach": "Namir Sayed-Ahmad Baraza",
+    "type": "web",
+    "startDate": "2021-06-14",
+    "endDate": "2021-09-03",
+    "location": "Hamburg",
+    "topics": [
+      {
+        "title": "Shell",
+        "items": ["Unix Commands", "Git", "Zsh"]
+      },
+      {
+        "title": "HTML",
+        "items": [
+          "Semantic Elements",
+          "Forms and Inputs",
+          "Responsive Web Design",
+          "Accessibility"
+        ]
+      },
+      {
+        "title": "CSS",
+        "items": [
+          "Selectors",
+          "Specificity",
+          "Conventions",
+          "Media Queries",
+          "Animation",
+          "Layout (Flex & Grid)",
+          "Tooling",
+          "Frameworks"
+        ]
+      },
+      {
+        "title": "JavaScript",
+        "items": [
+          "ECMAScript (ESNext)",
+          "Events",
+          "DOM Manipulation",
+          "Browser APIs",
+          "Array Methods",
+          "Functional Programming",
+          "Asynchronous Programming",
+          "Tooling",
+          "Debugger"
+        ]
+      },
+      {
+        "title": "React",
+        "items": [
+          "Latest Version",
+          "Function Components",
+          "Hooks",
+          "Custom Hooks",
+          "Routing",
+          "Storybook",
+          "Controlled Components"
+        ]
+      },
+      {
+        "title": "Backend",
+        "items": [
+          "Node.js",
+          "RESTful APIs",
+          "Routing",
+          "MongoDB",
+          "Schemas and Models",
+          "Databases Overview",
+          "Security",
+          "Tooling"
+        ]
+      },
+      {
+        "title": "Tools",
+        "items": [
+          "Linting",
+          "Build Pipelines",
+          "Continuous Delivery",
+          "Continuous Integration",
+          "Heroku",
+          "Vercel",
+          "VSCode",
+          "Slack",
+          "Zoom"
+        ]
+      },
+      {
+        "title": "Weitere Lehrinhalte",
+        "items": [
+          "Clean Code",
+          "Pair Programming",
+          "Working in Teams",
+          "Development Workflow",
+          "Performance Optimization",
+          "Licences",
+          "UI/UX Basics",
+          "Agile Methods",
+          "Product Development",
+          "Career Coaching"
+        ]
+      }
+    ]
+  },
+  {
     "id": "rem-java-21-2",
     "coach": "Fabian Schmauder",
     "type": "java",
