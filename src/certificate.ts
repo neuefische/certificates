@@ -4,6 +4,7 @@ import fetch from 'node-fetch';
 import { Course, Talent, Topics } from './api';
 import text from './components/text';
 import { calculateFontSize } from './utils';
+import { t } from './i18n';
 
 const A4SIZE: [number, number] = [595.28, 841.89];
 const PRIMARY_TEXT_COLOR = '#1A3251';
@@ -21,15 +22,15 @@ export async function responseCertificate(
 
   doc.pipe(res);
 
-  renderFirstPage(doc, talent, course);
+  renderFirstPage(doc, talent, course, course.lang || 'de');
 
   doc.addPage();
 
-  renderSecondPage(doc, course);
+  renderSecondPage(doc, course.lang || 'de', course);
 
   if (talent.capstoneProject) {
     doc.addPage();
-    await renderThirdPage(doc, talent, course.type);
+    await renderThirdPage(doc, talent, course.type, course.lang || 'de');
   }
 
   doc.end();
@@ -38,14 +39,24 @@ export async function responseCertificate(
 function renderFirstPage(
   doc: PDFKit.PDFDocument,
   talent: Talent,
-  course: Course
+  course: Course,
+  lang: 'de' | 'en' = 'de'
 ) {
   doc.image('src/assets/images/background.png', 0, 0, { fit: A4SIZE });
 
-  doc.rect(163, 110, 269, 37).fillColor('#E74D0F').fill();
+  doc.fontSize(29);
+  doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
+
+  const certificateLength =
+    doc.widthOfString(t('ZERTIFIKAT', lang), { characterSpacing: 10 }) + 15;
+
+  doc
+    .rect(A4SIZE[0] / 2 - certificateLength / 2, 110, certificateLength, 37)
+    .fillColor('#E74D0F')
+    .fill();
 
   text(doc, {
-    text: 'ZERTIFIKAT',
+    text: t('ZERTIFIKAT', lang),
     x: 5,
     y: 107,
     options: {
@@ -59,7 +70,7 @@ function renderFirstPage(
   });
 
   text(doc, {
-    text: 'Hiermit bestätigen wir, dass',
+    text: t('Hiermit bestätigen wir, dass', lang),
     x: 0,
     y: 193,
     options: {
@@ -85,11 +96,23 @@ function renderFirstPage(
   });
 
   doc.moveTo(94, 274).lineTo(501, 274).stroke();
-
+  if (lang == 'en') {
+    text(doc, {
+      text: 'has successfully completed',
+      y: 285,
+      x: 0,
+      options: {
+        width: A4SIZE[0],
+        align: 'center',
+      },
+      fontSize: 17,
+      font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
+    });
+  }
   text(doc, {
-    text: 'das Intensivprogramm',
+    text: t('das Intensivprogramm', lang),
     x: 0,
-    y: 300,
+    y: 310,
     options: {
       width: A4SIZE[0],
       align: 'center',
@@ -98,10 +121,17 @@ function renderFirstPage(
     font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
   });
 
+  let jobName;
+  if (course.type === 'data') {
+    jobName = 'Data Scientist';
+  } else if (course.type === 'web' || course.type === 'java') {
+    jobName = '/zur Software-Entwickler*in';
+  } else if (course.type === 'analytics') {
+    jobName = 'Data Analyst';
+  }
+
   text(doc, {
-    text: `Aus-/Weiterbildung zum${
-      course.type === 'data' ? ' Data Scientist' : '/zur Software-Entwickler*in'
-    }`,
+    text: `${t('Aus-/Weiterbildung zum', lang)} ${jobName}`,
     x: 0,
     y: 336,
     options: {
@@ -114,7 +144,22 @@ function renderFirstPage(
 
   if (course.type === 'web') {
     text(doc, {
-      text: '(Web Development)',
+      text: t('(Web Development)', lang),
+      x: 0,
+      y: 366,
+      options: {
+        width: A4SIZE[0],
+        align: 'center',
+      },
+      fontSize: 17,
+      fillColor: SECONDARY_TEXT_COLOR,
+      font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
+    });
+  }
+
+  if (course.type === 'analytics') {
+    text(doc, {
+      text: t('(Advanced Data Analytics)', lang),
       x: 0,
       y: 366,
       options: {
@@ -128,7 +173,7 @@ function renderFirstPage(
   }
 
   text(doc, {
-    text: 'mit 540 Stunden Programmierpraxis',
+    text: t('mit 540 Stunden Programmierpraxis', lang),
     x: 0,
     y: 405,
     options: {
@@ -141,7 +186,7 @@ function renderFirstPage(
   });
 
   text(doc, {
-    text: '(entspricht 720 Unterrichtseinheiten)',
+    text: t('(entspricht 720 Unterrichtseinheiten)', lang),
     x: 0,
     y: 435,
     options: {
@@ -153,18 +198,20 @@ function renderFirstPage(
     font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
   });
 
-  text(doc, {
-    text: 'erfolgreich absolviert hat.',
-    x: 0,
-    y: 473,
-    options: {
-      width: A4SIZE[0],
-      align: 'center',
-    },
-    fontSize: 17,
-    fillColor: PRIMARY_TEXT_COLOR,
-    font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
-  });
+  if (lang === 'de') {
+    text(doc, {
+      text: t('erfolgreich absolviert hat.', lang),
+      x: 0,
+      y: 473,
+      options: {
+        width: A4SIZE[0],
+        align: 'center',
+      },
+      fontSize: 17,
+      fillColor: PRIMARY_TEXT_COLOR,
+      font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
+    });
+  }
 
   doc.moveTo(91, 652).lineTo(267, 652).lineWidth(0.5).stroke();
 
@@ -214,10 +261,14 @@ function renderFirstPage(
 
 function renderSecondPage(
   doc: PDFKit.PDFDocument,
+  lang: 'de' | 'en' = 'de',
   {
     topics,
     type: courseType,
-  }: { topics: Topics; type: 'web' | 'java' | 'data' }
+  }: {
+    topics: Topics;
+    type: 'web' | 'java' | 'data' | 'analytics';
+  }
 ) {
   doc.image('src/assets/images/background.png', 0, 0, { fit: A4SIZE });
 
@@ -227,7 +278,7 @@ function renderSecondPage(
   let y = 211;
 
   text(doc, {
-    text: 'Ausbildungsinhalte',
+    text: t('Ausbildungsinhalte', lang),
     x: 0,
     y: 107,
     options: {
@@ -239,7 +290,10 @@ function renderSecondPage(
   });
 
   text(doc, {
-    text: 'Die Teilnehmer*innen haben in 720 Unterrichtseinheiten folgende Inhalte gelernt,\ndiskutiert und in unterschiedlichen Aufgaben und Projekten vertieft:',
+    text: t(
+      'Die Teilnehmer*innen haben in 720 Unterrichtseinheiten folgende Inhalte gelernt,\ndiskutiert und in unterschiedlichen Aufgaben und Projekten vertieft:',
+      lang
+    ),
     x: 0,
     y: 145,
     options: {
@@ -347,7 +401,8 @@ function renderSecondPage(
 async function renderThirdPage(
   doc: PDFKit.PDFDocument,
   { capstoneProject, lastName, firstName }: Talent,
-  courseType: string
+  courseType: string,
+  lang: 'de' | 'en' = 'de'
 ) {
   if (courseType === 'web' || courseType === 'java') {
     doc.image('src/assets/images/background_with_phone_frame.png', 0, 0, {
@@ -357,12 +412,18 @@ async function renderThirdPage(
     doc.image('src/assets/images/background_data.png', 0, 0, { fit: A4SIZE });
   }
 
-  doc.rect(163, 110, 269, 37);
-  doc.fillColor('#E74D0F');
-  doc.fill();
+  doc.fontSize(29);
+  doc.font('src/assets/fonts/OpenSans/OpenSans-Bold.ttf');
 
+  const certificateLength =
+    doc.widthOfString(t('ZERTIFIKAT', lang), { characterSpacing: 10 }) + 15;
+
+  doc
+    .rect(A4SIZE[0] / 2 - certificateLength / 2, 110, certificateLength, 37)
+    .fillColor('#E74D0F')
+    .fill();
   text(doc, {
-    text: 'ZERTIFIKAT',
+    text: t('ZERTIFIKAT', lang),
     x: 5,
     y: 107,
     options: {
@@ -413,7 +474,7 @@ async function renderThirdPage(
     let textAlignmentY = 328;
 
     text(doc, {
-      text: 'TITEL:',
+      text: t('TITEL:', lang),
       x: 306,
       y: textAlignmentY,
       font: 'src/assets/fonts/OpenSans/OpenSans-Bold.ttf',
@@ -454,7 +515,7 @@ async function renderThirdPage(
     });
 
     text(doc, {
-      text: 'HIGHLIGHTS:',
+      text: t('HIGHLIGHTS:', lang),
       x: 306,
       y: textAlignmentY > 468 ? textAlignmentY + 15 : 468,
       font: 'src/assets/fonts/OpenSans/OpenSans-Bold.ttf',
@@ -494,7 +555,7 @@ async function renderThirdPage(
     });
   } else {
     text(doc, {
-      text: 'PROJEKT:',
+      text: t('PROJEKT:', lang),
       x: 70,
       y: 230,
       font: 'src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf',
@@ -536,7 +597,7 @@ async function renderThirdPage(
     const y = 650;
 
     text(doc, {
-      text: 'TECH-STACK:',
+      text: t('TECH-STACK:', lang),
       x: x,
       y: y - 40,
       font: 'src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf',
@@ -573,7 +634,7 @@ async function renderThirdPage(
   }
 
   text(doc, {
-    text: 'ABSCHLUSSPROJEKT',
+    text: t('ABSCHLUSSPROJEKT', lang),
     x: 0,
     y: 728,
     options: {
@@ -586,7 +647,7 @@ async function renderThirdPage(
   });
 
   text(doc, {
-    text: '“DIGITALES GESELLENSTÜCK“',
+    text: t('“DIGITALES GESELLENSTÜCK“', lang),
     x: 0,
     y: 741,
     options: {
