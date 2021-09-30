@@ -22,15 +22,15 @@ export async function responseCertificate(
 
   doc.pipe(res);
 
-  renderFirstPage(doc, talent, course, course.lang || 'de');
+  renderFirstPage(doc, talent, course, course.lang);
 
   doc.addPage();
 
-  renderSecondPage(doc, course.lang || 'de', course);
+  renderSecondPage(doc, course.lang, course);
 
   if (talent.capstoneProject) {
     doc.addPage();
-    await renderThirdPage(doc, talent, course.type, course.lang || 'de');
+    await renderThirdPage(doc, talent, course.type, course.lang);
   }
 
   doc.end();
