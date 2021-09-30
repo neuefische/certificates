@@ -9,7 +9,7 @@ export default {
   'erfolgreich absolviert hat.': 'successfully completed.',
   Ausbildungsinhalte: 'Curriculum',
   'Die Teilnehmer*innen haben in 720 Unterrichtseinheiten folgende Inhalte gelernt,\ndiskutiert und in unterschiedlichen Aufgaben und Projekten vertieft:':
-    'In 720 lessons the students have learned, discussed\nand praticed the following content in several tasks\nand projects:',
+    'In 720 lessons the students have learned, discussed\nand practiced the following content in several tasks\nand projects:',
   'TITEL:': 'TITLE:',
   'HIGHLIGHTS:': 'HIGHLIGHTS:',
   'PROJEKT:': 'PROJECT:',
