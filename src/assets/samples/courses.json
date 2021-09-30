@@ -846,5 +846,163 @@
         ]
       }
     ]
+  },
+  {
+    "id": "data-analytics-cgn-21-3",
+    "coach": "TestCoach",
+    "type": "analytics",
+    "startDate": "2021-05-17",
+    "endDate": "2021-08-10",
+    "location": "Köln",
+    "lang": "en",
+    "topics": [
+      {
+        "title": "Programming & Database",
+        "items": [
+          {
+            "subtitle": "Python",
+            "subitems": [
+              "Pandas",
+              "Numpy",
+              "Functional Programming",
+              "Scikit-learn",
+              "Statsmodels",
+              "TensorFlow/Keras"
+            ]
+          },
+          {
+            "subtitle": "Unix",
+            "subitems": ["Filesystem Manipulation"]
+          },
+          {
+            "subtitle": "SQL"
+          }
+        ]
+      },
+      {
+        "title": "Collaborative Working & Social Learning",
+        "items": [
+          {
+            "subtitle": "Pair Programming",
+            "subitems": ["Driver & Navigator"]
+          },
+          {
+            "subtitle": "Agile Workflow",
+            "subitems": ["Daily Stand-Ups", "Kanban & Scrum"]
+          },
+          {
+            "subtitle": "Daily Class Reviews",
+            "subitems": ["Team Work", "Self-organization Skills"]
+          },
+          {
+            "subtitle": "Git-Workflows"
+          },
+          {
+            "subtitle": "Students 1:1",
+            "subitems": ["Spot Check with Instructional Team"]
+          },
+          {
+            "subtitle": "Project Team Work",
+            "subitems": ["Git Project Board"]
+          }
+        ]
+      },
+      {
+        "title": "Exploratory Data Analysis (EDA) & Statistics",
+        "items": [
+          {
+            "subtitle": "Data Preprocessing",
+            "subitems": ["Scikit-learn Pipelines", "Pandas DataFrame"]
+          },
+          {
+            "subtitle": "Data Analysis",
+            "subitems": ["Distributional Analysis", "General Statistics"]
+          },
+          {
+            "subtitle": "Data Visualization",
+            "subitems": ["Altair", "Matplotlib", "Plotly", "Seaborn"]
+          }
+        ]
+      },
+      {
+        "title": "Data Science Portfolio Projects",
+        "items": [
+          {
+            "subtitle": "Project 1",
+            "subitems": ["Exploratory Data Analysis"]
+          },
+          {
+            "subtitle": "Project 2",
+            "subitems": ["Predictive Modelling"]
+          },
+          {
+            "subtitle": "Final Project",
+            "subitems": ["Capstone (4 weeks)"]
+          }
+        ]
+      },
+      {
+        "title": "Communication with Stakeholders",
+        "items": [
+          {
+            "subtitle": "Business Presentation",
+            "subitems": ["Non-Technical Stakeholders"]
+          },
+          {
+            "subtitle": "Stakeholder Review",
+            "subitems": ["Compact & Time-critical Project Alignment"]
+          }
+        ]
+      },
+      {
+        "title": "Machine Learning",
+        "items": [
+          {
+            "subtitle": "Regression & Classification"
+          },
+          {
+            "subtitle": "Machine Learning Algorithms",
+            "subitems": [
+              "OLS-based Models",
+              "Logistic Regression",
+              "Decision Trees",
+              "Random Forests",
+              "Naive Bayes",
+              "KNN",
+              "SVM",
+              "k-Means",
+              "PCA",
+              "Semi-supervised Models"
+            ]
+          },
+          {
+            "subtitle": "Evaluation & Performance Metrics",
+            "subitems": [
+              "Decision Matrix",
+              "Regression & Classification Metrics"
+            ]
+          },
+          {
+            "subtitle": "Model Tuning",
+            "subitems": [
+              "Bias-Variance-Tradeoff",
+              "Regularization",
+              "Cross-Validation",
+              "MLflow"
+            ]
+          },
+          {
+            "subtitle": "Optimization",
+            "subitems": ["Gradient Descent", "Loss Functions"]
+          },
+          {
+            "subtitle": "Deep Learning"
+          },
+          {
+            "subtitle": "Time Series"
+          }
+        ]
+      }
+    ]
   }
 ]

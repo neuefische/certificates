@@ -99,7 +99,7 @@ export type DataCourseTopics = {
 export type Topics = CourseTopics | DataCourseTopics;
 
 type DataCoursePartial = {
-  type: 'data';
+  type: 'data' | 'analytics';
   topics: DataCourseTopics;
 };
 
@@ -114,6 +114,7 @@ export type Course = {
   startDate: string;
   endDate: string;
   location: string;
+  lang?: 'en' | 'de';
 } & (DataCoursePartial | WebCoursePartial);
 
 export async function getCourseFromFS(id: string): Promise<Course | undefined> {
