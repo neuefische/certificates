@@ -870,14 +870,10 @@
           },
           {
             "subtitle": "Data Visualization",
-            "subitems": [
-              "Matplotlib",
-              "Seaborn",
-              "Tableau"
-            ]
+            "subitems": ["Matplotlib", "Seaborn", "Tableau"]
           },
           {
-            "subtitle": "Chart Type Selection"          
+            "subtitle": "Chart Type Selection"
           },
           {
             "subtitle": "Dashboarding"
@@ -933,7 +929,13 @@
         "items": [
           {
             "subtitle": "Python",
-            "subitems": ["Pandas", "Numpy", "Scikit-Learn", "Matplotlib", "Seaborn"]
+            "subitems": [
+              "Pandas",
+              "Numpy",
+              "Scikit-Learn",
+              "Matplotlib",
+              "Seaborn"
+            ]
           },
           {
             "subtitle": "SQL and databases"
@@ -969,10 +971,15 @@
           },
           {
             "subtitle": "Agile Workflow",
-            "subitems": ["Kanban", "Minimal Viable Product (MVP)", "Daily Stand-Ups", "Retrospectives"]
+            "subitems": [
+              "Kanban",
+              "Minimal Viable Product (MVP)",
+              "Daily Stand-Ups",
+              "Retrospectives"
+            ]
           },
           {
-            "subtitle": "Self-organization skills" 
+            "subtitle": "Self-organization skills"
           },
           {
             "subtitle": "Daily protocol and topic review"
