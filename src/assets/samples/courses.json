@@ -848,34 +848,118 @@
     ]
   },
   {
-    "id": "data-analytics-cgn-21-3",
-    "coach": "TestCoach",
+    "id": "hh-analytics-21-2",
+    "coach": "Andrew Emmett",
     "type": "analytics",
-    "startDate": "2021-05-17",
-    "endDate": "2021-08-10",
-    "location": "Köln",
+    "startDate": "2021-07-12",
+    "endDate": "2021-10-01",
+    "location": "Hamburg",
     "lang": "en",
     "topics": [
       {
-        "title": "Programming & Database",
+        "title": "Data Analysis",
+        "items": [
+          {
+            "subtitle": "Data Collection"
+          },
+          {
+            "subtitle": "Data Cleaning"
+          },
+          {
+            "subtitle": "Data Exploration"
+          },
+          {
+            "subtitle": "Data Visualization",
+            "subitems": ["Matplotlib", "Seaborn", "Tableau"]
+          },
+          {
+            "subtitle": "Chart Type Selection"
+          },
+          {
+            "subtitle": "Dashboarding"
+          },
+          {
+            "subtitle": "KPI Reporting"
+          }
+        ]
+      },
+      {
+        "title": "Statistics and Advanced Analytics",
+        "items": [
+          {
+            "subtitle": "Descriptive statistics"
+          },
+          {
+            "subtitle": "Inferential statistics"
+          },
+          {
+            "subtitle": "Simulation modeling"
+          },
+          {
+            "subtitle": "Machine learning algorithms",
+            "subitems": ["Linear Regression", "K-means", "DBScan"]
+          }
+        ]
+      },
+      {
+        "title": "Communication and Stakeholder Management",
+        "items": [
+          {
+            "subtitle": "Finding questions with '5 whys'"
+          },
+          {
+            "subtitle": "Business presentations"
+          },
+          {
+            "subtitle": "Art of problem solving"
+          },
+          {
+            "subtitle": "Answer first method"
+          },
+          {
+            "subtitle": "Data analytics workflow"
+          },
+          {
+            "subtitle": "Analytics job interviewing techniques"
+          }
+        ]
+      },
+      {
+        "title": "Tools",
         "items": [
           {
             "subtitle": "Python",
             "subitems": [
               "Pandas",
               "Numpy",
-              "Functional Programming",
-              "Scikit-learn",
-              "Statsmodels",
-              "TensorFlow/Keras"
+              "Scikit-Learn",
+              "Matplotlib",
+              "Seaborn"
             ]
           },
           {
-            "subtitle": "Unix",
-            "subitems": ["Filesystem Manipulation"]
+            "subtitle": "SQL and databases"
           },
           {
-            "subtitle": "SQL"
+            "subtitle": "Tableau"
+          },
+          {
+            "subtitle": "Google Docs, Spreadsheets"
+          },
+          {
+            "subtitle": "Git-Workflow with GitHub"
+          },
+          {
+            "subtitle": "Unix-Commands"
+          },
+          {
+            "subtitle": "Visual Studio Code"
+          },
+          {
+            "subtitle": "Jupyter Notebooks"
+          },
+          {
+            "subtitle": "Agile Methodologies"
           }
         ]
       },
@@ -883,123 +967,28 @@
         "title": "Collaborative Working & Social Learning",
         "items": [
           {
-            "subtitle": "Pair Programming",
-            "subitems": ["Driver & Navigator"]
+            "subtitle": "Pair Programming"
           },
           {
             "subtitle": "Agile Workflow",
-            "subitems": ["Daily Stand-Ups", "Kanban & Scrum"]
-          },
-          {
-            "subtitle": "Daily Class Reviews",
-            "subitems": ["Team Work", "Self-organization Skills"]
-          },
-          {
-            "subtitle": "Git-Workflows"
-          },
-          {
-            "subtitle": "Students 1:1",
-            "subitems": ["Spot Check with Instructional Team"]
-          },
-          {
-            "subtitle": "Project Team Work",
-            "subitems": ["Git Project Board"]
-          }
-        ]
-      },
-      {
-        "title": "Exploratory Data Analysis (EDA) & Statistics",
-        "items": [
-          {
-            "subtitle": "Data Preprocessing",
-            "subitems": ["Scikit-learn Pipelines", "Pandas DataFrame"]
-          },
-          {
-            "subtitle": "Data Analysis",
-            "subitems": ["Distributional Analysis", "General Statistics"]
-          },
-          {
-            "subtitle": "Data Visualization",
-            "subitems": ["Altair", "Matplotlib", "Plotly", "Seaborn"]
-          }
-        ]
-      },
-      {
-        "title": "Data Science Portfolio Projects",
-        "items": [
-          {
-            "subtitle": "Project 1",
-            "subitems": ["Exploratory Data Analysis"]
-          },
-          {
-            "subtitle": "Project 2",
-            "subitems": ["Predictive Modelling"]
-          },
-          {
-            "subtitle": "Final Project",
-            "subitems": ["Capstone (4 weeks)"]
-          }
-        ]
-      },
-      {
-        "title": "Communication with Stakeholders",
-        "items": [
-          {
-            "subtitle": "Business Presentation",
-            "subitems": ["Non-Technical Stakeholders"]
-          },
-          {
-            "subtitle": "Stakeholder Review",
-            "subitems": ["Compact & Time-critical Project Alignment"]
-          }
-        ]
-      },
-      {
-        "title": "Machine Learning",
-        "items": [
-          {
-            "subtitle": "Regression & Classification"
-          },
-          {
-            "subtitle": "Machine Learning Algorithms",
             "subitems": [
-              "OLS-based Models",
-              "Logistic Regression",
-              "Decision Trees",
-              "Random Forests",
-              "Naive Bayes",
-              "KNN",
-              "SVM",
-              "k-Means",
-              "PCA",
-              "Semi-supervised Models"
+              "Kanban",
+              "Minimal Viable Product (MVP)",
+              "Daily Stand-Ups",
+              "Retrospectives"
             ]
           },
           {
-            "subtitle": "Evaluation & Performance Metrics",
-            "subitems": [
-              "Decision Matrix",
-              "Regression & Classification Metrics"
-            ]
+            "subtitle": "Self-organization skills"
           },
           {
-            "subtitle": "Model Tuning",
-            "subitems": [
-              "Bias-Variance-Tradeoff",
-              "Regularization",
-              "Cross-Validation",
-              "MLflow"
-            ]
+            "subtitle": "Daily protocol and topic review"
           },
           {
-            "subtitle": "Optimization",
-            "subitems": ["Gradient Descent", "Loss Functions"]
+            "subtitle": "Group work, individual exercises, reversed classroom (Presentations from students)"
           },
           {
-            "subtitle": "Deep Learning"
-          },
-          {
-            "subtitle": "Time Series"
+            "subtitle": "Student 1:1 - Spot checks with instructional team"
           }
         ]
       }
