@@ -16,5 +16,5 @@ export default {
   'TECH-STACK:': 'TECH-STACK:',
   ABSCHLUSSPROJEKT: 'FINAL PROJECT',
   '“DIGITALES GESELLENSTÜCK“': '“CAPSTONE PROJECT“',
-  ', den': ', ',
+  ', den': ',',
 };
