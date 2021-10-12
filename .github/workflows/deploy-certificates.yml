@@ -71,5 +71,5 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-          cd certificates
-          docker-compose pull && docker-compose up -d
+            cd certificates
+            docker-compose pull && docker-compose up -d
