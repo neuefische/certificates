@@ -1275,9 +1275,15 @@
       {
         "title": "Tools",
         "items": [
-          "VSCode",
+          "Visual Studio Code",
+          "Chrome Developer Tools",
+          "MongoDB Atlas",
+          "Rest Client",
+          "Prettier",
           "Slack",
-          "Zoom"
+          "Zoom",
+          "Figma",
+          "Git-Workflow mit GitHub"
         ]
       },
       {
