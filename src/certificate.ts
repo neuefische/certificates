@@ -157,6 +157,21 @@ function renderFirstPage(
     });
   }
 
+  if (course.type === 'java') {
+    text(doc, {
+      text: t('(Java Development)', lang),
+      x: 0,
+      y: 366,
+      options: {
+        width: A4SIZE[0],
+        align: 'center',
+      },
+      fontSize: 17,
+      fillColor: SECONDARY_TEXT_COLOR,
+      font: 'src/assets/fonts/OpenSans/OpenSans-Light.ttf',
+    });
+  }
+
   if (course.type === 'analytics') {
     text(doc, {
       text: t('(Advanced Data Analytics)', lang),
