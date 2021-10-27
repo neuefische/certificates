@@ -1203,5 +1203,103 @@
         ]
       }
     ]
+  },
+  {
+    "id": "hh-web-21-5-de",
+    "coach": "Lukas Petry",
+    "type": "web",
+    "startDate": "2021-08-16",
+    "endDate": "2021-11-05",
+    "location": "Hamburg",
+    "topics": [
+      {
+        "title": "Shell",
+        "items": ["Unix Commands", "Git", "Zsh"]
+      },
+      {
+        "title": "HTML",
+        "items": [
+          "Semantic Elements",
+          "Forms and Inputs",
+          "Responsive Web Design",
+          "A11y Basics"
+        ]
+      },
+      {
+        "title": "CSS",
+        "items": [
+          "Selectors",
+          "Specificity",
+          "Conventions",
+          "Media Queries",
+          "Layout"
+        ]
+      },
+      {
+        "title": "JavaScript",
+        "items": [
+          "ECMAScript (ESNext)",
+          "Events",
+          "DOM Manipulation",
+          "Browser APIs",
+          "Array Methods",
+          "Asynchronous Programming",
+          "Debugger",
+          "Unit Testing"
+        ]
+      },
+      {
+        "title": "React",
+        "items": [
+          "Latest Version",
+          "Function Components",
+          "Hooks",
+          "Routing",
+          "Living Styleguide",
+          "Controlled Components",
+          "Component Testing"
+        ]
+      },
+      {
+        "title": "Backend",
+        "items": [
+          "Node.js",
+          "RESTful APIs",
+          "Routing",
+          "MongoDB",
+          "Schemas and Models",
+          "Databases Overview",
+          "Tooling"
+        ]
+      },
+      {
+        "title": "Tools",
+        "items": [
+          "Visual Studio Code",
+          "Chrome Developer Tools",
+          "MongoDB Atlas",
+          "Rest Client",
+          "Prettier",
+          "Slack",
+          "Zoom",
+          "Figma",
+          "Git-Workflow mit GitHub"
+        ]
+      },
+      {
+        "title": "Weitere Lehrinhalte",
+        "items": [
+          "Clean Code",
+          "Pair Programming",
+          "Working in Teams",
+          "Development Workflow",
+          "Performance Optimization",
+          "UI/UX Basics",
+          "Agile Methods",
+          "Product Development",
+          "Career Coaching"
+        ]
+      }
+    ]
   }
 ]
