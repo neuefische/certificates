@@ -2,11 +2,15 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import express from 'express';
+import Ajv from 'ajv';
 import { getTalent, getCourseFromFS, Talent } from './api';
 import { createCertificate } from './certificate';
 import { normalizeDiacritics } from './utils';
+import { TalentSchema } from './schema';
 
 const app = express();
+const ajv = new Ajv();
+const validateTalent = ajv.compile(TalentSchema);
 
 app.use(express.json());
 
@@ -57,7 +61,14 @@ app.get('/', async (req, res) => {
 
 app.post('/', async (req, res) => {
   const talent: Talent = req.body;
+
   try {
+    const valid = validateTalent(talent);
+    console.log(valid);
+    if (!valid) {
+      res.status(400).send('Malformed data');
+      return;
+    }
     const course = await getCourseFromFS(talent.courseId);
     const doc = await createCertificate(talent, course);
     res.setHeader('Content-Type', 'application/pdf');
