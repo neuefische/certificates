@@ -5,7 +5,6 @@ export type Talent = {
   id: string;
   firstName: string;
   lastName: string;
-  courseId: string;
   capstoneProject?: CapstoneProject;
 };
 
@@ -69,7 +68,6 @@ export async function getTalent(id: string): Promise<Talent | undefined> {
     firstName: talent.firstName,
     lastName: talent.lastName,
     id: talent.id,
-    courseId: 'web-cgn-21-2',
   };
   if (talent.project) {
     const formattedCapstoneProject = {
