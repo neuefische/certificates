@@ -2,7 +2,6 @@ import fs from 'fs/promises';
 import fetch from 'node-fetch';
 
 export type Talent = {
-  id: string;
   firstName: string;
   lastName: string;
   courseId?: string;
@@ -68,7 +67,6 @@ export async function getTalent(id: string): Promise<Talent | undefined> {
   const formattedTalent: Talent = {
     firstName: talent.firstName,
     lastName: talent.lastName,
-    id: talent.id,
   };
   if (talent.project) {
     const formattedCapstoneProject = {
