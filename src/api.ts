@@ -5,6 +5,7 @@ export type Talent = {
   id: string;
   firstName: string;
   lastName: string;
+  courseId?: string;
   capstoneProject?: CapstoneProject;
 };
 
