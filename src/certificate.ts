@@ -1,5 +1,4 @@
 import PDFDocument from 'pdfkit';
-import http from 'http';
 import fetch from 'node-fetch';
 import { Course, Talent, Topics } from './api';
 import text from './components/text';
@@ -10,17 +9,11 @@ const A4SIZE: [number, number] = [595.28, 841.89];
 const PRIMARY_TEXT_COLOR = '#1A3251';
 const SECONDARY_TEXT_COLOR = '#7589A2';
 
-export async function responseCertificate(
-  res: http.ServerResponse,
+export async function createCertificate(
   talent: Talent,
   course: Course
-): Promise<void> {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/pdf');
-
+): Promise<PDFKit.PDFDocument> {
   const doc = new PDFDocument({ size: 'A4' });
-
-  doc.pipe(res);
 
   renderFirstPage(doc, talent, course, course.lang);
 
@@ -34,6 +27,7 @@ export async function responseCertificate(
   }
 
   doc.end();
+  return doc;
 }
 
 function renderFirstPage(
