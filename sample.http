@@ -1,0 +1,17 @@
+### Post data to get certificate
+POST http://localhost:3030/
+Content-Type: application/json
+
+{
+    "firstName": "Test",
+    "lastName": "Person",
+    "courseId": "web-cgn-21-2",
+    "capstoneProject": {
+        "isDesktop": false,
+        "title": "Test",
+        "subtitle": "Test Subtitle",
+        "description": "Test Description",
+        "technologies": ["Test1", "Test2"],
+        "thumbnail":"https://nf-talent-app-pubic-image-prod.s3.eu-central-1.amazonaws.com/73df25e3-c6db-4267-b270-a480e38ac6dc_1627541808989/800/image.jpeg"
+    }
+}
