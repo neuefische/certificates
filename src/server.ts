@@ -3,10 +3,12 @@ dotenv.config();
 
 import express from 'express';
 import { getTalent, getCourseFromFS } from './api';
-import { responseCertificate } from './certificate';
+import { createCertificate } from './certificate';
 import { normalizeDiacritics } from './utils';
 
 const app = express();
+
+app.use(express.json());
 
 const PORT = process.env.PORT || 3030;
 
@@ -34,8 +36,7 @@ app.get('/', async (req, res) => {
     }
     const course = await getCourseFromFS(courseId);
     if (!course) {
-      res.statusCode = 404;
-      res.end('Course not found');
+      res.status(404).send('Course not found');
       return;
     }
     res.setHeader(
@@ -45,7 +46,9 @@ app.get('/', async (req, res) => {
       )}_${normalizeDiacritics(talent.lastName)}_certificate.pdf"`
     );
 
-    responseCertificate(res, talent, course);
+    const doc = await createCertificate(talent, course);
+    res.setHeader('Content-Type', 'application/pdf');
+    doc.pipe(res);
   } catch (error) {
     console.log(error);
     res.status(400).send('Invalid payload JSON');
