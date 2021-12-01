@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import express from 'express';
-import { getTalent, getCourseFromFS } from './api';
+import { getTalent, getCourseFromFS, Talent } from './api';
 import { createCertificate } from './certificate';
 import { normalizeDiacritics } from './utils';
 
@@ -51,6 +51,19 @@ app.get('/', async (req, res) => {
     doc.pipe(res);
   } catch (error) {
     console.log(error);
+    res.status(400).send('Invalid payload JSON');
+  }
+});
+
+app.post('/', async (req, res) => {
+  const talent: Talent = req.body;
+  try {
+    const course = await getCourseFromFS(talent.courseId);
+    const doc = await createCertificate(talent, course);
+    res.setHeader('Content-Type', 'application/pdf');
+    doc.pipe(res);
+  } catch (e) {
+    console.error(e);
     res.status(400).send('Invalid payload JSON');
   }
 });
