@@ -1,75 +1,57 @@
 import dotenv from 'dotenv';
 dotenv.config();
-import http from 'http';
+
+import express from 'express';
 import { getTalent, getCourseFromFS } from './api';
 import { responseCertificate } from './certificate';
 import { normalizeDiacritics } from './utils';
 
-const ONE_DAY = 86400;
+const app = express();
+
 const PORT = process.env.PORT || 3030;
 
-http
-  .createServer(async (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    res.setHeader('Access-Control-Max-Age', ONE_DAY);
+app.get('/', async (req, res) => {
+  const { id, course: courseId } = req.query;
 
-    const url = new URL(req.url, `http://localhost:${PORT}`);
+  if (typeof id !== 'string') {
+    res.status(400).send('Id is malformed');
+    return;
+  }
+  if (typeof courseId !== 'string') {
+    res.status(400).send('CourseId is malformed');
+    return;
+  }
+  if (!id) {
+    res.status(400).send('Missing search parameter "id"');
+    return;
+  }
 
-    if (url.pathname !== '/') {
+  try {
+    const talent = await getTalent(id);
+    if (!talent) {
+      res.status(404).send('Talent not found');
+      return;
+    }
+    const course = await getCourseFromFS(courseId);
+    if (!course) {
       res.statusCode = 404;
-      res.end();
+      res.end('Course not found');
       return;
     }
+    res.setHeader(
+      'Content-Disposition',
+      `inline; filename="${normalizeDiacritics(
+        talent.firstName
+      )}_${normalizeDiacritics(talent.lastName)}_certificate.pdf"`
+    );
 
-    if (req.method === 'OPTIONS') {
-      res.setHeader('ALLOW', 'OPTIONS, GET');
-      res.end();
-      return;
-    }
+    responseCertificate(res, talent, course);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send('Invalid payload JSON');
+  }
+});
 
-    if (req.method === 'GET') {
-      const id = url.searchParams.get('id');
-      const courseId = url.searchParams.get('course');
-      if (!id) {
-        res.statusCode = 400;
-        res.end('Missing search parameter "id"');
-        return;
-      }
-
-      try {
-        const talent = await getTalent(id);
-        if (!talent) {
-          res.statusCode = 404;
-          res.end('Talent not found');
-          return;
-        }
-        const course = await getCourseFromFS(courseId || talent.courseId);
-        if (!course) {
-          res.statusCode = 404;
-          res.end('Course not found');
-          return;
-        }
-        res.setHeader(
-          'Content-Disposition',
-          `inline; filename="${normalizeDiacritics(
-            talent.firstName
-          )}_${normalizeDiacritics(talent.lastName)}_certificate.pdf"`
-        );
-
-        responseCertificate(res, talent, course);
-      } catch (error) {
-        console.log(error);
-        res.statusCode = 400;
-        res.end('Invalid payload JSON');
-      }
-      return;
-    }
-
-    res.statusCode = 405;
-    res.end();
-  })
-  .listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
-  });
+app.listen(PORT, () => {
+  console.log(`Server is listening at http://localhost:${PORT}`);
+});
