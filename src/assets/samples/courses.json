@@ -1448,5 +1448,166 @@
         ]
       }
     ]
+  },
+  {
+    "id": "data-hh-21-3",
+    "coach": "Tereza Iofciu",
+    "startDate": "2021-09-13",
+    "endDate": "2021-12-03",
+    "location": "Hamburg",
+    "topics": [
+      {
+        "title": "Programming & Database",
+        "items": [
+          {
+            "subtitle": "Python",
+            "subitems": [
+              "Pandas",
+              "Numpy",
+              "Functional Programming",
+              "Scikit-Learn",
+              "Statsmodels",
+              "TensorFlow/Keras"
+            ]
+          },
+          {
+            "subtitle": "Visualization",
+            "subitems": ["Matplotlib", "Seaborn", "Plotly", "Altair"]
+          },
+          {
+            "subtitle": "Unix",
+            "subitems": ["Filesystem Manipulation"]
+          },
+          {
+            "subtitle": "SQL"
+          },
+          {
+            "subtitle": "Git (Github)"
+          },
+          {
+            "subtitle": "Cloud",
+            "subitems": ["Intro to GCP", "Intro to AWS"]
+          }
+        ]
+      },
+      {
+        "title": "Exploratory Data Analysis (EDA) & Statistics",
+        "items": [
+          {
+            "subtitle": "Data Analysis",
+            "subitems": ["Distributional Analysis", "General Statistics"]
+          },
+          {
+            "subtitle": "Data Visualization",
+            "subitems": [
+              "Distribution Plots",
+              "Relationship Plots",
+              "Geo Visualizations"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Machine Learning Algorithms",
+        "items": [
+          {
+            "subtitle": "Supervised Learning",
+            "subitems": [
+              "Linear Regression",
+              "Logistic Regression",
+              "Decision Trees",
+              "Random Forests",
+              "Naive Bayes",
+              "KNN",
+              "SVM"
+            ]
+          },
+          {
+            "subtitle": "Unsupervised Learning"
+          },
+          {
+            "subtitle": "Semi-supervised Learning"
+          },
+          {
+            "subtitle": "Deep Learning"
+          },
+          {
+            "subtitle": "Natural Language Processing"
+          },
+          {
+            "subtitle": "Time Series"
+          },
+          {
+            "subtitle": "Evaluation & Performance Metrics",
+            "subitems": [
+              "Regression & Classification Metrics",
+              "Error Analysis"
+            ]
+          },
+          {
+            "subtitle": "Model Tuning",
+            "subitems": [
+              "Bias-Variance-Tradeoff",
+              "Regularization",
+              "Cross-Validation"
+            ]
+          },
+          {
+            "subtitle": "Optimization",
+            "subitems": ["Gradient Descent", "Cost Functions"]
+          }
+        ]
+      },
+      {
+        "title": "Collaborative Working & Social Learning",
+        "items": [
+          {
+            "subtitle": "Pair Coding",
+            "subitems": ["Driver & Navigator"]
+          },
+          {
+            "subtitle": "Agile Workflow",
+            "subitems": ["Daily Stand-Ups", "Kanban Project Boards"]
+          },
+          {
+            "subtitle": "Daily Class Reviews",
+            "subitems": ["Team Work & Self-organization Skills"]
+          },
+          {
+            "subtitle": "Group Work, Individual Exercises, Reversed Classroom",
+            "subitems": ["Presentations from Students"]
+          },
+          {
+            "subtitle": "Career Coaching & Mentoring"
+          }
+        ]
+      },
+      {
+        "title": "Machine Learning Engineering",
+        "items": [
+          {
+            "subitems": [
+              "MLFlow Tracking",
+              "Serving ML Models",
+              "Online Dashboards",
+              "Heroku Deployment"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Communication with Stakeholders",
+        "items": [
+          {
+            "subtitle": "Business Presentation",
+            "subitems": ["Non-Technical Stakeholders"]
+          },
+          {
+            "subtitle": "Data Science Lifecycle Presentation",
+            "subitems": ["Technical Stakeholders"]
+          }
+        ]
+      }
+    ]
   }
 ]
