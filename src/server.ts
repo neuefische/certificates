@@ -64,12 +64,15 @@ app.post('/', async (req, res) => {
 
   try {
     const valid = validateTalent(talent);
-    console.log(valid);
     if (!valid) {
       res.status(400).send('Malformed data');
       return;
     }
     const course = await getCourseFromFS(talent.courseId);
+    if (!course) {
+      res.status(404).send('Course not found');
+      return;
+    }
     const doc = await createCertificate(talent, course);
     res.setHeader('Content-Type', 'application/pdf');
     doc.pipe(res);
