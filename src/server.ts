@@ -1,75 +1,87 @@
 import dotenv from 'dotenv';
 dotenv.config();
-import http from 'http';
-import { getTalent, getCourseFromFS } from './api';
-import { responseCertificate } from './certificate';
-import { normalizeDiacritics } from './utils';
 
-const ONE_DAY = 86400;
+import express from 'express';
+import Ajv from 'ajv';
+import { getTalent, getCourseFromFS, Talent } from './api';
+import { createCertificate } from './certificate';
+import { normalizeDiacritics } from './utils';
+import { TalentSchema } from './schema';
+
+const app = express();
+const ajv = new Ajv();
+const validateTalent = ajv.compile(TalentSchema);
+
+app.use(express.json());
+
 const PORT = process.env.PORT || 3030;
 
-http
-  .createServer(async (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    res.setHeader('Access-Control-Max-Age', ONE_DAY);
+app.get('/', async (req, res) => {
+  const { id, course: courseId } = req.query;
 
-    const url = new URL(req.url, `http://localhost:${PORT}`);
+  if (typeof id !== 'string') {
+    res.status(400).send('Id is malformed');
+    return;
+  }
+  if (typeof courseId !== 'string') {
+    res.status(400).send('CourseId is malformed');
+    return;
+  }
+  if (!id) {
+    res.status(400).send('Missing search parameter "id"');
+    return;
+  }
 
-    if (url.pathname !== '/') {
-      res.statusCode = 404;
-      res.end();
+  try {
+    const talent = await getTalent(id);
+    if (!talent) {
+      res.status(404).send('Talent not found');
       return;
     }
-
-    if (req.method === 'OPTIONS') {
-      res.setHeader('ALLOW', 'OPTIONS, GET');
-      res.end();
+    const course = await getCourseFromFS(courseId);
+    if (!course) {
+      res.status(404).send('Course not found');
       return;
     }
+    res.setHeader(
+      'Content-Disposition',
+      `inline; filename="${normalizeDiacritics(
+        talent.firstName
+      )}_${normalizeDiacritics(talent.lastName)}_certificate.pdf"`
+    );
 
-    if (req.method === 'GET') {
-      const id = url.searchParams.get('id');
-      const courseId = url.searchParams.get('course');
-      if (!id) {
-        res.statusCode = 400;
-        res.end('Missing search parameter "id"');
-        return;
-      }
+    const doc = await createCertificate(talent, course);
+    res.setHeader('Content-Type', 'application/pdf');
+    doc.pipe(res);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send('Invalid payload JSON');
+  }
+});
 
-      try {
-        const talent = await getTalent(id);
-        if (!talent) {
-          res.statusCode = 404;
-          res.end('Talent not found');
-          return;
-        }
-        const course = await getCourseFromFS(courseId || talent.courseId);
-        if (!course) {
-          res.statusCode = 404;
-          res.end('Course not found');
-          return;
-        }
-        res.setHeader(
-          'Content-Disposition',
-          `inline; filename="${normalizeDiacritics(
-            talent.firstName
-          )}_${normalizeDiacritics(talent.lastName)}_certificate.pdf"`
-        );
+app.post('/', async (req, res) => {
+  const talent: Talent = req.body;
 
-        responseCertificate(res, talent, course);
-      } catch (error) {
-        console.log(error);
-        res.statusCode = 400;
-        res.end('Invalid payload JSON');
-      }
+  try {
+    const valid = validateTalent(talent);
+    if (!valid) {
+      res.status(400).send('Malformed data');
       return;
     }
+    const course = await getCourseFromFS(talent.courseId);
+    if (!course) {
+      res.status(404).send('Course not found');
+      return;
+    }
+    const doc = await createCertificate(talent, course);
+    res.setHeader('Content-Type', 'application/pdf');
+    doc.pipe(res);
+  } catch (e) {
+    console.error(e);
+    res.status(400).send('Invalid payload JSON');
+  }
+});
 
-    res.statusCode = 405;
-    res.end();
-  })
-  .listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
-  });
+app.listen(PORT, () => {
+  console.log(`Server is listening at http://localhost:${PORT}`);
+});
