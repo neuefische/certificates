@@ -1557,6 +1557,7 @@
   {
     "id": "data-hh-21-3",
     "coach": "Tereza Iofciu",
+    "type": "data",
     "startDate": "2021-09-13",
     "endDate": "2021-12-03",
     "location": "Hamburg",
