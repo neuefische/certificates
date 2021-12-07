@@ -3,3 +3,5 @@ build
 .eslintcache
 .DS_Store
 .env
+/.idea/
+*.iml
