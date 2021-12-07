@@ -553,7 +553,6 @@
           "ECMAScript 2021",
           "Array-Methoden",
           "Promises und async/await",
-          "Jest",
           "Arbeiten mit npm"
         ]
       },
@@ -572,7 +571,6 @@
         "items": [
           "Version 17",
           "React Router",
-          "React Testing Library",
           "Functional components",
           "Styled-components",
           "useState",
@@ -590,6 +588,9 @@
           "Objektorientierte Programmierung",
           "Collections",
           "Streaming API",
+          "Enums",
+          "Optionals",
+          "Exceptions",
           "Spring Boot Web",
           "Spring Data MongoDB",
           "Spring Security"
@@ -627,6 +628,7 @@
           "Agile Methoden mit Scrum und Kanban",
           "UX-Grundkenntnisse",
           "IntelliJ",
+          "Sonar Lint/-Cloud",
           "Swagger"
         ]
       }
