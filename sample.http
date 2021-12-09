@@ -65,8 +65,6 @@ Content-Type: application/json
 
 ### Get data certificate with course via post
 
-### Get web certificate with course via post
-
 POST http://localhost:3030/
 Content-Type: application/json
 
