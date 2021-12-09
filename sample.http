@@ -1,17 +1,148 @@
-### Post data to get certificate
+### Get certificate with course from fs
 POST http://localhost:3030/
 Content-Type: application/json
 
 {
-    "firstName": "Test",
-    "lastName": "Person",
-    "courseId": "web-cgn-21-2",
-    "capstoneProject": {
-        "isDesktop": false,
-        "title": "Test",
-        "subtitle": "Test Subtitle",
-        "description": "Test Description",
-        "technologies": ["Test1", "Test2"],
-        "thumbnail":"https://nf-talent-app-pubic-image-prod.s3.eu-central-1.amazonaws.com/73df25e3-c6db-4267-b270-a480e38ac6dc_1627541808989/800/image.jpeg"
+    "talent":{
+        "firstName": "Test",
+        "lastName": "Person",
+        "courseId": "web-cgn-21-2",
+        "capstoneProject": {
+            "isDesktop": false,
+            "title": "Test",
+            "subtitle": "Test Subtitle",
+            "description": "Test Description",
+            "technologies": ["Test1", "Test2"],
+            "thumbnail":"https://nf-talent-app-pubic-image-prod.s3.eu-central-1.amazonaws.com/73df25e3-c6db-4267-b270-a480e38ac6dc_1627541808989/800/image.jpeg"
+        }
+    }
+}
+
+### Get web certificate with course via post
+
+POST http://localhost:3030/
+Content-Type: application/json
+
+{
+    "talent":{
+        "firstName": "Test",
+        "lastName": "Person",
+        "courseId": "web-cgn-21-2",
+        "capstoneProject": {
+            "isDesktop": false,
+            "title": "Test",
+            "subtitle": "Test Subtitle",
+            "description": "Test Description",
+            "technologies": ["Test1", "Test2"],
+            "thumbnail":"https://nf-talent-app-pubic-image-prod.s3.eu-central-1.amazonaws.com/73df25e3-c6db-4267-b270-a480e38ac6dc_1627541808989/800/image.jpeg"
+        }
+    },
+    "course":{
+        "coach": "Test Coach",
+        "startDate": "01.01.1970",
+        "endDate": "02.01.1970",
+        "location": "Bielefeld",
+        "lang": "de",
+        "type": "web",
+        "topics": [
+            {
+                "title": "Shell",
+                "items": ["Unix Commands", "Git Commands", "Zsh"]
+            },
+            {
+                "title": "HTML5",
+                "items": [
+                "HTML5 Elemente",
+                "Formulare und Inputs",
+                "Semantik",
+                "Responsive Websites",
+                "Accessibility"
+                ]
+            }
+        ]
+    }
+}
+
+### Get data certificate with course via post
+
+### Get web certificate with course via post
+
+POST http://localhost:3030/
+Content-Type: application/json
+
+{
+    "talent":{
+        "firstName": "Test",
+        "lastName": "Person",
+        "courseId": "web-cgn-21-2",
+        "capstoneProject": {
+            "isDesktop": false,
+            "title": "Test",
+            "subtitle": "Test Subtitle",
+            "description": "Test Description",
+            "technologies": ["Test1", "Test2"],
+            "thumbnail":"https://nf-talent-app-pubic-image-prod.s3.eu-central-1.amazonaws.com/73df25e3-c6db-4267-b270-a480e38ac6dc_1627541808989/800/image.jpeg"
+        }
+    },
+    "course":{
+        "coach": "Test Coach",
+        "startDate": "01.01.1970",
+        "endDate": "02.01.1970",
+        "location": "Bielefeld",
+        "lang": "en",
+        "type": "analytics",
+        "topics": [
+            {
+                "title": "Programming & Database",
+                "items": [
+                {
+                    "subtitle": "Python",
+                    "subitems": [
+                    "Pandas",
+                    "Numpy",
+                    "Functional Programming",
+                    "Scikit-learn",
+                    "Statsmodels",
+                    "TensorFlow/Keras"
+                    ]
+                },
+                {
+                    "subtitle": "Unix",
+                    "subitems": ["Filesystem Manipulation"]
+                },
+                {
+                    "subtitle": "SQL"
+                }
+                ]
+            },
+            {
+                "title": "Collaborative Working & Social Learning",
+                "items": [
+                {
+                    "subtitle": "Pair Programming",
+                    "subitems": ["Driver & Navigator"]
+                },
+                {
+                    "subtitle": "Agile Workflow",
+                    "subitems": ["Daily Stand-Ups", "Kanban & Scrum"]
+                },
+                {
+                    "subtitle": "Daily Class Reviews",
+                    "subitems": ["Team Work", "Self-organization Skills"]
+                },
+                {
+                    "subtitle": "Git-Workflows"
+                },
+                {
+                    "subtitle": "Students 1:1",
+                    "subitems": ["Spot Check with Instructional Team"]
+                },
+                {
+                    "subtitle": "Project Team Work",
+                    "subitems": ["Git Project Board"]
+                }
+                ]
+            }
+        ]
     }
 }
