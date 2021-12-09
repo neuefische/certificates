@@ -3,14 +3,16 @@ dotenv.config();
 
 import express from 'express';
 import Ajv from 'ajv';
-import { getTalent, getCourseFromFS, Talent } from './api';
+import { getTalent, getCourseFromFS, Talent, Course } from './api';
 import { createCertificate } from './certificate';
 import { normalizeDiacritics } from './utils';
-import { TalentSchema } from './schema';
+import { DataCourseSchema, TalentSchema, WebCourseSchema } from './schema';
 
 const app = express();
 const ajv = new Ajv();
 const validateTalent = ajv.compile(TalentSchema);
+const validateWebCourse = ajv.compile(WebCourseSchema);
+const validateDataCourse = ajv.compile(DataCourseSchema);
 
 app.use(express.json());
 
@@ -60,7 +62,7 @@ app.get('/', async (req, res) => {
 });
 
 app.post('/', async (req, res) => {
-  const talent: Talent = req.body;
+  const { talent, course }: { talent: Talent; course: Course } = req.body;
 
   try {
     const valid = validateTalent(talent);
@@ -68,14 +70,22 @@ app.post('/', async (req, res) => {
       res.status(400).send('Malformed data');
       return;
     }
-    const course = await getCourseFromFS(talent.courseId);
     if (!course) {
-      res.status(404).send('Course not found');
-      return;
+      const fsCourse = await getCourseFromFS(talent.courseId);
+      if (!fsCourse) {
+        res.status(404).send('Course not found');
+        return;
+      }
+      const doc = await createCertificate(talent, fsCourse);
+      res.setHeader('Content-Type', 'application/pdf');
+      doc.pipe(res);
+    } else {
+      if (validateWebCourse(course) || validateDataCourse(course)) {
+        const doc = await createCertificate(talent, course);
+        res.setHeader('Content-Type', 'application/pdf');
+        doc.pipe(res);
+      }
     }
-    const doc = await createCertificate(talent, course);
-    res.setHeader('Content-Type', 'application/pdf');
-    doc.pipe(res);
   } catch (e) {
     console.error(e);
     res.status(400).send('Invalid payload JSON');
