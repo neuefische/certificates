@@ -1879,5 +1879,106 @@
         ]
       }
     ]
+  },
+  {
+    "id": "cgn-web-21-4",
+    "coach": "Leon Machens",
+    "type": "web",
+    "startDate": "2021-09-27",
+    "endDate": "2021-12-20",
+    "location": "Köln",
+    "topics": [
+      {
+        "title": "Shell",
+        "items": ["Unix Commands", "Git Commands", "Zsh"]
+      },
+      {
+        "title": "HTML5",
+        "items": [
+          "HTML5 Elemente",
+          "Formulare und Inputs",
+          "Semantik",
+          "Responsive Websites",
+          "Accessibility"
+        ]
+      },
+      {
+        "title": "CSS3",
+        "items": [
+          "CSS3",
+          "Selektoren",
+          "Spezifität",
+          "Media Queries",
+          "display: flex",
+          "display: grid",
+          "CSS Modules",
+          "Styled Components"
+        ]
+      },
+      {
+        "title": "Backend",
+        "items": ["RESTful API", "Node.js", "Express", "MongoDB", "dotenv"]
+      },
+      {
+        "title": "JavaScript",
+        "items": [
+          "ESNext",
+          "TypeScript",
+          "Events",
+          "DOM-Manipulation",
+          "localStorage / sessionStorage",
+          "JSON",
+          "Array-Methoden",
+          "fetch",
+          "Promises",
+          "async / await",
+          "npm"
+        ]
+      },
+      {
+        "title": "React",
+        "items": [
+          "Version 17",
+          "React Hooks",
+          "Custom Hooks",
+          "State / useState",
+          "Lifecycle methods / useEffect",
+          "Functional components",
+          "Storybook"
+        ]
+      },
+      {
+        "title": "Weitere Lehrinhalte",
+        "items": [
+          "Clean Code",
+          "Pair programming",
+          "Git-Workflow mit GitHub",
+          "Agile Methoden mit Scrum und Kanban",
+          "UI / UX-Grundkenntnisse",
+          "Wireframes / Prototype",
+          "Vite",
+          "CI / CD",
+          "Component Driven Development"
+        ]
+      },
+      {
+        "title": "Tools",
+        "items": [
+          "Visual Studio Code",
+          "Chrome Developer Tools",
+          "MongoDB Atlas",
+          "Rest Client",
+          "Heroku",
+          "Prettier",
+          "ESLint",
+          "Figma",
+          "Slack",
+          "husky",
+          "GitHub Actions",
+          "GitHub Projects",
+          "Zoom"
+        ]
+      }
+    ]
   }
 ]
