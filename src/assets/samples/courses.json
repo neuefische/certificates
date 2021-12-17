@@ -1893,7 +1893,7 @@
         "items": ["Unix Commands", "Git Commands", "Zsh"]
       },
       {
-        "title": "HTML5",
+        "title": "HTML",
         "items": [
           "HTML5 Elemente",
           "Formulare und Inputs",
@@ -1903,14 +1903,12 @@
         ]
       },
       {
-        "title": "CSS3",
+        "title": "CSS",
         "items": [
-          "CSS3",
           "Selektoren",
           "Spezifität",
           "Media Queries",
-          "display: flex",
-          "display: grid",
+          "Layout",
           "CSS Modules",
           "Styled Components"
         ]
@@ -1926,13 +1924,12 @@
           "TypeScript",
           "Events",
           "DOM-Manipulation",
-          "localStorage / sessionStorage",
+          "Browser APIs",
           "JSON",
           "Array-Methoden",
-          "fetch",
           "Promises",
           "async / await",
-          "npm"
+          "Tooling"
         ]
       },
       {
@@ -1956,7 +1953,6 @@
           "Agile Methoden mit Scrum und Kanban",
           "UI / UX-Grundkenntnisse",
           "Wireframes / Prototype",
-          "Vite",
           "CI / CD",
           "Component Driven Development"
         ]
@@ -1965,15 +1961,13 @@
         "title": "Tools",
         "items": [
           "Visual Studio Code",
-          "Chrome Developer Tools",
+          "Developer Tools",
           "MongoDB Atlas",
           "Rest Client",
           "Heroku",
-          "Prettier",
-          "ESLint",
+          "Linting",
           "Figma",
           "Slack",
-          "husky",
           "GitHub Actions",
           "GitHub Projects",
           "Zoom"
