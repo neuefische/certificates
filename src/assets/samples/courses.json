@@ -2075,5 +2075,116 @@
         ]
       }
     ]
+  },
+  {
+    "id": "muc-web-21-3",
+    "coach": "Thomas Kirst",
+    "type": "web",
+    "startDate": "2021-11-08",
+    "endDate": "2022-02-04",
+    "location": "München",
+    "topics": [
+      {
+        "title": "Shell",
+        "items": ["Unix Commands", "Git", "Zsh"]
+      },
+      {
+        "title": "HTML5",
+        "items": [
+          "Semantic Elements",
+          "Forms and Inputs",
+          "Responsive Web Design",
+          "Accessibility"
+        ]
+      },
+      {
+        "title": "CSS3",
+        "items": [
+          "Selectors",
+          "Specificity",
+          "Conventions",
+          "Media Queries",
+          "Transitions",
+          "Layout (flex/grid)",
+          "Tooling",
+          "UI Libraries"
+        ]
+      },
+      {
+        "title": "JavaScript",
+        "items": [
+          "ECMAScript (ES2020)",
+          "Events",
+          "DOM Manipulation",
+          "Browser APIs",
+          "Array Methods",
+          "Functional Programming",
+          "Asynchronous Programming",
+          "Tooling",
+          "Debugging",
+          "Unit Testing"
+        ]
+      },
+      {
+        "title": "React",
+        "items": [
+          "Latest Version",
+          "Functional Components",
+          "Controlled Components",
+          "Context API",
+          "Hooks",
+          "Living Styleguide",
+          "Routing",
+          "State Management",
+          "End-to-End Testing"
+        ]
+      },
+      {
+        "title": "Backend",
+        "items": [
+          "Node.js",
+          "Express",
+          "RESTful APIs",
+          "Databases Overview",
+          "Schemas and Models",
+          "MongoDB with mongoose",
+          "Promises with async/await",
+          "Security",
+          "Tooling"
+        ]
+      },
+      {
+        "title": "Tools",
+        "items": [
+          "Build Pipelines",
+          "Continuous Integration",
+          "Continuous Delivery",
+          "MongoDB Atlas",
+          "Linting",
+          "Prettier",
+          "Slack",
+          "Zoom",
+          "VSCode",
+          "Postman",
+          "Vercel",
+          "Heroku",
+          "Figma"
+        ]
+      },
+      {
+        "title": "Weitere Lehrinhalte",
+        "items": [
+          "Agile Methods",
+          "Career Coaching",
+          "Clean Code",
+          "Development Workflow",
+          "Pair Programming",
+          "Performance Optimization",
+          "Product Development",
+          "UI/UX Basics",
+          "Working in Teams"
+        ]
+      }
+    ]
   }
 ]
