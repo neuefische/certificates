@@ -719,7 +719,6 @@
       {
         "title": "Testing & Debugging",
         "items": [
-          "Test-Driven-Development",
           "Unit-Tests mit JUnit 5",
           "Mockito",
           "Hamcrest",
@@ -729,6 +728,7 @@
       {
         "title": "Weitere Lehrinhalte",
         "items": [
+          "Agile Softwareentwicklung",
           "Clean Code",
           "Arbeiten im Pairing und in Gruppen",
           "Git-Workflow mit GitHub",
