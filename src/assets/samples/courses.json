@@ -2461,5 +2461,150 @@
         ]
       }
     ]
+  },
+  {
+    "id": "muc-analytics-21-1",
+    "coach": "Philipp Wendt",
+    "type": "analytics",
+    "startDate": "2021-11-29",
+    "endDate": "2022-02-25",
+    "location": "München",
+    "lang": "en",
+    "topics": [
+      {
+        "title": "Data Analysis",
+        "items": [
+          {
+            "subtitle": "Data Collection",
+            "subitems": [
+              "Internal: .xls, .csv, PostgreSQL",
+              "External: Web data, APIs",
+              "ETL"
+            ]
+          },
+          {
+            "subtitle": "Data Cleaning"
+          },
+          {
+            "subtitle": "Data Exploration"
+          },
+          {
+            "subtitle": "Data Visualization"
+          },
+          {
+            "subtitle": "Chart Type Selection"
+          },
+          {
+            "subtitle": "Dashboarding"
+          },
+          {
+            "subtitle": "KPI Reporting"
+          }
+        ]
+      },
+      {
+        "title": "Statistics and Advanced Analytics",
+        "items": [
+          {
+            "subtitle": "Descriptive statistics"
+          },
+          {
+            "subtitle": "Inferential statistics"
+          },
+          {
+            "subtitle": "Machine learning algorithms",
+            "subitems": ["Linear Regression", "K-means", "DBScan"]
+          }
+        ]
+      },
+      {
+        "title": "Communication and Stakeholder Management",
+        "items": [
+          {
+            "subtitle": "Root cause analysis"
+          },
+          {
+            "subtitle": "Business presentations"
+          },
+          {
+            "subtitle": "Art of problem solving"
+          },
+          {
+            "subtitle": "Answer first method"
+          },
+          {
+            "subtitle": "Data analytics workflow"
+          },
+          {
+            "subtitle": "Analytics job interviewing techniques"
+          }
+        ]
+      },
+      {
+        "title": "Tools",
+        "items": [
+          {
+            "subtitle": "Python",
+            "subitems": [
+              "Pandas",
+              "Numpy",
+              "Scikit-Learn",
+              "Matplotlib",
+              "Seaborn"
+            ]
+          },
+          {
+            "subtitle": "SQL and databases"
+          },
+          {
+            "subtitle": "Tableau"
+          },
+          {
+            "subtitle": "Google Docs, Spreadsheets"
+          },
+          {
+            "subtitle": "Git-Workflow with GitHub"
+          },
+          {
+            "subtitle": "Unix-Commands"
+          },
+          {
+            "subtitle": "Visual Studio Code"
+          },
+          {
+            "subtitle": "Jupyter Notebooks"
+          }
+        ]
+      },
+      {
+        "title": "Collaborative Working & Social Learning",
+        "items": [
+          {
+            "subtitle": "Pair Programming"
+          },
+          {
+            "subtitle": "Agile Workflow",
+            "subitems": [
+              "Kanban",
+              "Minimal Viable Product (MVP)",
+              "Daily Stand-Ups",
+              "Retrospectives"
+            ]
+          },
+          {
+            "subtitle": "Self-organization skills"
+          },
+          {
+            "subtitle": "Daily protocol and topic review"
+          },
+          {
+            "subtitle": "Group work, individual exercises, reversed classroom (Presentations from students)"
+          },
+          {
+            "subtitle": "Student 1:1 - Spot checks with instructional team"
+          }
+        ]
+      }
+    ]
   }
 ]
