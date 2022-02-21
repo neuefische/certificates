@@ -2369,7 +2369,11 @@
         "items": [
           {
             "subtitle": "Data Collection",
-            "subitems": ["Internal Data Sourcing", "API", "ETL"]
+            "subitems": [
+              "Internal: .xls, .csv, PostgreSQL",
+              "External: Web data, APIs",
+              "ETL"
+            ]
           },
           {
             "subtitle": "Data Cleaning"
