@@ -2368,7 +2368,8 @@
         "title": "Data Analysis",
         "items": [
           {
-            "subtitle": "Data Collection"
+            "subtitle": "Data Collection",
+            "subitems": ["Internal Data Sourcing", "API", "ETL"]
           },
           {
             "subtitle": "Data Cleaning"
@@ -2377,8 +2378,7 @@
             "subtitle": "Data Exploration"
           },
           {
-            "subtitle": "Data Visualization",
-            "subitems": ["Matplotlib", "Seaborn", "Tableau"]
+            "subtitle": "Data Visualization"
           },
           {
             "subtitle": "Chart Type Selection"
@@ -2401,9 +2401,6 @@
             "subtitle": "Inferential statistics"
           },
           {
-            "subtitle": "Simulation modeling"
-          },
-          {
             "subtitle": "Machine learning algorithms",
             "subitems": ["Linear Regression", "K-means", "DBScan"]
           }
@@ -2413,7 +2410,7 @@
         "title": "Communication and Stakeholder Management",
         "items": [
           {
-            "subtitle": "Finding questions with '5 whys'"
+            "subtitle": "Root cause analysis"
           },
           {
             "subtitle": "Business presentations"
@@ -2465,9 +2462,6 @@
           },
           {
             "subtitle": "Jupyter Notebooks"
-          },
-          {
-            "subtitle": "Agile Methodologies"
           }
         ]
       },
