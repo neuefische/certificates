@@ -2606,5 +2606,105 @@
         ]
       }
     ]
+  },
+  {
+    "id": "hh-web-21-8",
+    "coach": "Gregor Adams",
+    "type": "web",
+    "startDate": "2021-11-29",
+    "endDate": "2022-02-25",
+    "location": "Hamburg",
+    "topics": [
+      {
+        "title": "Shell",
+        "items": ["Unix Commands", "Git", "Zsh"]
+      },
+      {
+        "title": "HTML",
+        "items": [
+          "Semantic Elements",
+          "Forms and Inputs",
+          "Responsive Web Design",
+          "A11y Basics"
+        ]
+      },
+      {
+        "title": "CSS",
+        "items": [
+          "Selectors",
+          "Specificity",
+          "Conventions",
+          "Animations",
+          "Media Queries",
+          "Layout"
+        ]
+      },
+      {
+        "title": "JavaScript",
+        "items": [
+          "ECMAScript (ESNext)",
+          "Events",
+          "DOM Manipulation",
+          "Browser APIs",
+          "Array Methods",
+          "Asynchronous Programming",
+          "Debugging",
+          "Unit Testing"
+        ]
+      },
+      {
+        "title": "React",
+        "items": [
+          "Latest Version",
+          "Function Components",
+          "Hooks",
+          "Routing",
+          "Living Styleguide",
+          "Controlled Components"
+        ]
+      },
+      {
+        "title": "Backend",
+        "items": [
+          "Node.js",
+          "RESTful APIs",
+          "Routing",
+          "MongoDB",
+          "Schemas and Models",
+          "Databases Overview",
+          "Tooling"
+        ]
+      },
+      {
+        "title": "Tools",
+        "items": [
+          "Visual Studio Code",
+          "Webstorm",
+          "Chrome Developer Tools",
+          "MongoDB Atlas",
+          "Prettier",
+          "Slack",
+          "Zoom",
+          "Figma",
+          "Git-Workflow with GitHub"
+        ]
+      },
+      {
+        "title": "Weitere Lehrinhalte",
+        "items": [
+          "Clean Code",
+          "Best Practice",
+          "Pair Programming",
+          "Working in Teams",
+          "Development Workflow",
+          "Performance Optimization",
+          "A11y",
+          "UI/UX Basics",
+          "Agile Methods",
+          "Product Development",
+          "Career Coaching"
+        ]
+      }
+    ]
   }
 ]
