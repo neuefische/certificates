@@ -2714,6 +2714,7 @@
     "startDate": "2021-01-10",
     "endDate": "2021-04-01",
     "location": "Hamburg",
+    "lang": "en",
     "topics": [
       {
         "title": "Programming & Database",
