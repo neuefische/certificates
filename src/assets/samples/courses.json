@@ -2822,7 +2822,7 @@
         "title": "Collaborative Working & Social Learning",
         "items": [
           {
-            "subtitle": "Pair Coding",
+            "subtitle": "Pair Programming",
             "subitems": ["Driver & Navigator"]
           },
           {
