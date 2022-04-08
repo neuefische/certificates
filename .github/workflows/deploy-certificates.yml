@@ -10,8 +10,6 @@ on:
     branches: [main]
     # Publish semver tags as releases.
     tags: ['v*.*.*']
-  pull_request:
-    branches: [main]
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -63,13 +61,18 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: executing remote ssh commands using ssh key
-        uses: appleboy/ssh-action@master
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Generate deployment package
+        run: zip -r deploy.zip . -x '*.git*'
+      - name: Deploy to EB
+        uses: einaregilsson/beanstalk-deploy@v14
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
-          port: ${{ secrets.PORT }}
-          script: |
-            cd certificates
-            docker-compose pull && docker-compose up -d
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          application_name: certificates-server
+          environment_name: ${{ secrets.EB_ENVIRONMENT_NAME }}
+          region: eu-central-1
+          version_label: ${{ github.sha}}-${{ steps.timestamp.outputs.timestamp }}
+          deployment_package: deploy.zip
+          wait_for_environment_recovery: 240
