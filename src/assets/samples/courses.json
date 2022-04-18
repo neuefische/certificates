@@ -2960,5 +2960,152 @@
         ]
       }
     ]
+  },
+  {
+    "id": "hh-analytics-22-1",
+    "coach": "Andrew Emmett",
+    "type": "analytics",
+    "startDate": "2022-01-24",
+    "endDate": "2022-04-19",
+    "location": "Hamburg",
+    "lang": "en",
+    "topics": [
+      {
+        "title": "Data Analysis",
+        "items": [
+          {
+            "subtitle": "Data Collection"
+          },
+          {
+            "subtitle": "Data Cleaning"
+          },
+          {
+            "subtitle": "Data Exploration"
+          },
+          {
+            "subtitle": "Data Visualization",
+            "subitems": ["Matplotlib", "Seaborn", "Tableau"]
+          },
+          {
+            "subtitle": "Chart Type Selection"
+          },
+          {
+            "subtitle": "Dashboarding"
+          },
+          {
+            "subtitle": "KPI Reporting"
+          }
+        ]
+      },
+      {
+        "title": "Statistics and Advanced Analytics",
+        "items": [
+          {
+            "subtitle": "Descriptive statistics"
+          },
+          {
+            "subtitle": "Inferential statistics"
+          },
+          {
+            "subtitle": "Simulation modeling"
+          },
+          {
+            "subtitle": "Machine learning algorithms",
+            "subitems": ["Linear Regression", "K-means", "DBScan"]
+          }
+        ]
+      },
+      {
+        "title": "Communication and Stakeholder Management",
+        "items": [
+          {
+            "subtitle": "Finding questions with '5 whys'"
+          },
+          {
+            "subtitle": "Business presentations"
+          },
+          {
+            "subtitle": "Art of problem solving"
+          },
+          {
+            "subtitle": "Answer first method"
+          },
+          {
+            "subtitle": "Data analytics workflow"
+          },
+          {
+            "subtitle": "Analytics job interviewing techniques"
+          }
+        ]
+      },
+      {
+        "title": "Tools",
+        "items": [
+          {
+            "subtitle": "Python",
+            "subitems": [
+              "Pandas",
+              "Numpy",
+              "Scikit-Learn",
+              "Matplotlib",
+              "Seaborn"
+            ]
+          },
+          {
+            "subtitle": "SQL and databases"
+          },
+          {
+            "subtitle": "Tableau"
+          },
+          {
+            "subtitle": "Google Docs, Spreadsheets"
+          },
+          {
+            "subtitle": "Git-Workflow with GitHub"
+          },
+          {
+            "subtitle": "Unix-Commands"
+          },
+          {
+            "subtitle": "Visual Studio Code"
+          },
+          {
+            "subtitle": "Jupyter Notebooks"
+          },
+          {
+            "subtitle": "Agile Methodologies"
+          }
+        ]
+      },
+      {
+        "title": "Collaborative Working & Social Learning",
+        "items": [
+          {
+            "subtitle": "Pair Programming"
+          },
+          {
+            "subtitle": "Agile Workflow",
+            "subitems": [
+              "Kanban",
+              "Minimal Viable Product (MVP)",
+              "Daily Stand-Ups",
+              "Retrospectives"
+            ]
+          },
+          {
+            "subtitle": "Self-organization skills"
+          },
+          {
+            "subtitle": "Daily protocol and topic review"
+          },
+          {
+            "subtitle": "Group work, individual exercises, reversed classroom (Presentations from students)"
+          },
+          {
+            "subtitle": "Student 1:1 - Spot checks with instructional team"
+          }
+        ]
+      }
+    ]
   }
 ]
