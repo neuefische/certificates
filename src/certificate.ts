@@ -276,7 +276,7 @@ function renderSecondPage(
     type: courseType,
   }: {
     topics: Topics;
-    type: 'web' | 'java' | 'data' | 'analytics';
+    type: 'web' | 'java' | 'aws' | 'data' | 'analytics';
   }
 ) {
   doc.image('src/assets/images/background.png', 0, 0, { fit: A4SIZE });
@@ -322,7 +322,7 @@ function renderSecondPage(
     doc.fontSize(10);
     doc.font('src/assets/fonts/OpenSans/OpenSans-Light.ttf');
 
-    if (courseType === 'web' || courseType === 'java') {
+    if (courseType === 'web' || courseType === 'java' || courseType === 'aws') {
       topic.items.forEach((item) => {
         height += doc.heightOfString(item, { width: 140, lineGap: 1 });
       });
@@ -360,7 +360,7 @@ function renderSecondPage(
       font: 'src/assets/fonts/OpenSans/OpenSans-Bold.ttf',
     });
 
-    if (courseType === 'web' || courseType === 'java') {
+    if (courseType === 'web' || courseType === 'java' || courseType === 'aws') {
       topic.items.forEach((item) => {
         text(doc, {
           text: item,
@@ -417,6 +417,8 @@ async function renderThirdPage(
     doc.image('src/assets/images/background_with_phone_frame.png', 0, 0, {
       fit: A4SIZE,
     });
+  } else if (courseType === 'aws') {
+    doc.image('src/assets/images/background.png', 0, 0, { fit: A4SIZE });
   } else {
     doc.image('src/assets/images/background_data.png', 0, 0, { fit: A4SIZE });
   }
@@ -458,7 +460,7 @@ async function renderThirdPage(
     fontSize: 29,
   });
 
-  if (courseType === 'web' || courseType === 'java') {
+  if (courseType === 'web' || courseType === 'java' || courseType === 'aws') {
     const descriptionWidth = 430;
     text(doc, {
       text: capstoneProject.description,
