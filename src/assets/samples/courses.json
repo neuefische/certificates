@@ -3322,5 +3322,108 @@
         ]
       }
     ]
+  },
+  {
+    "id": "cgn-web-22-1",
+    "coach": "Jan Willem Henckel",
+    "type": "web",
+    "startDate": "2022-01-31",
+    "endDate": "2022-04-26",
+    "location": "Köln",
+    "topics": [
+      {
+        "title": "Shell",
+        "items": ["Unix Commands", "Git Commands", "Zsh"]
+      },
+      {
+        "title": "HTML",
+        "items": [
+          "HTML5 Elemente",
+          "Formulare und Inputs",
+          "Semantik",
+          "Responsive Websites",
+          "Accessibility"
+        ]
+      },
+      {
+        "title": "CSS",
+        "items": [
+          "Selektoren",
+          "Spezifität",
+          "Media Queries",
+          "Layout",
+          "Styled Components"
+        ]
+      },
+      {
+        "title": "Backend",
+        "items": [
+          "RESTful API",
+          "Node.js",
+          "Serverless Functions",
+          "MongoDB",
+          "Mongoose",
+          "Authentication"
+        ]
+      },
+      {
+        "title": "JavaScript",
+        "items": [
+          "ESNext",
+          "Events",
+          "DOM-Manipulation",
+          "Browser APIs",
+          "JSON",
+          "Array-Methoden",
+          "Promises",
+          "async / await",
+          "Tooling (npm, Vite)",
+          "Jest"
+        ]
+      },
+      {
+        "title": "React",
+        "items": [
+          "Version 17",
+          "React Hooks",
+          "Custom Hooks",
+          "State / useState",
+          "Lifecycle methods / useEffect",
+          "Functional Components",
+          "Next.js",
+          "Storybook",
+          "Component Testing"
+        ]
+      },
+      {
+        "title": "Weitere Lehrinhalte",
+        "items": [
+          "Clean Code",
+          "Pair Programming",
+          "Git-Workflow mit GitHub",
+          "Agile Methoden mit Scrum und Kanban",
+          "UI / UX-Grundkenntnisse",
+          "Wireframes / Prototype",
+          "CI / CD",
+          "Component Driven Development"
+        ]
+      },
+      {
+        "title": "Tools",
+        "items": [
+          "Visual Studio Code",
+          "Developer Tools",
+          "MongoDB Atlas",
+          "Rest Client",
+          "Cloud Deployment",
+          "Linting",
+          "Figma/ FigJam",
+          "Slack",
+          "GitHub Actions",
+          "GitHub Projects",
+          "Zoom"
+        ]
+      }
+    ]
   }
 ]
