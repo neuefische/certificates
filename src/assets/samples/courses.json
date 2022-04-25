@@ -430,99 +430,107 @@
     "location": "Köln",
     "topics": [
       {
-        "title": "Shell",
-        "items": ["Unix Commands", "Git Commands", "Zsh"]
+        "title": "Unix",
+        "items": ["Shell / bash scripting", "SSH", "Users and Groups"]
       },
       {
-        "title": "HTML5",
-        "items": ["HTML5-Elemente", "Formulare und Inputs"]
-      },
-      {
-        "title": "CSS3",
-        "items": ["Selektoren", "display: flex", "display: grid"]
-      },
-      {
-        "title": "JavaScript",
+        "title": "Cloud Basics",
         "items": [
-          "ECMAScript 2021",
-          "Array-Methoden",
-          "Promises und async/await",
-          "Jest",
-          "Arbeiten mit npm"
+          "AWS IAM",
+          "AWS CLI",
+          "AWS Console",
+          "Amazon Cloudwatch",
+          "Pay as you go"
         ]
       },
       {
-        "title": "Grundlagen des Webs",
+        "title": "Infrastructure",
         "items": [
-          "REST APIs",
-          "JWT",
-          "HTTP",
-          "Auth: Basic, Bearer, Keys",
-          "CORS"
+          "Server",
+          "IaaS",
+          "SaaS",
+          "PaaS",
+          "Infrastructure as Code",
+          "Terraform",
+          "AWS Cloud Formation",
+          "Docker",
+          "Kubernetes"
         ]
       },
       {
-        "title": "React",
+        "title": "Networking Concepts",
+        "items": ["IPv4 & IPV6", "Amazon VPC", "Amazon Route 53"]
+      },
+      {
+        "title": "Best Practice",
         "items": [
-          "Version 17",
-          "React Router",
-          "React Testing Library",
-          "Functional components",
-          "Styled-components",
-          "useState",
-          "useEffect",
-          "Custom Hooks",
-          "Context Api"
+          "AWS Well-Architected Framework",
+          "Scalability",
+          "Autoscaling",
+          "Fault Tolerance"
         ]
       },
       {
-        "title": "Java",
+        "title": "Cloud Storage",
         "items": [
-          "Klassen",
-          "Interfaces",
-          "Vererbung",
-          "Objektorientierte Programmierung",
-          "Collections",
-          "Streaming API",
-          "Spring Boot Web",
-          "Spring Data MongoDB",
-          "Spring Security"
+          "S3",
+          "Amazon EBS",
+          "Amazon EFS",
+          "Amazon Glacier",
+          "AWS Storage Gateway"
         ]
       },
       {
-        "title": "Datenbanken",
-        "items": ["NoSQL", "MongoDB", "Daten-Normalisierung"]
+        "title": "Cloud Computing",
+        "items": ["EC2", "AWS Lambda", "AWS Elastic Beanstalk"]
       },
       {
-        "title": "DevOps",
+        "title": "Cloud Database",
         "items": [
+          "Amazon RDS",
+          "Amazon DynamoDB",
+          "Amazon Redshift",
+          "SQL",
+          "NoSQL"
+        ]
+      },
+      {
+        "title": "Agile Workflow",
+        "items": ["Daily Stand-Ups ", "Kanban & Scrum"]
+      },
+      {
+        "title": "Autoscaling & Fault Tolerance",
+        "items": [
+          "Elastic Load Balancing",
+          "Reliability / High Availability",
+          "Amazon EC2 Autoscaling",
+          "Amazon CloudFront CDN"
+        ]
+      },
+      {
+        "title": "Security",
+        "items": [
+          "Data Security / Cyber threats ",
+          "Security life cycle ",
+          "Threat mitigation Anti-Malware ",
+          "IAM - Identity management ",
+          "Security compliance ",
+          "AWS Trusted Advisor"
+        ]
+      },
+      {
+        "title": "Programming & Tools",
+        "items": [
+          "Python Fundamentals",
+          "Automation",
           "Continuous Integration (CI) mit GitHub Actions",
           "Continuous Deployment (CD) mit GitHub Actions",
-          "Hosting mit Heroku",
-          "AWS Cloud Basics",
-          "Docker"
-        ]
-      },
-      {
-        "title": "Testing & Debugging",
-        "items": [
-          "Test-Driven-Development",
-          "Unit-Tests mit JUnit 5",
-          "Mockito",
-          "Hamcrest",
-          "Chrome Dev Tools"
-        ]
-      },
-      {
-        "title": "Weitere Lehrinhalte",
-        "items": [
-          "Clean Code",
-          "Arbeiten im Pairing und in Gruppen",
-          "Git-Workflow mit GitHub",
-          "Agile Methoden mit Scrum und Kanban",
-          "UX-Grundkenntnisse",
-          "IntelliJ",
-          "Swagger"
+          "JSON / YAML",
+          "VSCode",
+          "API und REST",
+          "Git Workflow",
+          "Markdown",
+          "Pair Programming"
         ]
       }
     ]
