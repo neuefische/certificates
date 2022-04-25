@@ -462,7 +462,7 @@
         "items": ["IPv4 & IPV6", "Amazon VPC", "Amazon Route 53"]
       },
       {
-        "title": "Best practice",
+        "title": "Best Practice",
         "items": [
           "AWS Well-Architected Framework",
           "Scalability",
@@ -521,15 +521,15 @@
       {
         "title": "Programming & Tools",
         "items": [
-          "Python Fundamentals ",
-          "Automation ",
+          "Python Fundamentals",
+          "Automation",
           "Continuous Integration (CI) mit GitHub Actions",
           "Continuous Deployment (CD) mit GitHub Actions",
-          "JSON / YAML  ",
-          "VSCode  ",
-          "API und REST ",
-          "Git Workflow ",
-          "Markdown ",
+          "JSON / YAML",
+          "VSCode",
+          "API und REST",
+          "Git Workflow",
+          "Markdown",
           "Pair Programming"
         ]
       }
