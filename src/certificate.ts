@@ -481,7 +481,11 @@ async function renderThirdPage(
     if (capstoneProject.thumbnail) {
       const response = await fetch(capstoneProject.thumbnail);
       const thumbnail = await response.buffer();
-      doc.image(thumbnail, 95, 355, { width: 162 });
+      if (courseType === 'aws') {
+        doc.image(thumbnail, 45, 355, { width: 230 });
+      } else {
+        doc.image(thumbnail, 95, 355, { width: 162 });
+      }
     }
 
     let textAlignmentY = 328;
