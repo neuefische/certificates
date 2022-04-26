@@ -121,7 +121,7 @@ function renderFirstPage(
   } else if (course.type === 'web' || course.type === 'java') {
     jobName = '/zur Software-Entwickler*in';
   } else if (course.type === 'aws') {
-    jobName = 'Cloud-Developer*in';
+    jobName = 'Cloud-Developer';
   } else if (course.type === 'analytics') {
     jobName = 'Data Analyst';
   }
