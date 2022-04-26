@@ -105,6 +105,11 @@ type WebCoursePartial = {
   topics: CourseTopics;
 };
 
+type AWSCoursePartial = {
+  type: 'aws';
+  topics: CourseTopics;
+};
+
 export type Course = {
   id: string;
   coach: string;
@@ -112,7 +117,7 @@ export type Course = {
   endDate: string;
   location: string;
   lang?: 'en' | 'de';
-} & (DataCoursePartial | WebCoursePartial);
+} & (DataCoursePartial | WebCoursePartial | AWSCoursePartial);
 
 export async function getCourseFromFS(id: string): Promise<Course | undefined> {
   const courses: Course[] = JSON.parse(

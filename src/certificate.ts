@@ -120,6 +120,8 @@ function renderFirstPage(
     jobName = 'Data Scientist';
   } else if (course.type === 'web' || course.type === 'java') {
     jobName = '/zur Software-Entwickler*in';
+  } else if (course.type === 'aws') {
+    jobName = 'Cloud-Developer*in';
   } else if (course.type === 'analytics') {
     jobName = 'Data Analyst';
   }
@@ -479,7 +481,11 @@ async function renderThirdPage(
     if (capstoneProject.thumbnail) {
       const response = await fetch(capstoneProject.thumbnail);
       const thumbnail = await response.buffer();
-      doc.image(thumbnail, 95, 355, { width: 162 });
+      if (courseType === 'aws') {
+        doc.image(thumbnail, 45, 355, { width: 230 });
+      } else {
+        doc.image(thumbnail, 95, 355, { width: 162 });
+      }
     }
 
     let textAlignmentY = 328;
