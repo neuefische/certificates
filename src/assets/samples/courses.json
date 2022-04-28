@@ -856,6 +856,115 @@
     ]
   },
   {
+    "id": "hh-java-22-1",
+    "coach": "André Schreck",
+    "type": "java",
+    "startDate": "2022-01-31",
+    "endDate": "2022-04-26",
+    "location": "Hamburg",
+    "topics": [
+      {
+        "title": "Shell",
+        "items": ["Unix Commands", "Git Commands", "Zsh"]
+      },
+      {
+        "title": "HTML5",
+        "items": ["HTML5-Elemente", "Formulare und Inputs"]
+      },
+      {
+        "title": "CSS3",
+        "items": ["Selektoren", "display: flex", "display: grid", "SCSS"]
+      },
+      {
+        "title": "JavaScript",
+        "items": [
+          "ECMAScript 2021",
+          "Array-Methoden",
+          "Promises und async/await",
+          "Arbeiten mit npm",
+          "Typescript"
+        ]
+      },
+      {
+        "title": "Grundlagen des Webs",
+        "items": [
+          "REST APIs",
+          "JWT",
+          "HTTP",
+          "Auth: Basic, Bearer, Keys",
+          "CORS"
+        ]
+      },
+      {
+        "title": "React",
+        "items": [
+          "Version 17",
+          "React Router",
+          "Functional components",
+          "useState",
+          "useEffect",
+          "Custom Hooks",
+          "Context Api",
+          "Testing mit jest"
+        ]
+      },
+      {
+        "title": "Java",
+        "items": [
+          "Java 17",
+          "Klassen",
+          "Interfaces",
+          "Vererbung",
+          "Objektorientierte Programmierung",
+          "Collections",
+          "Streaming API",
+          "Enums",
+          "Optionals",
+          "Exceptions",
+          "Spring Boot Web",
+          "Spring Data MongoDB",
+          "Spring Security"
+        ]
+      },
+      {
+        "title": "Datenbanken",
+        "items": ["NoSQL", "MongoDB", "Daten-Normalisierung"]
+      },
+      {
+        "title": "DevOps",
+        "items": [
+          "Continuous Integration (CI) mit GitHub Actions",
+          "Continuous Deployment (CD) mit GitHub Actions",
+          "Hosting mit Heroku",
+          "Docker"
+        ]
+      },
+      {
+        "title": "Testing & Debugging",
+        "items": [
+          "Unit-Tests mit JUnit 5",
+          "Mockito",
+          "Hamcrest",
+          "Chrome Dev Tools"
+        ]
+      },
+      {
+        "title": "Weitere Lehrinhalte",
+        "items": [
+          "Agile Softwareentwicklung",
+          "Clean Code",
+          "Arbeiten im Pairing und in Gruppen",
+          "Git-Workflow mit GitHub",
+          "UX-Grundkenntnisse",
+          "IntelliJ",
+          "OAuth",
+          "Logging",
+          "Swagger"
+        ]
+      }
+    ]
+  },
+  {
     "id": "data-hh-21-2",
     "coach": "Tereza Iofciu",
     "type": "data",
