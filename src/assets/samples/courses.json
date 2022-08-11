@@ -536,6 +536,119 @@
     ]
   },
   {
+    "id": "cgn-aws-22-1",
+    "coach": "Fabian Schmauder",
+    "type": "aws",
+    "startDate": "2022-05-16",
+    "endDate": "2022-08-10",
+    "location": "Köln",
+    "topics": [
+      {
+        "title": "Unix",
+        "items": ["Shell / bash scripting", "SSH", "Users and Groups"]
+      },
+      {
+        "title": "Cloud Basics",
+        "items": [
+          "AWS IAM",
+          "AWS CLI",
+          "AWS Console",
+          "Amazon Cloudwatch",
+          "Pay as you go"
+        ]
+      },
+      {
+        "title": "Infrastructure",
+        "items": [
+          "Server",
+          "IaaS",
+          "SaaS",
+          "PaaS",
+          "Infrastructure as Code",
+          "Terraform",
+          "AWS Cloud Formation",
+          "Docker"
+        ]
+      },
+      {
+        "title": "Networking Concepts",
+        "items": ["IPv4 & IPV6", "Amazon VPC", "Amazon Route 53"]
+      },
+      {
+        "title": "Best Practice",
+        "items": [
+          "AWS Well-Architected Framework",
+          "Scalability",
+          "Autoscaling",
+          "Fault Tolerance"
+        ]
+      },
+      {
+        "title": "Cloud Storage",
+        "items": [
+          "S3",
+          "Amazon EBS",
+          "Amazon EFS",
+          "Amazon Glacier",
+          "AWS Storage Gateway"
+        ]
+      },
+      {
+        "title": "Cloud Computing",
+        "items": ["EC2", "AWS Lambda", "AWS Elastic Beanstalk"]
+      },
+      {
+        "title": "Cloud Database",
+        "items": [
+          "Amazon RDS",
+          "Amazon DynamoDB",
+          "Amazon Redshift",
+          "SQL",
+          "NoSQL"
+        ]
+      },
+      {
+        "title": "Agile Workflow",
+        "items": ["Daily Stand-Ups ", "Kanban & Scrum"]
+      },
+      {
+        "title": "Autoscaling & Fault Tolerance",
+        "items": [
+          "Elastic Load Balancing",
+          "Reliability / High Availability",
+          "Amazon EC2 Autoscaling",
+          "Amazon CloudFront CDN"
+        ]
+      },
+      {
+        "title": "Security",
+        "items": [
+          "Data Security / Cyber threats ",
+          "Security life cycle ",
+          "Threat mitigation Anti-Malware ",
+          "IAM - Identity management ",
+          "Security compliance ",
+          "AWS Trusted Advisor"
+        ]
+      },
+      {
+        "title": "Programming & Tools",
+        "items": [
+          "Python Fundamentals",
+          "Automation",
+          "Continuous Integration (CI) mit GitHub Actions",
+          "Continuous Deployment (CD) mit GitHub Actions",
+          "JSON / YAML",
+          "VSCode",
+          "API und REST",
+          "Git Workflow",
+          "Markdown",
+          "Pair Programming"
+        ]
+      }
+    ]
+  },
+  {
     "id": "rem-java-21-2",
     "coach": "Fabian Schmauder",
     "type": "java",
